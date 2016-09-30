@@ -31,6 +31,7 @@
             this.tlpanelFrmMain = new System.Windows.Forms.TableLayoutPanel();
             this.picBoxFrmMain = new System.Windows.Forms.PictureBox();
             this.btnEnterForum = new System.Windows.Forms.Button();
+            this.btnQuit = new System.Windows.Forms.Button();
             this.tlpanelFrmMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxFrmMain)).BeginInit();
             this.SuspendLayout();
@@ -45,14 +46,15 @@
             this.tlpanelFrmMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpanelFrmMain.Controls.Add(this.picBoxFrmMain, 2, 2);
             this.tlpanelFrmMain.Controls.Add(this.btnEnterForum, 3, 2);
+            this.tlpanelFrmMain.Controls.Add(this.btnQuit, 3, 3);
             this.tlpanelFrmMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpanelFrmMain.Location = new System.Drawing.Point(0, 0);
             this.tlpanelFrmMain.Name = "tlpanelFrmMain";
             this.tlpanelFrmMain.RowCount = 5;
             this.tlpanelFrmMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpanelFrmMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlpanelFrmMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpanelFrmMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlpanelFrmMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpanelFrmMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpanelFrmMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpanelFrmMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpanelFrmMain.Size = new System.Drawing.Size(984, 561);
             this.tlpanelFrmMain.TabIndex = 0;
@@ -61,9 +63,9 @@
             // 
             this.picBoxFrmMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picBoxFrmMain.Image = global::RogueForumWinForm.Properties.Resources.RogueSquadron;
-            this.picBoxFrmMain.Location = new System.Drawing.Point(259, 153);
+            this.picBoxFrmMain.Location = new System.Drawing.Point(259, 23);
             this.picBoxFrmMain.Name = "picBoxFrmMain";
-            this.picBoxFrmMain.Size = new System.Drawing.Size(466, 254);
+            this.picBoxFrmMain.Size = new System.Drawing.Size(466, 459);
             this.picBoxFrmMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBoxFrmMain.TabIndex = 0;
             this.picBoxFrmMain.TabStop = false;
@@ -72,11 +74,28 @@
             // 
             this.btnEnterForum.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnEnterForum.Image = global::RogueForumWinForm.Properties.Resources.forum_button1;
-            this.btnEnterForum.Location = new System.Drawing.Point(771, 153);
+            this.btnEnterForum.Location = new System.Drawing.Point(771, 23);
             this.btnEnterForum.Name = "btnEnterForum";
             this.btnEnterForum.Size = new System.Drawing.Size(150, 50);
             this.btnEnterForum.TabIndex = 1;
             this.btnEnterForum.UseVisualStyleBackColor = true;
+            this.btnEnterForum.Click += new System.EventHandler(this.btnEnterForum_Click);
+            // 
+            // btnQuit
+            // 
+            this.btnQuit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnQuit.AutoSize = true;
+            this.btnQuit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuit.Image = global::RogueForumWinForm.Properties.Resources.Quitter_32x32;
+            this.btnQuit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnQuit.Location = new System.Drawing.Point(821, 488);
+            this.btnQuit.Name = "btnQuit";
+            this.btnQuit.Size = new System.Drawing.Size(140, 50);
+            this.btnQuit.TabIndex = 2;
+            this.btnQuit.Text = "Quitter";
+            this.btnQuit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnQuit.UseVisualStyleBackColor = true;
+            this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
             // 
             // frmMain
             // 
@@ -87,6 +106,7 @@
             this.Name = "frmMain";
             this.Text = "Rogue Forum";
             this.tlpanelFrmMain.ResumeLayout(false);
+            this.tlpanelFrmMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxFrmMain)).EndInit();
             this.ResumeLayout(false);
 
@@ -97,6 +117,7 @@
         private System.Windows.Forms.TableLayoutPanel tlpanelFrmMain;
         private System.Windows.Forms.Button btnEnterForum;
         private System.Windows.Forms.PictureBox picBoxFrmMain;
+        private System.Windows.Forms.Button btnQuit;
     }
 }
 

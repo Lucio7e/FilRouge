@@ -35,6 +35,19 @@ namespace RogueForumDLL
             return true;
         }
         /// <summary>
+        /// Methode permettant de supprimer une liste de sujets
+        /// </summary>
+        /// <param name="sujets"></param>
+        /// <returns></returns>
+        public bool SupprimerSujet(List<Sujet> sujets)
+        {
+            foreach (Sujet sujet in sujets)
+            {
+                SupprimerSujet(sujet);
+            }
+            return true;
+        }
+        /// <summary>
         /// Methode qui permet de modifier un sujet
         /// </summary>
         /// <param name="sujet">Le sujet que l'on modifie</param>

@@ -16,5 +16,18 @@ namespace RogueForumWinForm
         {
             InitializeComponent();
         }
+
+        private void btnEnterForum_Click(object sender, EventArgs e)
+        {
+            using (FrmForum frmForum = new FrmForum())
+            {
+                frmForum.ShowDialog();
+            }
+        }
+
+        private void btnQuit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

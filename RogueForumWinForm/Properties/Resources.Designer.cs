@@ -63,6 +63,46 @@ namespace RogueForumWinForm.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ajouter_32x32__blue {
+            get {
+                object obj = ResourceManager.GetObject("ajouter 32x32  blue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Cancel_button_blue {
+            get {
+                object obj = ResourceManager.GetObject("Cancel button blue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit_32x32_blue {
+            get {
+                object obj = ResourceManager.GetObject("edit 32x32 blue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Formulaire256x256 {
+            get {
+                object obj = ResourceManager.GetObject("Formulaire256x256", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap forum_button {
             get {
                 object obj = ResourceManager.GetObject("forum-button", resourceCulture);
@@ -83,9 +123,49 @@ namespace RogueForumWinForm.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Quitter_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Quitter 32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RogueSquadron {
             get {
                 object obj = ResourceManager.GetObject("RogueSquadron", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RogueSquadron80x80 {
+            get {
+                object obj = ResourceManager.GetObject("RogueSquadron80x80", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap suppr_32x32_blue {
+            get {
+                object obj = ResourceManager.GetObject("suppr 32x32 blue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap valid_32x32_blue {
+            get {
+                object obj = ResourceManager.GetObject("valid 32x32 blue", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
