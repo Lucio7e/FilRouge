@@ -83,24 +83,53 @@ namespace RogueForumDLL
             {
                 return _Reponses;
             }
+            set
+            {
+                _Reponses = value;
+            }
 
+        }
+        /// <summary>
+        /// La catégorie à laquelle appartient le sujet
+        /// </summary>
+        public Rubrique Rubrique
+        {
+            get
+            {
+                return _Rubrique;
+            }
+
+            set
+            {
+                _Rubrique = value;
+            }
         }
         #endregion
 
         #region "Constructeurs"
         /// <summary>
-        /// Constructeur d'un objet sujet
+        /// Constructeur d'un nouveau sujet  n'ayant pas encore de réponses
         /// </summary>
         /// <param name="titre">Le titre du sujet</param>
         /// <param name="description">La description du sujet</param>
         public Sujet(string titre, string description, Rubrique rubrique)
         {
-            this.Titre = titre;
-            this.Desc = description;
-            this.Date = DateTime.Now;
-            this._Rubrique = rubrique;
+            Titre = titre;
+            Desc = description;
+            Date = DateTime.Now;
+            Rubrique = rubrique;
+            Reponses = new List<Reponse>();
         }
-
+        /// <summary>
+        /// Constructeur d'un objet Sujet ayant déjà des réponses
+        /// </summary>
+        /// <param name="titre"></param>
+        /// <param name="description"></param>
+        /// <param name="rubrique"></param>
+        /// <param name="reponses"></param>
+        public Sujet(string titre, string description, Rubrique rubrique,List<Reponse> reponses):this(titre,description,rubrique) {
+            _Reponses = Reponses;
+        }
         #endregion
         #region "Methodes"
         #endregion

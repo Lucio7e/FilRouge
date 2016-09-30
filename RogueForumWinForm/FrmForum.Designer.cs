@@ -31,9 +31,9 @@
             this.tlpanelFrmForum = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayPanCategorie = new System.Windows.Forms.TableLayoutPanel();
             this.cbBoxCategorie = new System.Windows.Forms.ComboBox();
-            this.btnAddSujet = new System.Windows.Forms.Button();
-            this.cbBoxSujet = new System.Windows.Forms.ComboBox();
             this.tableLayPanSujet = new System.Windows.Forms.TableLayoutPanel();
+            this.cbBoxSujet = new System.Windows.Forms.ComboBox();
+            this.btnAddSujet = new System.Windows.Forms.Button();
             this.picBoxHome = new System.Windows.Forms.PictureBox();
             this.flowLayPanIdent = new System.Windows.Forms.FlowLayoutPanel();
             this.btnIdent = new System.Windows.Forms.Button();
@@ -90,26 +90,6 @@
             this.cbBoxCategorie.TabIndex = 0;
             this.cbBoxCategorie.Text = "Sélectionnez une catégorie";
             // 
-            // btnAddSujet
-            // 
-            this.btnAddSujet.AutoSize = true;
-            this.btnAddSujet.Location = new System.Drawing.Point(410, 3);
-            this.btnAddSujet.Name = "btnAddSujet";
-            this.btnAddSujet.Size = new System.Drawing.Size(90, 23);
-            this.btnAddSujet.TabIndex = 1;
-            this.btnAddSujet.Text = "Ajouter un sujet";
-            this.btnAddSujet.UseVisualStyleBackColor = true;
-            // 
-            // cbBoxSujet
-            // 
-            this.cbBoxSujet.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbBoxSujet.FormattingEnabled = true;
-            this.cbBoxSujet.Location = new System.Drawing.Point(3, 3);
-            this.cbBoxSujet.Name = "cbBoxSujet";
-            this.cbBoxSujet.Size = new System.Drawing.Size(401, 21);
-            this.cbBoxSujet.TabIndex = 0;
-            this.cbBoxSujet.Text = "Sélectionnez un sujet";
-            // 
             // tableLayPanSujet
             // 
             this.tableLayPanSujet.ColumnCount = 2;
@@ -124,6 +104,26 @@
             this.tableLayPanSujet.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayPanSujet.Size = new System.Drawing.Size(814, 100);
             this.tableLayPanSujet.TabIndex = 2;
+            // 
+            // cbBoxSujet
+            // 
+            this.cbBoxSujet.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbBoxSujet.FormattingEnabled = true;
+            this.cbBoxSujet.Location = new System.Drawing.Point(3, 3);
+            this.cbBoxSujet.Name = "cbBoxSujet";
+            this.cbBoxSujet.Size = new System.Drawing.Size(401, 21);
+            this.cbBoxSujet.TabIndex = 0;
+            this.cbBoxSujet.Text = "Sélectionnez un sujet";
+            // 
+            // btnAddSujet
+            // 
+            this.btnAddSujet.AutoSize = true;
+            this.btnAddSujet.Location = new System.Drawing.Point(410, 3);
+            this.btnAddSujet.Name = "btnAddSujet";
+            this.btnAddSujet.Size = new System.Drawing.Size(90, 23);
+            this.btnAddSujet.TabIndex = 1;
+            this.btnAddSujet.Text = "Ajouter un sujet";
+            this.btnAddSujet.UseVisualStyleBackColor = true;
             // 
             // picBoxHome
             // 
@@ -163,6 +163,7 @@
             this.ClientSize = new System.Drawing.Size(1128, 581);
             this.Controls.Add(this.tlpanelFrmForum);
             this.Name = "FrmForum";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Rogue Forum";
             this.tlpanelFrmForum.ResumeLayout(false);
             this.tableLayPanCategorie.ResumeLayout(false);

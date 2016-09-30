@@ -45,8 +45,8 @@
             this.tlpanelFrmMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tlpanelFrmMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpanelFrmMain.Controls.Add(this.picBoxFrmMain, 2, 2);
-            this.tlpanelFrmMain.Controls.Add(this.btnEnterForum, 3, 2);
             this.tlpanelFrmMain.Controls.Add(this.btnQuit, 3, 3);
+            this.tlpanelFrmMain.Controls.Add(this.btnEnterForum, 2, 3);
             this.tlpanelFrmMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpanelFrmMain.Location = new System.Drawing.Point(0, 0);
             this.tlpanelFrmMain.Name = "tlpanelFrmMain";
@@ -74,7 +74,9 @@
             // 
             this.btnEnterForum.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnEnterForum.Image = global::RogueForumWinForm.Properties.Resources.forum_button1;
-            this.btnEnterForum.Location = new System.Drawing.Point(771, 23);
+            this.btnEnterForum.Location = new System.Drawing.Point(417, 488);
+            this.btnEnterForum.MaximumSize = new System.Drawing.Size(150, 50);
+            this.btnEnterForum.MinimumSize = new System.Drawing.Size(150, 50);
             this.btnEnterForum.Name = "btnEnterForum";
             this.btnEnterForum.Size = new System.Drawing.Size(150, 50);
             this.btnEnterForum.TabIndex = 1;
@@ -89,6 +91,7 @@
             this.btnQuit.Image = global::RogueForumWinForm.Properties.Resources.Quitter_32x32;
             this.btnQuit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnQuit.Location = new System.Drawing.Point(821, 488);
+            this.btnQuit.MinimumSize = new System.Drawing.Size(100, 50);
             this.btnQuit.Name = "btnQuit";
             this.btnQuit.Size = new System.Drawing.Size(140, 50);
             this.btnQuit.TabIndex = 2;
@@ -103,7 +106,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.tlpanelFrmMain);
+            this.MinimumSize = new System.Drawing.Size(1000, 600);
             this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rogue Forum";
             this.tlpanelFrmMain.ResumeLayout(false);
             this.tlpanelFrmMain.PerformLayout();

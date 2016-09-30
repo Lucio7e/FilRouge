@@ -60,7 +60,9 @@ namespace RogueForumDLL
                 _Date = value;
             }
         }
-
+        /// <summary>
+        /// Le sujet auquel appartient la réponse
+        /// </summary>
         public Sujet Sujet { get { return _Sujet; }set { _Sujet = value; } }
         #endregion
         #region "Constructeurs"

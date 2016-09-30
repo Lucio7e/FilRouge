@@ -30,11 +30,11 @@
         {
             this.tabLayPanLogin = new System.Windows.Forms.TableLayoutPanel();
             this.tabLayPanUsername = new System.Windows.Forms.TableLayoutPanel();
-            this.lblUsername = new System.Windows.Forms.Label();
             this.txtBoxUsername = new System.Windows.Forms.TextBox();
+            this.lblUsername = new System.Windows.Forms.Label();
             this.tabLayPanPwd = new System.Windows.Forms.TableLayoutPanel();
-            this.lblPwd = new System.Windows.Forms.Label();
             this.txtBoxPwd = new System.Windows.Forms.TextBox();
+            this.lblPwd = new System.Windows.Forms.Label();
             this.tabLayPanConn = new System.Windows.Forms.TableLayoutPanel();
             this.btnConnect = new System.Windows.Forms.Button();
             this.tabLayPanLogin.SuspendLayout();
@@ -76,6 +76,14 @@
             this.tabLayPanUsername.Size = new System.Drawing.Size(321, 26);
             this.tabLayPanUsername.TabIndex = 0;
             // 
+            // txtBoxUsername
+            // 
+            this.txtBoxUsername.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtBoxUsername.Location = new System.Drawing.Point(163, 3);
+            this.txtBoxUsername.Name = "txtBoxUsername";
+            this.txtBoxUsername.Size = new System.Drawing.Size(155, 20);
+            this.txtBoxUsername.TabIndex = 3;
+            // 
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
@@ -86,14 +94,6 @@
             this.lblUsername.TabIndex = 1;
             this.lblUsername.Text = "Nom d\'utilisateur :";
             this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtBoxUsername
-            // 
-            this.txtBoxUsername.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtBoxUsername.Location = new System.Drawing.Point(163, 3);
-            this.txtBoxUsername.Name = "txtBoxUsername";
-            this.txtBoxUsername.Size = new System.Drawing.Size(155, 20);
-            this.txtBoxUsername.TabIndex = 3;
             // 
             // tabLayPanPwd
             // 
@@ -110,6 +110,15 @@
             this.tabLayPanPwd.Size = new System.Drawing.Size(321, 26);
             this.tabLayPanPwd.TabIndex = 1;
             // 
+            // txtBoxPwd
+            // 
+            this.txtBoxPwd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtBoxPwd.Location = new System.Drawing.Point(163, 3);
+            this.txtBoxPwd.Name = "txtBoxPwd";
+            this.txtBoxPwd.Size = new System.Drawing.Size(155, 20);
+            this.txtBoxPwd.TabIndex = 4;
+            this.txtBoxPwd.UseSystemPasswordChar = true;
+            // 
             // lblPwd
             // 
             this.lblPwd.AutoSize = true;
@@ -120,14 +129,6 @@
             this.lblPwd.TabIndex = 2;
             this.lblPwd.Text = "Mot de passe :";
             this.lblPwd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtBoxPwd
-            // 
-            this.txtBoxPwd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtBoxPwd.Location = new System.Drawing.Point(163, 3);
-            this.txtBoxPwd.Name = "txtBoxPwd";
-            this.txtBoxPwd.Size = new System.Drawing.Size(155, 20);
-            this.txtBoxPwd.TabIndex = 4;
             // 
             // tabLayPanConn
             // 
@@ -163,6 +164,7 @@
             this.ClientSize = new System.Drawing.Size(327, 449);
             this.Controls.Add(this.tabLayPanLogin);
             this.Name = "FrmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Connectez vous";
             this.tabLayPanLogin.ResumeLayout(false);
             this.tabLayPanUsername.ResumeLayout(false);
