@@ -15,6 +15,8 @@ namespace RogueForumDLL
         private string _Texte;
         private DateTime _Date;
         private Sujet _Sujet;
+        private Utilisateur _Utilisateur;
+
         /// <summary>
         /// L'identifiant de la réponse
         /// </summary>
@@ -64,14 +66,20 @@ namespace RogueForumDLL
         /// Le sujet auquel appartient la réponse
         /// </summary>
         public Sujet Sujet { get { return _Sujet; }set { _Sujet = value; } }
+        /// <summary>
+        /// L'utilisateur ayant posté la réponse
+        /// </summary>
+        public Utilisateur Utilisateur { get { return _Utilisateur; } set { _Utilisateur = value; } }
         #endregion
         #region "Constructeurs"
 
-        public Reponse(string texte, Sujet sujet)
+        public Reponse(int id,string texte, Sujet sujet, Utilisateur utilisateur)
         {
+            this.Id = id;
             this.Texte = texte;
             this.Date = DateTime.Now;
             this.Sujet = sujet;
+            this.Utilisateur = utilisateur;
         }
 
         #endregion

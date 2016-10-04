@@ -15,40 +15,51 @@ namespace RogueForumDAO
     public static class RubriqueDAO
     {
         private static SqlConnection conn = ConnexionSQLServer.GetConnexion();
-        private static List<Rubrique> _Rubriques = new List<Rubrique>();
-
-      
+       
         public static Rubrique GetRubriqueByID (int id)
         {
-            conn.Open();
+           // conn.Open();
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = string.Format("SELECT ID_RUBRIQUE, NOM_RUBRIQUE FROM RUBRIQUE WHERE ID_RUBRIQUE = {0}", id);
             Rubrique rubrique;
-            using (SqlDataReader reader = cmd.ExecuteReader())
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable("Rubrique");
+            da.Fill(dt);
+           // conn.Close();
+            if (dt.Rows.Count == 1)
             {
-                reader.Read();
-                rubrique = new Rubrique(reader["NOM_RUBRIQUE"].ToString());
+
+                DataRow row = dt.Rows[0];
+                rubrique = new Rubrique(id, row["NOM_RUBRIQUE"].ToString());
+                return rubrique;
             }
-            return rubrique;
+
+            return null;
+            
         }
 
         public static List<Rubrique> GetAllRubriques()
         {
-            conn.Open();
+           // conn.Open();
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = "SELECT ID_RUBRIQUE, NOM_RUBRIQUE FROM RUBRIQUE";
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable("Rubriques");
             da.Fill(dt);
-            conn.Close();
-            foreach (DataRow row in dt.Rows)
+           // conn.Close();
+            if (dt.Rows.Count >= 1)
             {
-                Rubrique rubrique = new Rubrique(row["NOM_RUBRIQUE"].ToString());
-                rubrique.Id = int.Parse(row["ID_RUBRIQUE"].ToString());
-                _Rubriques.Add(rubrique);
-                
+                List<Rubrique> _Rubriques = new List<Rubrique>();
+                foreach (DataRow row in dt.Rows)
+                {
+                    Rubrique rubrique = new Rubrique(int.Parse(row["ID_RUBRIQUE"].ToString()), row["NOM_RUBRIQUE"].ToString());
+                    rubrique.Id = int.Parse(row["ID_RUBRIQUE"].ToString());
+                    _Rubriques.Add(rubrique);
+
+                }
+                return _Rubriques;
             }
-            return _Rubriques;
+            return null;   
         }
     }
 }

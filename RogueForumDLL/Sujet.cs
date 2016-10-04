@@ -120,6 +120,16 @@ namespace RogueForumDLL
             Rubrique = rubrique;
             Reponses = new List<Reponse>();
         }
+
+        public Sujet(int id, string titre, string description, Rubrique rubrique)
+        {
+            this.Id = id;
+            this.Titre = titre;
+            this.Desc = description;
+            this.Date = DateTime.Now;
+            this.Rubrique = rubrique;
+            this.Reponses = new List<Reponse>();
+        }
         /// <summary>
         /// Constructeur d'un objet Sujet ayant déjà des réponses
         /// </summary>

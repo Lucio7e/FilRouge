@@ -13,7 +13,7 @@ namespace RogueForumDAO
         
 
         /// <summary>
-        /// Methode static qui renvoi une connexion ouverte à la base de données
+        /// Methode static qui renvoi une connexion  à la base de données
         /// </summary>
         /// <returns></returns>
         public static SqlConnection GetConnexion()

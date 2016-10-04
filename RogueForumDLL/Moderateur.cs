@@ -21,7 +21,7 @@ namespace RogueForumDLL
         /// </summary>
         /// <param name="login">Le login du modérateur</param>
         /// <param name="mdp">le mot de passe </param>
-        public Moderateur(string login, string mdp) : base(login, mdp) { }
+        public Moderateur(int id,string login, string mdp, bool modo) : base(id,login, mdp,modo) { }
 
         #endregion
         #region "Methodes"

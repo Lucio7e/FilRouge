@@ -19,7 +19,7 @@ namespace RogueForumUnitTest
         public void TestCreationRubrique()
         {
             string expectedString = "Ma Rubrique de test";
-            Rubrique rubrique = new Rubrique("Ma Rubrique de test");
+            Rubrique rubrique = new Rubrique(1,"Ma Rubrique de test");
             Assert.AreEqual(rubrique.Libelle, expectedString);
         }
         [TestMethod]

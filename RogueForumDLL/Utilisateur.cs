@@ -11,14 +11,12 @@ namespace RogueForumDLL
     /// </summary>
     public class Utilisateur
     {
-
-
         #region "Propriétés et accesseurs"
 
         private int _Id;
         private string _Login;
         private string _Mdp;
-        private List<Sujet> _Sujets;
+        private bool _IsModo;
         /// <summary>
         /// L'identifiant de l'utilisateur
         /// </summary>
@@ -67,14 +65,20 @@ namespace RogueForumDLL
             }
         }
 
-        public List<Sujet> Sujets
+        public bool IsModo
         {
             get
             {
-                return _Sujets;
+                return _IsModo;
             }
 
-         }
+            set
+            {
+                _IsModo = value;
+            }
+        }
+
+
 
 
         #endregion
@@ -84,10 +88,12 @@ namespace RogueForumDLL
         /// </summary>
         /// <param name="login">Le login</param>
         /// <param name="mdp">le mot de passe</param>
-        public Utilisateur (string login, string mdp)
+        public Utilisateur (int id,string login, string mdp, bool isModo)
         {
+            this.Id = id;
             this.Login = login;
             this.Mdp = mdp;
+            this.IsModo = isModo;
         }
         #endregion
         #region "Methodes"
@@ -99,10 +105,7 @@ namespace RogueForumDLL
         /// <param name="rubrique">La rubrique à laquelle appartient le sujet</param>
         public void PosterSujet(string titre, string description, Rubrique rubrique)
         {
-            Sujet sujet = new Sujet(titre, description, rubrique);
-            if(!string.IsNullOrEmpty(titre) && !string.IsNullOrEmpty(description) && !rubrique.Equals(null) ) {
-                Sujets.Add(sujet);
-            }
+            //TODO
             
         }
 
@@ -112,8 +115,7 @@ namespace RogueForumDLL
         /// <param name="texte">La réponse</param>
         /// <param name="sujet">le sujet auquel on répond</param>
         public void Repondre(string texte, Sujet sujet) {
-            Reponse reponse = new Reponse(texte, sujet);
-            sujet.Reponses.Add(reponse);
+           //TODO
         }
         #endregion
         #region "Methodes héritées et substituées"

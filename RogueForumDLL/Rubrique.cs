@@ -55,8 +55,9 @@ namespace RogueForumDLL
         /// Constructeur d'une rubrique
         /// </summary>
         /// <param name="libelle">Le libelle de la rubrique</param>
-        public Rubrique(string libelle)
+        public Rubrique(int id, string libelle)
         {
+            this.Id = id;
             this.Libelle = libelle;
         }
 

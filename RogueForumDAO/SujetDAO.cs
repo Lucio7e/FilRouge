@@ -13,30 +13,52 @@ namespace RogueForumDAO
     {
         #region "Propriétés et accesseurs"
 
-        private static List<Sujet> _Sujets = new List<Sujet>();
+    
         private static SqlConnection conn = ConnexionSQLServer.GetConnexion();
         
         #endregion
-        #region "Constructeurs"
-        #endregion
+        
         #region "Methodes"
-        public static List<Sujet> getSujetsFromDB()
+        public static List<Sujet> GetAllSujets()
         {
-            conn.Open();
+            //conn.Open();
             SqlCommand cmd =  conn.CreateCommand();
-            cmd.CommandText = "SELECT * FROM SUJET";
+            cmd.CommandText = "SELECT ID_SUJET, ID_UTILISATEUR, ID_RUBRIQUE, TITRE_SUJET, DESCRIPTION_SUJET, DATE_CREATION FROM SUJET";
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable("AllSujets");
             da.Fill(dt);
-            conn.Close();
-            foreach (DataRow row in dt.Rows)
+           // conn.Close();
+            if (dt.Rows.Count >= 1)
             {
-                _Sujets.Add(new Sujet(row["TITRE_SUJET"].ToString(), row["DESCRIPTION_SUJET"].ToString(), RubriqueDAO.GetRubriqueByID(int.Parse(row["ID_RUBRIQUE"].ToString()))));
+                List<Sujet> _Sujets = new List<Sujet>();
+                foreach (DataRow row in dt.Rows)
+                {
+                    _Sujets.Add(new Sujet(int.Parse(row["ID_SUJET"].ToString()), row["TITRE_SUJET"].ToString(), row["DESCRIPTION_SUJET"].ToString(),
+                        RubriqueDAO.GetRubriqueByID(int.Parse(row["ID_RUBRIQUE"].ToString()))));
+                }
+                return _Sujets;
             }
-            return _Sujets;
+            return null;
         }
 
-
+        public static Sujet GetSujetByID(int idsujet)
+        {
+            //conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = string.Format("SELECT ID_SUJET, ID_UTILISATEUR, ID_RUBRIQUE, TITRE_SUJET, DESCRIPTION_SUJET, DATE_CREATION FROM SUJET WHERE ID_SUJET = {0}", idsujet);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable("Sujet");
+            da.Fill(dt);
+           // conn.Close();
+            if (dt.Rows.Count == 1)
+            {
+                DataRow row = dt.Rows[0];
+                Sujet sujet = new Sujet(int.Parse(row["ID_SUJET"].ToString()), row["TITRE_SUJET"].ToString(), row["DESCRIPTION_SUJET"].ToString(),
+                    RubriqueDAO.GetRubriqueByID(int.Parse(row["ID_RUBRIQUE"].ToString())));
+                return sujet;
+            }
+            return null;
+        }
         #endregion
         #region "Methodes héritées et substituées"
         #endregion
