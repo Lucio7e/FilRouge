@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace RogueForumDAO
 {
-    public abstract class ReponseDAO
+    public static class ReponseDAO
     {
         private static SqlConnection conn = ConnexionSQLServer.GetConnexion();
        

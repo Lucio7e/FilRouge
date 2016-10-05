@@ -1,4 +1,6 @@
-﻿using System;
+﻿using RogueForumDAO;
+using RogueForumDLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,6 +30,20 @@ namespace RogueForumWinForm
             {
                 frmLogin.ShowDialog();
             }
+        }
+
+        private void FrmForum_Load(object sender, EventArgs e)
+        {
+            cbBoxCategorie.ValueMember = "Id";
+            cbBoxCategorie.DisplayMember = "Libelle";
+            cbBoxCategorie.DataSource = RubriqueDAO.GetAllRubriques();
+        }
+
+        private void cbBoxCategorie_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbBoxSujet.ValueMember = "Id";
+            cbBoxSujet.DisplayMember = "Titre";
+            cbBoxSujet.DataSource = SujetDAO.GetSujetsByRubriqueID((int)cbBoxCategorie.SelectedValue);
         }
     }
 }

@@ -89,6 +89,7 @@
             this.cbBoxCategorie.Size = new System.Drawing.Size(159, 21);
             this.cbBoxCategorie.TabIndex = 0;
             this.cbBoxCategorie.Text = "Sélectionnez une catégorie";
+            this.cbBoxCategorie.SelectedIndexChanged += new System.EventHandler(this.cbBoxCategorie_SelectedIndexChanged);
             // 
             // tableLayPanSujet
             // 
@@ -165,6 +166,7 @@
             this.Name = "FrmForum";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Rogue Forum";
+            this.Load += new System.EventHandler(this.FrmForum_Load);
             this.tlpanelFrmForum.ResumeLayout(false);
             this.tableLayPanCategorie.ResumeLayout(false);
             this.tableLayPanSujet.ResumeLayout(false);

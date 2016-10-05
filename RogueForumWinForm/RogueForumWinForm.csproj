@@ -128,6 +128,16 @@
   <ItemGroup>
     <None Include="Resources\RogueSquadron80x80.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RogueForumDAO\RogueForumDAO.csproj">
+      <Project>{c788b6f6-f32a-4d2c-9263-3804310d1513}</Project>
+      <Name>RogueForumDAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RogueForumDLL\RogueForumDLL.csproj">
+      <Project>{c02739c0-62c9-4c03-a5e8-6a7e6483af4a}</Project>
+      <Name>RogueForumDLL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

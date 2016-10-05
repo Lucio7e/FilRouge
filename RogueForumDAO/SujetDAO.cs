@@ -59,6 +59,28 @@ namespace RogueForumDAO
             }
             return null;
         }
+
+        public static List<Sujet> GetSujetsByRubriqueID(int idRubrique)
+        {
+            //conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = string.Format("SELECT ID_SUJET, ID_UTILISATEUR, ID_RUBRIQUE, TITRE_SUJET, DESCRIPTION_SUJET, DATE_CREATION FROM SUJET WHERE ID_RUBRIQUE= {0}",idRubrique);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable("AllSujets");
+            da.Fill(dt);
+            // conn.Close();
+            if (dt.Rows.Count >= 1)
+            {
+                List<Sujet> _Sujets = new List<Sujet>();
+                foreach (DataRow row in dt.Rows)
+                {
+                    _Sujets.Add(new Sujet(int.Parse(row["ID_SUJET"].ToString()), row["TITRE_SUJET"].ToString(), row["DESCRIPTION_SUJET"].ToString(),
+                        RubriqueDAO.GetRubriqueByID(idRubrique)));
+                }
+                return _Sujets;
+            }
+            return null;
+        }
         #endregion
         #region "Methodes héritées et substituées"
         #endregion
