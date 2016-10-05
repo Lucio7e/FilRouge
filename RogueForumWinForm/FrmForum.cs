@@ -1,4 +1,5 @@
-﻿using RogueForumDAO;
+﻿using RogueForumController;
+
 using RogueForumDLL;
 using System;
 using System.Collections.Generic;
@@ -36,14 +37,14 @@ namespace RogueForumWinForm
         {
             cbBoxCategorie.ValueMember = "Id";
             cbBoxCategorie.DisplayMember = "Libelle";
-            cbBoxCategorie.DataSource = RubriqueDAO.GetAllRubriques();
+            cbBoxCategorie.DataSource = Controller.GetAllRubriques();
         }
 
         private void cbBoxCategorie_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbBoxSujet.ValueMember = "Id";
             cbBoxSujet.DisplayMember = "Titre";
-            cbBoxSujet.DataSource = SujetDAO.GetSujetsByRubriqueID((int)cbBoxCategorie.SelectedValue);
+            cbBoxSujet.DataSource = Controller.GetSujetsByRubriqueID((int)cbBoxCategorie.SelectedValue);
         }
     }
 }

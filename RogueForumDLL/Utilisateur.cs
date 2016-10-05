@@ -96,28 +96,7 @@ namespace RogueForumDLL
             this.IsModo = isModo;
         }
         #endregion
-        #region "Methodes"
-        /// <summary>
-        /// Methode permettant à un utilisateur de poster un nouveau Sujet dans le forum
-        /// </summary>
-        /// <param name="titre">Le titre du sujet</param>
-        /// <param name="description">La description du sujet</param>
-        /// <param name="rubrique">La rubrique à laquelle appartient le sujet</param>
-        public void PosterSujet(string titre, string description, Rubrique rubrique)
-        {
-            //TODO
-            
-        }
-
-        /// <summary>
-        /// Methode permettant de poster une réponse à un sujet
-        /// </summary>
-        /// <param name="texte">La réponse</param>
-        /// <param name="sujet">le sujet auquel on répond</param>
-        public void Repondre(string texte, Sujet sujet) {
-           //TODO
-        }
-        #endregion
+       
         #region "Methodes héritées et substituées"
         #endregion
         #region "Methodes à implementer pour les interfaces"

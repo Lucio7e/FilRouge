@@ -83,12 +83,12 @@
             // cbBoxCategorie
             // 
             this.cbBoxCategorie.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbBoxCategorie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBoxCategorie.FormattingEnabled = true;
             this.cbBoxCategorie.Location = new System.Drawing.Point(3, 3);
             this.cbBoxCategorie.Name = "cbBoxCategorie";
             this.cbBoxCategorie.Size = new System.Drawing.Size(159, 21);
             this.cbBoxCategorie.TabIndex = 0;
-            this.cbBoxCategorie.Text = "Sélectionnez une catégorie";
             this.cbBoxCategorie.SelectedIndexChanged += new System.EventHandler(this.cbBoxCategorie_SelectedIndexChanged);
             // 
             // tableLayPanSujet
@@ -109,12 +109,12 @@
             // cbBoxSujet
             // 
             this.cbBoxSujet.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbBoxSujet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBoxSujet.FormattingEnabled = true;
             this.cbBoxSujet.Location = new System.Drawing.Point(3, 3);
             this.cbBoxSujet.Name = "cbBoxSujet";
             this.cbBoxSujet.Size = new System.Drawing.Size(401, 21);
             this.cbBoxSujet.TabIndex = 0;
-            this.cbBoxSujet.Text = "Sélectionnez un sujet";
             // 
             // btnAddSujet
             // 

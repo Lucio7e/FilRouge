@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{019C17AD-21EE-4540-B369-F311B6106C57}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{DBC58775-EF2D-454F-9316-37F49AE2D7A7}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RogueForumConsoleTesteur</RootNamespace>
-    <AssemblyName>RogueForumConsoleTesteur</AssemblyName>
+    <RootNamespace>RogueForumController</RootNamespace>
+    <AssemblyName>RogueForumController</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,16 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Controller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\RogueForumController\RogueForumController.csproj">
-      <Project>{dbc58775-ef2d-454f-9316-37f49ae2d7a7}</Project>
-      <Name>RogueForumController</Name>
+    <ProjectReference Include="..\RogueForumDAO\RogueForumDAO.csproj">
+      <Project>{c788b6f6-f32a-4d2c-9263-3804310d1513}</Project>
+      <Name>RogueForumDAO</Name>
     </ProjectReference>
     <ProjectReference Include="..\RogueForumDLL\RogueForumDLL.csproj">
       <Project>{c02739c0-62c9-4c03-a5e8-6a7e6483af4a}</Project>
