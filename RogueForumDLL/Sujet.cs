@@ -140,6 +140,11 @@ namespace RogueForumDLL
         public Sujet(string titre, string description, Rubrique rubrique,List<Reponse> reponses):this(titre,description,rubrique) {
             _Reponses = Reponses;
         }
+        public Sujet(int id, string titre)
+        {
+            this.Id = id;
+            this.Titre = titre;
+        }
         #endregion
         #region "Methodes"
         #endregion

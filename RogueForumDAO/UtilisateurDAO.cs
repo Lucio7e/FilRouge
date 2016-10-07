@@ -50,7 +50,12 @@ namespace RogueForumDAO
         {
            // conn.Open();
             SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = string.Format("SELECT ID_UTILISATEUR, LOGIN, MDP, MODERATEUR FROM UTILISATEUR WHERE ID_UTILISATEUR = {0}",id);
+            cmd.CommandText = "GetUtilisateurById";
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlParameter param = cmd.CreateParameter();
+            param.ParameterName = "@IdUtilisateur";
+            param.Value = id;
+            cmd.Parameters.Add(param);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable("Utilisateurs");
             da.Fill(dt);
@@ -65,6 +70,38 @@ namespace RogueForumDAO
 
             return null;
            
+        }
+
+        /// <summary>
+        /// Methode qui permet à un utilisateur de s'authentifier
+        /// </summary>
+        /// <param name="login"></param>
+        /// <param name="mdp"></param>
+        /// <returns></returns>
+        public static bool Login(string login, string mdp)
+        {
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "GetLoginMDP";
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlParameter paramLogin = cmd.CreateParameter();
+            paramLogin.ParameterName = "@Login";
+            paramLogin.Value = login;
+            
+            SqlParameter paramMDP = cmd.CreateParameter();
+            paramMDP.ParameterName = "@MDP";
+            paramMDP.Value = mdp;
+            
+            cmd.Parameters.Add(paramLogin);
+            cmd.Parameters.Add(paramMDP);
+            
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable("Login");
+            da.Fill(dt);
+            if (dt.Rows.Count == 1)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

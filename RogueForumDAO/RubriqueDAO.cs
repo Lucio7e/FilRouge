@@ -16,11 +16,16 @@ namespace RogueForumDAO
     {
         private static SqlConnection conn = ConnexionSQLServer.GetConnexion();
        
-        public static Rubrique GetRubriqueByID (int id)
+        public static Rubrique GetRubriqueByID (int idRubrique)
         {
            // conn.Open();
             SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = string.Format("SELECT ID_RUBRIQUE, NOM_RUBRIQUE FROM RUBRIQUE WHERE ID_RUBRIQUE = {0}", id);
+            cmd.CommandText = "GetRubriqueByIdRubrique";
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlParameter param = cmd.CreateParameter();
+            param.ParameterName = "@IdRubrique";
+            param.Value = idRubrique;
+            cmd.Parameters.Add(param);
             Rubrique rubrique;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable("Rubrique");
@@ -30,7 +35,7 @@ namespace RogueForumDAO
             {
 
                 DataRow row = dt.Rows[0];
-                rubrique = new Rubrique(id, row["NOM_RUBRIQUE"].ToString());
+                rubrique = new Rubrique(idRubrique, row["NOM_RUBRIQUE"].ToString());
                 return rubrique;
             }
 
@@ -42,7 +47,9 @@ namespace RogueForumDAO
         {
            // conn.Open();
             SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT ID_RUBRIQUE, NOM_RUBRIQUE FROM RUBRIQUE";
+            cmd.CommandText = "GetAllRubriques";
+            cmd.CommandType = CommandType.StoredProcedure;
+            
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable("Rubriques");
             da.Fill(dt);

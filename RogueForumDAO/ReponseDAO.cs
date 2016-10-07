@@ -22,7 +22,12 @@ namespace RogueForumDAO
         {
           //  conn.Open();
             SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = string.Format("SELECT ID_REPONSE, TEXTE_REPONSE, DATE_REPONSE,ID_UTILISATEUR, ID_SUJET FROM REPONSE WHERE ID_SUJET = {0}",idSujet);
+            cmd.CommandText = "GetAllReponsesByIdSujet";
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlParameter param = cmd.CreateParameter();
+            param.ParameterName = "@IdSujet";
+            param.Value = idSujet;
+            cmd.Parameters.Add(param);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable("Reponses");
             da.Fill(dt);
@@ -32,7 +37,7 @@ namespace RogueForumDAO
                 List<Reponse> _Reponses = new List<Reponse>();
                 foreach (DataRow row in dt.Rows)
                 {
-                    Reponse rep = new Reponse(int.Parse(row["ID_REPONSE"].ToString()), row["TEXTE_REPONSE"].ToString(), SujetDAO.GetSujetByID(idSujet),
+                    Reponse rep = new Reponse(int.Parse(row["ID_REPONSE"].ToString()), row["TEXTE_REPONSE"].ToString(),DateTime.Parse(row["DATE_REPONSE"].ToString()), SujetDAO.GetSujetByID(idSujet),
                        UtilisateurDAO.GetUtilisateurByID(int.Parse(row["ID_UTILISATEUR"].ToString())));
                     _Reponses.Add(rep);
                 }
@@ -50,7 +55,12 @@ namespace RogueForumDAO
         {
            // conn.Open();
             SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = string.Format("SELECT ID_REPONSE, TEXTE_REPONSE, DATE_REPONSE,ID_UTILISATEUR, ID_SUJET FROM REPONSE WHERE ID_UTILISATEUR = {0}", idUser);
+            cmd.CommandText = "GetReponsesByIdUtilisateur";
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlParameter param = cmd.CreateParameter();
+            param.ParameterName = "@IdUtilisateur";
+            param.Value = idUser;
+            cmd.Parameters.Add(param);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable("Reponses");
             da.Fill(dt);
@@ -60,7 +70,7 @@ namespace RogueForumDAO
                 List<Reponse> _Reponses = new List<Reponse>();
                 foreach (DataRow row in dt.Rows)
                 {
-                    Reponse rep = new Reponse(int.Parse(row["ID_REPONSE"].ToString()), row["TEXTE_REPONSE"].ToString(), SujetDAO.GetSujetByID(int.Parse(row["ID_SUJET"].ToString())),
+                    Reponse rep = new Reponse(int.Parse(row["ID_REPONSE"].ToString()), row["TEXTE_REPONSE"].ToString(), DateTime.Parse(row["DATE_REPONSE"].ToString()), SujetDAO.GetSujetByID(int.Parse(row["ID_SUJET"].ToString())),
                        UtilisateurDAO.GetUtilisateurByID(idUser));
                     _Reponses.Add(rep);
                 }

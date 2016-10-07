@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmForum));
             this.tlpanelFrmForum = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayPanCategorie = new System.Windows.Forms.TableLayoutPanel();
             this.cbBoxCategorie = new System.Windows.Forms.ComboBox();
@@ -37,11 +38,13 @@
             this.picBoxHome = new System.Windows.Forms.PictureBox();
             this.flowLayPanIdent = new System.Windows.Forms.FlowLayoutPanel();
             this.btnIdent = new System.Windows.Forms.Button();
+            this.dataGridViewReponse = new System.Windows.Forms.DataGridView();
             this.tlpanelFrmForum.SuspendLayout();
             this.tableLayPanCategorie.SuspendLayout();
             this.tableLayPanSujet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxHome)).BeginInit();
             this.flowLayPanIdent.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReponse)).BeginInit();
             this.SuspendLayout();
             // 
             // tlpanelFrmForum
@@ -56,6 +59,7 @@
             this.tlpanelFrmForum.Controls.Add(this.tableLayPanSujet, 2, 1);
             this.tlpanelFrmForum.Controls.Add(this.picBoxHome, 3, 1);
             this.tlpanelFrmForum.Controls.Add(this.flowLayPanIdent, 3, 2);
+            this.tlpanelFrmForum.Controls.Add(this.dataGridViewReponse, 2, 2);
             this.tlpanelFrmForum.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpanelFrmForum.Location = new System.Drawing.Point(0, 0);
             this.tlpanelFrmForum.Name = "tlpanelFrmForum";
@@ -115,6 +119,7 @@
             this.cbBoxSujet.Name = "cbBoxSujet";
             this.cbBoxSujet.Size = new System.Drawing.Size(401, 21);
             this.cbBoxSujet.TabIndex = 0;
+            this.cbBoxSujet.SelectedIndexChanged += new System.EventHandler(this.cbBoxSujet_SelectedIndexChanged);
             // 
             // btnAddSujet
             // 
@@ -157,12 +162,30 @@
             this.btnIdent.UseVisualStyleBackColor = true;
             this.btnIdent.Click += new System.EventHandler(this.btnIdent_Click);
             // 
+            // dataGridViewReponse
+            // 
+            this.dataGridViewReponse.AllowUserToAddRows = false;
+            this.dataGridViewReponse.AllowUserToDeleteRows = false;
+            this.dataGridViewReponse.AllowUserToResizeColumns = false;
+            this.dataGridViewReponse.AllowUserToResizeRows = false;
+            this.dataGridViewReponse.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewReponse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewReponse.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewReponse.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dataGridViewReponse.Location = new System.Drawing.Point(194, 117);
+            this.dataGridViewReponse.Name = "dataGridViewReponse";
+            this.dataGridViewReponse.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewReponse.Size = new System.Drawing.Size(814, 441);
+            this.dataGridViewReponse.TabIndex = 5;
+            // 
             // FrmForum
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1128, 581);
             this.Controls.Add(this.tlpanelFrmForum);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmForum";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Rogue Forum";
@@ -173,6 +196,7 @@
             this.tableLayPanSujet.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxHome)).EndInit();
             this.flowLayPanIdent.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReponse)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -188,5 +212,6 @@
         private System.Windows.Forms.PictureBox picBoxHome;
         private System.Windows.Forms.FlowLayoutPanel flowLayPanIdent;
         private System.Windows.Forms.Button btnIdent;
+        private System.Windows.Forms.DataGridView dataGridViewReponse;
     }
 }

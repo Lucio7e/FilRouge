@@ -19,11 +19,17 @@ namespace RogueForumDAO
         #endregion
         
         #region "Methodes"
+        /// <summary>
+        /// Methode qui Retourne tous les sujets du forum
+        /// </summary>
+        /// <returns>La liste des sujets</returns>
         public static List<Sujet> GetAllSujets()
         {
             //conn.Open();
             SqlCommand cmd =  conn.CreateCommand();
-            cmd.CommandText = "SELECT ID_SUJET, ID_UTILISATEUR, ID_RUBRIQUE, TITRE_SUJET, DESCRIPTION_SUJET, DATE_CREATION FROM SUJET";
+            cmd.CommandText = "GetAllSujets";
+            cmd.CommandType = CommandType.StoredProcedure;
+            
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable("AllSujets");
             da.Fill(dt);
@@ -41,11 +47,21 @@ namespace RogueForumDAO
             return null;
         }
 
+        /// <summary>
+        /// Methode qui retourne le sujet dont l'id est passé en parametre
+        /// </summary>
+        /// <param name="idsujet"></param>
+        /// <returns>Un sujet</returns>
         public static Sujet GetSujetByID(int idsujet)
         {
             //conn.Open();
             SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = string.Format("SELECT ID_SUJET, ID_UTILISATEUR, ID_RUBRIQUE, TITRE_SUJET, DESCRIPTION_SUJET, DATE_CREATION FROM SUJET WHERE ID_SUJET = {0}", idsujet);
+            cmd.CommandText = "GetSujetByIDSujet";
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlParameter param = cmd.CreateParameter();
+            param.ParameterName = "@IdSujet";
+            param.Value = idsujet;
+            cmd.Parameters.Add(param);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable("Sujet");
             da.Fill(dt);
@@ -60,11 +76,21 @@ namespace RogueForumDAO
             return null;
         }
 
+        /// <summary>
+        /// Methode qui retourne les sujets appartenant à la rubrique passé en parametre
+        /// </summary>
+        /// <param name="idRubrique"></param>
+        /// <returns>La liste des sujets pour la rubrique</returns>
         public static List<Sujet> GetSujetsByRubriqueID(int idRubrique)
         {
             //conn.Open();
             SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = string.Format("SELECT ID_SUJET, ID_UTILISATEUR, ID_RUBRIQUE, TITRE_SUJET, DESCRIPTION_SUJET, DATE_CREATION FROM SUJET WHERE ID_RUBRIQUE= {0}",idRubrique);
+            cmd.CommandText = "GetAllSujetsByIDRubrique";
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlParameter param = cmd.CreateParameter();
+            param.ParameterName = "@IdRubrique";
+            param.Value = idRubrique;
+            cmd.Parameters.Add(param);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable("AllSujets");
             da.Fill(dt);

@@ -16,6 +16,7 @@ namespace RogueForumDLL
         private DateTime _Date;
         private Sujet _Sujet;
         private Utilisateur _Utilisateur;
+        private string _NomAuteur;
 
         /// <summary>
         /// L'identifiant de la réponse
@@ -70,22 +71,52 @@ namespace RogueForumDLL
         /// L'utilisateur ayant posté la réponse
         /// </summary>
         public Utilisateur Utilisateur { get { return _Utilisateur; } set { _Utilisateur = value; } }
+        /// <summary>
+        /// Le nom de l'auteur de la réponse
+        /// </summary>
+        public string NomAuteur
+        {
+            get
+            {
+                return _NomAuteur;
+            }
+
+            set
+            {
+                _NomAuteur = value;
+            }
+        }
         #endregion
         #region "Constructeurs"
 
-        public Reponse(int id,string texte, Sujet sujet, Utilisateur utilisateur)
+        public Reponse(int id,string texte,DateTime date, Sujet sujet, Utilisateur utilisateur)
         {
             this.Id = id;
             this.Texte = texte;
-            this.Date = DateTime.Now;
+            this.Date = date;
             this.Sujet = sujet;
             this.Utilisateur = utilisateur;
+            this.NomAuteur = utilisateur.Login;
         }
 
+        public Reponse(int id, string texte)
+        {
+            this.Id = id;
+            this.Texte = texte;
+        }
         #endregion
         #region "Methodes"
+        /// <summary>
+        /// Methode qui renvoie le nom de l'auteur de la réponse
+        /// </summary>
+        /// <returns></returns>
+        public string GetNomUtilisateur()
+        {
+            return this.Utilisateur.Login;
+        }
         #endregion
         #region "Methodes héritées et substituées"
+       
         #endregion
         #region "Methodes à implementer pour les interfaces"
         #endregion

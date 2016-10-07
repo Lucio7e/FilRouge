@@ -31,6 +31,11 @@ namespace RogueForumController
         {
             //TODO
         }
+
+        public static bool Login(string login, string mdp)
+        {
+            return UtilisateurDAO.Login(login, mdp);
+        }
         #endregion
 
         #region "Methodes Moderateur"

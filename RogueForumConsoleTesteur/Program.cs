@@ -38,6 +38,8 @@ namespace RogueForumConsoleTesteur
                     }
                 }
             }
+            //Test authentification
+            Console.WriteLine(Controller.Login("User1", "User01"));
           
             
             Console.Read();
