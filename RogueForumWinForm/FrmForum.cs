@@ -49,8 +49,6 @@ namespace RogueForumWinForm
 
         private void cbBoxCategorie_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            
             if (Controller.GetSujetsByRubriqueID((int)cbBoxCategorie.SelectedValue) != null)
             {
                
@@ -86,16 +84,17 @@ namespace RogueForumWinForm
 
         private void FrmForum_Activated(object sender, EventArgs e)
         {
-
             panelAddSujet.Visible = frmMain.IsConnected;
             btnChangerMDP.Visible = frmMain.IsConnected;
             btnDeconnexion.Visible = frmMain.IsConnected;
+            grpBoxAdmin.Visible = frmMain.IsModo;
             btnIdent.Visible = !frmMain.IsConnected;
         }
 
         private void btnDeconnexion_Click(object sender, EventArgs e)
         {
             frmMain.IsConnected = false;
+            frmMain.IsModo = false;
             MessageBox.Show("Deconnecté avec succès", "Deconnexion", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }

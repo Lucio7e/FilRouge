@@ -32,7 +32,7 @@ namespace RogueForumController
             //TODO
         }
 
-        public static bool Login(string login, string mdp)
+        public static Utilisateur Login(string login, string mdp)
         {
             return UtilisateurDAO.Login(login, mdp);
         }

@@ -78,7 +78,7 @@ namespace RogueForumDAO
         /// <param name="login"></param>
         /// <param name="mdp"></param>
         /// <returns></returns>
-        public static bool Login(string login, string mdp)
+        public static Utilisateur Login(string login, string mdp)
         {
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = "GetLoginMDP";
@@ -99,9 +99,10 @@ namespace RogueForumDAO
             da.Fill(dt);
             if (dt.Rows.Count == 1)
             {
-                return true;
+                DataRow row = dt.Rows[0];
+                return GetUtilisateurByID(int.Parse(row["ID_UTILISATEUR"].ToString()));
             }
-            return false;
+            return null;
         }
     }
 }

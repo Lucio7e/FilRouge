@@ -13,6 +13,7 @@ namespace RogueForumWinForm
     public partial class frmMain : Form
     {
         static internal bool IsConnected;
+        static internal bool IsModo;
         public frmMain()
         {
             InitializeComponent();
