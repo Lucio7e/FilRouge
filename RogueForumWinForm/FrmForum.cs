@@ -39,14 +39,18 @@ namespace RogueForumWinForm
         {
             cbBoxCategorie.ValueMember = "Id";
             cbBoxCategorie.DisplayMember = "Libelle";
+
+            cbBoxSujet.ValueMember = "Id";
+            cbBoxSujet.DisplayMember = "Titre";
+
             cbBoxCategorie.DataSource = Controller.GetAllRubriques();
+            cbBoxSujet.DataSource = Controller.GetSujetsByRubriqueID((int)cbBoxCategorie.SelectedValue);
         }
 
         private void cbBoxCategorie_SelectedIndexChanged(object sender, EventArgs e)
         {
             
-            cbBoxSujet.ValueMember = "Id";
-            cbBoxSujet.DisplayMember = "Titre";
+            
             if (Controller.GetSujetsByRubriqueID((int)cbBoxCategorie.SelectedValue) != null)
             {
                
@@ -78,6 +82,21 @@ namespace RogueForumWinForm
             dataGridViewReponse.Columns.Remove("ID");
             dataGridViewReponse.Columns.Remove("SUJET");
             dataGridViewReponse.Columns.Remove("UTILISATEUR");
+        }
+
+        private void FrmForum_Activated(object sender, EventArgs e)
+        {
+
+            panelAddSujet.Visible = frmMain.IsConnected;
+            btnChangerMDP.Visible = frmMain.IsConnected;
+            btnDeconnexion.Visible = frmMain.IsConnected;
+            btnIdent.Visible = !frmMain.IsConnected;
+        }
+
+        private void btnDeconnexion_Click(object sender, EventArgs e)
+        {
+            frmMain.IsConnected = false;
+            MessageBox.Show("Deconnecté avec succès", "Deconnexion", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

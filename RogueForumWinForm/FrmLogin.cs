@@ -16,5 +16,17 @@ namespace RogueForumWinForm
         {
             InitializeComponent();
         }
+
+        private void btnConnect_Click(object sender, EventArgs e)
+        {
+            frmMain.IsConnected = RogueForumController.Controller.Login(txtBoxUsername.Text, txtBoxPwd.Text) ;
+            if (frmMain.IsConnected)
+            {
+                this.Close();
+            }else
+            {
+                MessageBox.Show("Login ou mot de passe incorrect", "Erreur d'identification", MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+        }
     }
 }

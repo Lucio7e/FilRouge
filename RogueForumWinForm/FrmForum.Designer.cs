@@ -31,30 +31,41 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmForum));
             this.tlpanelFrmForum = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayPanCategorie = new System.Windows.Forms.TableLayoutPanel();
-            this.cbBoxCategorie = new System.Windows.Forms.ComboBox();
             this.tableLayPanSujet = new System.Windows.Forms.TableLayoutPanel();
-            this.cbBoxSujet = new System.Windows.Forms.ComboBox();
-            this.btnAddSujet = new System.Windows.Forms.Button();
             this.picBoxHome = new System.Windows.Forms.PictureBox();
             this.flowLayPanIdent = new System.Windows.Forms.FlowLayoutPanel();
             this.btnIdent = new System.Windows.Forms.Button();
             this.dataGridViewReponse = new System.Windows.Forms.DataGridView();
+            this.panelAddSujet = new System.Windows.Forms.Panel();
+            this.grpBoxUtilisateur = new System.Windows.Forms.GroupBox();
+            this.btnAddSujet = new System.Windows.Forms.Button();
+            this.grpBoxCategorie = new System.Windows.Forms.GroupBox();
+            this.cbBoxCategorie = new System.Windows.Forms.ComboBox();
+            this.grpBoxSujet = new System.Windows.Forms.GroupBox();
+            this.cbBoxSujet = new System.Windows.Forms.ComboBox();
+            this.btnPostRep = new System.Windows.Forms.Button();
+            this.btnChangerMDP = new System.Windows.Forms.Button();
+            this.btnDeconnexion = new System.Windows.Forms.Button();
             this.tlpanelFrmForum.SuspendLayout();
             this.tableLayPanCategorie.SuspendLayout();
             this.tableLayPanSujet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxHome)).BeginInit();
             this.flowLayPanIdent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReponse)).BeginInit();
+            this.panelAddSujet.SuspendLayout();
+            this.grpBoxUtilisateur.SuspendLayout();
+            this.grpBoxCategorie.SuspendLayout();
+            this.grpBoxSujet.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpanelFrmForum
             // 
             this.tlpanelFrmForum.ColumnCount = 5;
             this.tlpanelFrmForum.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpanelFrmForum.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.82337F));
-            this.tlpanelFrmForum.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.57603F));
-            this.tlpanelFrmForum.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.663594F));
-            this.tlpanelFrmForum.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.tlpanelFrmForum.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpanelFrmForum.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpanelFrmForum.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpanelFrmForum.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpanelFrmForum.Controls.Add(this.tableLayPanCategorie, 1, 1);
             this.tlpanelFrmForum.Controls.Add(this.tableLayPanSujet, 2, 1);
             this.tlpanelFrmForum.Controls.Add(this.picBoxHome, 3, 1);
@@ -75,7 +86,7 @@
             // 
             this.tableLayPanCategorie.ColumnCount = 1;
             this.tableLayPanCategorie.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayPanCategorie.Controls.Add(this.cbBoxCategorie, 0, 0);
+            this.tableLayPanCategorie.Controls.Add(this.grpBoxCategorie, 0, 0);
             this.tableLayPanCategorie.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayPanCategorie.Location = new System.Drawing.Point(23, 11);
             this.tableLayPanCategorie.Name = "tableLayPanCategorie";
@@ -84,24 +95,13 @@
             this.tableLayPanCategorie.Size = new System.Drawing.Size(165, 100);
             this.tableLayPanCategorie.TabIndex = 1;
             // 
-            // cbBoxCategorie
-            // 
-            this.cbBoxCategorie.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbBoxCategorie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbBoxCategorie.FormattingEnabled = true;
-            this.cbBoxCategorie.Location = new System.Drawing.Point(3, 3);
-            this.cbBoxCategorie.Name = "cbBoxCategorie";
-            this.cbBoxCategorie.Size = new System.Drawing.Size(159, 21);
-            this.cbBoxCategorie.TabIndex = 0;
-            this.cbBoxCategorie.SelectedIndexChanged += new System.EventHandler(this.cbBoxCategorie_SelectedIndexChanged);
-            // 
             // tableLayPanSujet
             // 
             this.tableLayPanSujet.ColumnCount = 2;
             this.tableLayPanSujet.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayPanSujet.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayPanSujet.Controls.Add(this.cbBoxSujet, 0, 0);
-            this.tableLayPanSujet.Controls.Add(this.btnAddSujet, 1, 0);
+            this.tableLayPanSujet.Controls.Add(this.panelAddSujet, 1, 0);
+            this.tableLayPanSujet.Controls.Add(this.grpBoxSujet, 0, 0);
             this.tableLayPanSujet.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayPanSujet.Location = new System.Drawing.Point(194, 11);
             this.tableLayPanSujet.Name = "tableLayPanSujet";
@@ -109,27 +109,6 @@
             this.tableLayPanSujet.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayPanSujet.Size = new System.Drawing.Size(814, 100);
             this.tableLayPanSujet.TabIndex = 2;
-            // 
-            // cbBoxSujet
-            // 
-            this.cbBoxSujet.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbBoxSujet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbBoxSujet.FormattingEnabled = true;
-            this.cbBoxSujet.Location = new System.Drawing.Point(3, 3);
-            this.cbBoxSujet.Name = "cbBoxSujet";
-            this.cbBoxSujet.Size = new System.Drawing.Size(401, 21);
-            this.cbBoxSujet.TabIndex = 0;
-            this.cbBoxSujet.SelectedIndexChanged += new System.EventHandler(this.cbBoxSujet_SelectedIndexChanged);
-            // 
-            // btnAddSujet
-            // 
-            this.btnAddSujet.AutoSize = true;
-            this.btnAddSujet.Location = new System.Drawing.Point(410, 3);
-            this.btnAddSujet.Name = "btnAddSujet";
-            this.btnAddSujet.Size = new System.Drawing.Size(90, 23);
-            this.btnAddSujet.TabIndex = 1;
-            this.btnAddSujet.Text = "Ajouter un sujet";
-            this.btnAddSujet.UseVisualStyleBackColor = true;
             // 
             // picBoxHome
             // 
@@ -146,6 +125,8 @@
             // flowLayPanIdent
             // 
             this.flowLayPanIdent.Controls.Add(this.btnIdent);
+            this.flowLayPanIdent.Controls.Add(this.btnChangerMDP);
+            this.flowLayPanIdent.Controls.Add(this.btnDeconnexion);
             this.flowLayPanIdent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayPanIdent.Location = new System.Drawing.Point(1014, 117);
             this.flowLayPanIdent.Name = "flowLayPanIdent";
@@ -178,6 +159,110 @@
             this.dataGridViewReponse.Size = new System.Drawing.Size(814, 441);
             this.dataGridViewReponse.TabIndex = 5;
             // 
+            // panelAddSujet
+            // 
+            this.panelAddSujet.Controls.Add(this.grpBoxUtilisateur);
+            this.panelAddSujet.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelAddSujet.Location = new System.Drawing.Point(410, 3);
+            this.panelAddSujet.Name = "panelAddSujet";
+            this.panelAddSujet.Size = new System.Drawing.Size(401, 94);
+            this.panelAddSujet.TabIndex = 1;
+            // 
+            // grpBoxUtilisateur
+            // 
+            this.grpBoxUtilisateur.Controls.Add(this.btnPostRep);
+            this.grpBoxUtilisateur.Controls.Add(this.btnAddSujet);
+            this.grpBoxUtilisateur.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grpBoxUtilisateur.Location = new System.Drawing.Point(0, 0);
+            this.grpBoxUtilisateur.Name = "grpBoxUtilisateur";
+            this.grpBoxUtilisateur.Size = new System.Drawing.Size(401, 94);
+            this.grpBoxUtilisateur.TabIndex = 0;
+            this.grpBoxUtilisateur.TabStop = false;
+            this.grpBoxUtilisateur.Text = "Ajouter un sujet, poster une réponse : ";
+            // 
+            // btnAddSujet
+            // 
+            this.btnAddSujet.AutoSize = true;
+            this.btnAddSujet.Location = new System.Drawing.Point(6, 32);
+            this.btnAddSujet.Name = "btnAddSujet";
+            this.btnAddSujet.Size = new System.Drawing.Size(90, 23);
+            this.btnAddSujet.TabIndex = 2;
+            this.btnAddSujet.Text = "Ajouter un sujet";
+            this.btnAddSujet.UseVisualStyleBackColor = true;
+            // 
+            // grpBoxCategorie
+            // 
+            this.grpBoxCategorie.Controls.Add(this.cbBoxCategorie);
+            this.grpBoxCategorie.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grpBoxCategorie.Location = new System.Drawing.Point(3, 3);
+            this.grpBoxCategorie.Name = "grpBoxCategorie";
+            this.grpBoxCategorie.Size = new System.Drawing.Size(165, 94);
+            this.grpBoxCategorie.TabIndex = 0;
+            this.grpBoxCategorie.TabStop = false;
+            this.grpBoxCategorie.Text = "Rubriques :";
+            // 
+            // cbBoxCategorie
+            // 
+            this.cbBoxCategorie.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbBoxCategorie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbBoxCategorie.FormattingEnabled = true;
+            this.cbBoxCategorie.Location = new System.Drawing.Point(3, 16);
+            this.cbBoxCategorie.Name = "cbBoxCategorie";
+            this.cbBoxCategorie.Size = new System.Drawing.Size(159, 21);
+            this.cbBoxCategorie.TabIndex = 1;
+            this.cbBoxCategorie.SelectedIndexChanged += new System.EventHandler(this.cbBoxCategorie_SelectedIndexChanged);
+            // 
+            // grpBoxSujet
+            // 
+            this.grpBoxSujet.Controls.Add(this.cbBoxSujet);
+            this.grpBoxSujet.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grpBoxSujet.Location = new System.Drawing.Point(3, 3);
+            this.grpBoxSujet.Name = "grpBoxSujet";
+            this.grpBoxSujet.Size = new System.Drawing.Size(401, 94);
+            this.grpBoxSujet.TabIndex = 2;
+            this.grpBoxSujet.TabStop = false;
+            this.grpBoxSujet.Text = "Sujets : ";
+            // 
+            // cbBoxSujet
+            // 
+            this.cbBoxSujet.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbBoxSujet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbBoxSujet.FormattingEnabled = true;
+            this.cbBoxSujet.Location = new System.Drawing.Point(3, 16);
+            this.cbBoxSujet.Name = "cbBoxSujet";
+            this.cbBoxSujet.Size = new System.Drawing.Size(395, 21);
+            this.cbBoxSujet.TabIndex = 1;
+            this.cbBoxSujet.SelectedIndexChanged += new System.EventHandler(this.cbBoxSujet_SelectedIndexChanged);
+            // 
+            // btnPostRep
+            // 
+            this.btnPostRep.AutoSize = true;
+            this.btnPostRep.Location = new System.Drawing.Point(111, 32);
+            this.btnPostRep.Name = "btnPostRep";
+            this.btnPostRep.Size = new System.Drawing.Size(109, 23);
+            this.btnPostRep.TabIndex = 3;
+            this.btnPostRep.Text = "Poster une réponse";
+            this.btnPostRep.UseVisualStyleBackColor = true;
+            // 
+            // btnChangerMDP
+            // 
+            this.btnChangerMDP.Location = new System.Drawing.Point(3, 48);
+            this.btnChangerMDP.Name = "btnChangerMDP";
+            this.btnChangerMDP.Size = new System.Drawing.Size(85, 39);
+            this.btnChangerMDP.TabIndex = 1;
+            this.btnChangerMDP.Text = "Changer mot de passe";
+            this.btnChangerMDP.UseVisualStyleBackColor = true;
+            // 
+            // btnDeconnexion
+            // 
+            this.btnDeconnexion.Location = new System.Drawing.Point(3, 93);
+            this.btnDeconnexion.Name = "btnDeconnexion";
+            this.btnDeconnexion.Size = new System.Drawing.Size(85, 39);
+            this.btnDeconnexion.TabIndex = 2;
+            this.btnDeconnexion.Text = "Se deconnecter";
+            this.btnDeconnexion.UseVisualStyleBackColor = true;
+            this.btnDeconnexion.Click += new System.EventHandler(this.btnDeconnexion_Click);
+            // 
             // FrmForum
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -189,14 +274,19 @@
             this.Name = "FrmForum";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Rogue Forum";
+            this.Activated += new System.EventHandler(this.FrmForum_Activated);
             this.Load += new System.EventHandler(this.FrmForum_Load);
             this.tlpanelFrmForum.ResumeLayout(false);
             this.tableLayPanCategorie.ResumeLayout(false);
             this.tableLayPanSujet.ResumeLayout(false);
-            this.tableLayPanSujet.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxHome)).EndInit();
             this.flowLayPanIdent.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReponse)).EndInit();
+            this.panelAddSujet.ResumeLayout(false);
+            this.grpBoxUtilisateur.ResumeLayout(false);
+            this.grpBoxUtilisateur.PerformLayout();
+            this.grpBoxCategorie.ResumeLayout(false);
+            this.grpBoxSujet.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -205,13 +295,20 @@
 
         private System.Windows.Forms.TableLayoutPanel tlpanelFrmForum;
         private System.Windows.Forms.TableLayoutPanel tableLayPanCategorie;
-        private System.Windows.Forms.ComboBox cbBoxCategorie;
         private System.Windows.Forms.TableLayoutPanel tableLayPanSujet;
-        private System.Windows.Forms.ComboBox cbBoxSujet;
-        private System.Windows.Forms.Button btnAddSujet;
         private System.Windows.Forms.PictureBox picBoxHome;
         private System.Windows.Forms.FlowLayoutPanel flowLayPanIdent;
         private System.Windows.Forms.Button btnIdent;
         private System.Windows.Forms.DataGridView dataGridViewReponse;
+        private System.Windows.Forms.GroupBox grpBoxCategorie;
+        private System.Windows.Forms.ComboBox cbBoxCategorie;
+        private System.Windows.Forms.Panel panelAddSujet;
+        private System.Windows.Forms.GroupBox grpBoxUtilisateur;
+        private System.Windows.Forms.Button btnAddSujet;
+        private System.Windows.Forms.GroupBox grpBoxSujet;
+        private System.Windows.Forms.ComboBox cbBoxSujet;
+        private System.Windows.Forms.Button btnPostRep;
+        private System.Windows.Forms.Button btnChangerMDP;
+        private System.Windows.Forms.Button btnDeconnexion;
     }
 }
