@@ -112,6 +112,10 @@ namespace RogueForumController
             return SujetDAO.GetSujetsByRubriqueID(idRubrique);
         }
 
+        public static int AddSujet(int idUtilisateur, int IdRubrique, string titre, string description)
+        {
+            return SujetDAO.AddSujet(idUtilisateur, IdRubrique, titre, description);
+        }
         #endregion
 
         #region "Methodes Rubrique"
@@ -138,6 +142,10 @@ namespace RogueForumController
         public static List<Reponse> GetAllReponsesByUserID(int idUser)
         {
             return ReponseDAO.GetAllReponsesByUserID(idUser);
+        }
+        public static int AddReponse(int idUtilisateur, int idSujet, string texte)
+        {
+            return ReponseDAO.AddReponse(idUtilisateur, idSujet, texte);
         }
 
         #endregion

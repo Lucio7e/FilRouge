@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RogueForumDLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,7 @@ namespace RogueForumWinForm
     {
         static internal bool IsConnected;
         static internal bool IsModo;
+        static internal Utilisateur CurrentUser;
         public frmMain()
         {
             InitializeComponent();

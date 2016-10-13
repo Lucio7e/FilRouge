@@ -79,5 +79,40 @@ namespace RogueForumDAO
             return null;
            
         }
+
+        /// <summary>
+        /// Methode permettant de poster une réponse au sujet passé en parametre par l'utilisateur connecté
+        /// </summary>
+        /// <param name="idUtilisateur"></param>
+        /// <param name="idSujet"></param>
+        /// <param name="texte"></param>
+        /// <returns>Renvoi le nombre de ligne affectées, si tout se passe bien 1</returns>
+        public static int AddReponse(int idUtilisateur, int idSujet, string texte)
+        {
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "AddReponse";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            SqlParameter paramIdUtilisateur = cmd.CreateParameter();
+            paramIdUtilisateur.ParameterName = "@ID_UTILISATEUR";
+            paramIdUtilisateur.Value = idUtilisateur;
+            cmd.Parameters.Add(paramIdUtilisateur);
+
+            SqlParameter paramIdSujet = cmd.CreateParameter();
+            paramIdSujet.ParameterName = "@ID_SUJET";
+            paramIdSujet.Value = idSujet;
+            cmd.Parameters.Add(paramIdSujet);
+
+            SqlParameter paramTexte = cmd.CreateParameter();
+            paramTexte.ParameterName = "@TEXTE_REPONSE";
+            paramTexte.Value = texte;
+            cmd.Parameters.Add(paramTexte);
+
+            conn.Open();
+            int nbLigne = cmd.ExecuteNonQuery();
+            conn.Close();
+
+            return nbLigne;
+        }
     }
 }

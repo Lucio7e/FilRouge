@@ -20,21 +20,20 @@ namespace RogueForumWinForm
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            Utilisateur utilisateur = RogueForumController.Controller.Login(txtBoxUsername.Text, txtBoxPwd.Text);
-            if (utilisateur.Equals(null))
+           frmMain.CurrentUser = RogueForumController.Controller.Login(txtBoxUsername.Text, txtBoxPwd.Text);
+            if (frmMain.CurrentUser != null)
             {
-                frmMain.IsConnected = false;
-                
-                MessageBox.Show("Login ou mot de passe incorrect", "Erreur d'identification", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                frmMain.IsConnected = true;
+                frmMain.IsModo = frmMain.CurrentUser.IsModo;
+                this.Close();
             }
             else
             {
-                frmMain.IsConnected = true;
-                frmMain.IsModo = utilisateur.IsModo;
-                this.Close();
+                 frmMain.IsConnected = false;
+                MessageBox.Show("Login ou mot de passe incorrect", "Erreur d'identification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
-           
+
         }
     }
 }

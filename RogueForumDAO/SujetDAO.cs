@@ -107,6 +107,46 @@ namespace RogueForumDAO
             }
             return null;
         }
+
+        /// <summary>
+        /// Methode qui ajoute un sujet dans la bdd
+        /// </summary>
+        /// <param name="idUtilisateur"></param>
+        /// <param name="idRubrique"></param>
+        /// <param name="titre"></param>
+        /// <param name="description"></param>
+        /// <returns>Renvoie le nombre de ligne (doit renvoyer 1 si tout va bien)</returns>
+        public static int AddSujet(int idUtilisateur, int idRubrique, string titre, string description)
+        {
+            
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "AddSujet";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            SqlParameter paramIdUtilisateur = cmd.CreateParameter();
+            paramIdUtilisateur.ParameterName = "@ID_UTILISATEUR";
+            paramIdUtilisateur.Value = idUtilisateur;
+            cmd.Parameters.Add(paramIdUtilisateur);
+
+            SqlParameter paramIdRubrique = cmd.CreateParameter();
+            paramIdRubrique.ParameterName = "@ID_RUBRIQUE";
+            paramIdRubrique.Value = idRubrique;
+            cmd.Parameters.Add(paramIdRubrique);
+
+            SqlParameter paramTitre = cmd.CreateParameter();
+            paramTitre.ParameterName = "@TITRE_SUJET";
+            paramTitre.Value = titre;
+            cmd.Parameters.Add(paramTitre);
+
+            SqlParameter paramDesc = cmd.CreateParameter();
+            paramDesc.ParameterName = "@DESCRIPTION_SUJET";
+            paramDesc.Value = description;
+            cmd.Parameters.Add(paramDesc);
+            conn.Open();
+           int nbLigne= cmd.ExecuteNonQuery();
+            conn.Close();
+            return nbLigne;
+        }
         #endregion
         #region "Methodes héritées et substituées"
         #endregion

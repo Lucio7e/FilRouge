@@ -97,5 +97,25 @@ namespace RogueForumWinForm
             frmMain.IsModo = false;
             MessageBox.Show("Deconnecté avec succès", "Deconnexion", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void btnAddSujet_Click(object sender, EventArgs e)
+        {
+            using (FrmAddSujet frmAddSujet = new FrmAddSujet())
+            {
+                frmAddSujet.rubrique = (Rubrique)cbBoxCategorie.SelectedItem;
+                frmAddSujet.ShowDialog();
+                cbBoxSujet.DataSource = Controller.GetSujetsByRubriqueID((int)cbBoxCategorie.SelectedValue);
+            }
+        }
+
+        private void btnPostRep_Click(object sender, EventArgs e)
+        {
+            using (frmAddReponse frmAddReponse = new frmAddReponse())
+            {
+                frmAddReponse.sujet = (Sujet)cbBoxSujet.SelectedItem;
+                frmAddReponse.ShowDialog();
+                dataGridViewReponse.DataSource = Controller.GetAllReponsesBySujetID((int)cbBoxSujet.SelectedValue);
+            }
+        }
     }
 }

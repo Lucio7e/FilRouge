@@ -47,9 +47,9 @@
             this.btnDeconnexion = new System.Windows.Forms.Button();
             this.dataGridViewReponse = new System.Windows.Forms.DataGridView();
             this.grpBoxAdmin = new System.Windows.Forms.GroupBox();
-            this.btnSupprSujet = new System.Windows.Forms.Button();
-            this.btnSupprReponse = new System.Windows.Forms.Button();
             this.btnEditSujet = new System.Windows.Forms.Button();
+            this.btnSupprReponse = new System.Windows.Forms.Button();
+            this.btnSupprSujet = new System.Windows.Forms.Button();
             this.tlpanelFrmForum.SuspendLayout();
             this.tableLayPanCategorie.SuspendLayout();
             this.grpBoxCategorie.SuspendLayout();
@@ -168,6 +168,7 @@
             this.btnPostRep.TabIndex = 3;
             this.btnPostRep.Text = "Poster une réponse";
             this.btnPostRep.UseVisualStyleBackColor = true;
+            this.btnPostRep.Click += new System.EventHandler(this.btnPostRep_Click);
             // 
             // btnAddSujet
             // 
@@ -178,6 +179,7 @@
             this.btnAddSujet.TabIndex = 2;
             this.btnAddSujet.Text = "Ajouter un sujet";
             this.btnAddSujet.UseVisualStyleBackColor = true;
+            this.btnAddSujet.Click += new System.EventHandler(this.btnAddSujet_Click);
             // 
             // grpBoxSujet
             // 
@@ -281,14 +283,14 @@
             this.grpBoxAdmin.TabStop = false;
             this.grpBoxAdmin.Text = "Administration du forum";
             // 
-            // btnSupprSujet
+            // btnEditSujet
             // 
-            this.btnSupprSujet.Location = new System.Drawing.Point(60, 82);
-            this.btnSupprSujet.Name = "btnSupprSujet";
-            this.btnSupprSujet.Size = new System.Drawing.Size(75, 41);
-            this.btnSupprSujet.TabIndex = 0;
-            this.btnSupprSujet.Text = "Supprimer le sujet";
-            this.btnSupprSujet.UseVisualStyleBackColor = true;
+            this.btnEditSujet.Location = new System.Drawing.Point(60, 35);
+            this.btnEditSujet.Name = "btnEditSujet";
+            this.btnEditSujet.Size = new System.Drawing.Size(75, 41);
+            this.btnEditSujet.TabIndex = 2;
+            this.btnEditSujet.Text = "Modifier le sujet";
+            this.btnEditSujet.UseVisualStyleBackColor = true;
             // 
             // btnSupprReponse
             // 
@@ -299,14 +301,14 @@
             this.btnSupprReponse.Text = "Supprimer la réponse";
             this.btnSupprReponse.UseVisualStyleBackColor = true;
             // 
-            // btnEditSujet
+            // btnSupprSujet
             // 
-            this.btnEditSujet.Location = new System.Drawing.Point(60, 35);
-            this.btnEditSujet.Name = "btnEditSujet";
-            this.btnEditSujet.Size = new System.Drawing.Size(75, 41);
-            this.btnEditSujet.TabIndex = 2;
-            this.btnEditSujet.Text = "Modifier le sujet";
-            this.btnEditSujet.UseVisualStyleBackColor = true;
+            this.btnSupprSujet.Location = new System.Drawing.Point(60, 82);
+            this.btnSupprSujet.Name = "btnSupprSujet";
+            this.btnSupprSujet.Size = new System.Drawing.Size(75, 41);
+            this.btnSupprSujet.TabIndex = 0;
+            this.btnSupprSujet.Text = "Supprimer le sujet";
+            this.btnSupprSujet.UseVisualStyleBackColor = true;
             // 
             // FrmForum
             // 

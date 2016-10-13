@@ -40,7 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Moderateur.cs" />
     <Compile Include="Reponse.cs" />
     <Compile Include="Rubrique.cs" />
     <Compile Include="Sujet.cs" />

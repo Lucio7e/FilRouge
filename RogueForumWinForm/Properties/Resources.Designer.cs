@@ -121,6 +121,24 @@ namespace RogueForumWinForm.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Vous allez quitter ce formulaire et les modifications ne seront pas enregistrées êtes vous sur de vouloir quitter?.
+        /// </summary>
+        internal static string MsgBoxCancelText {
+            get {
+                return ResourceManager.GetString("MsgBoxCancelText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Annuler ?.
+        /// </summary>
+        internal static string MsgBoxCancelTitre {
+            get {
+                return ResourceManager.GetString("MsgBoxCancelTitre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Quitter_32x32 {
