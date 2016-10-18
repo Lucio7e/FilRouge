@@ -22,6 +22,7 @@ namespace RogueForumWinForm
             InitializeComponent();
         }
 
+        #region Click event
         private void picBoxHome_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -34,68 +35,6 @@ namespace RogueForumWinForm
                 frmLogin.ShowDialog();
             }
         }
-
-        private void FrmForum_Load(object sender, EventArgs e)
-        {
-            cbBoxCategorie.ValueMember = "Id";
-            cbBoxCategorie.DisplayMember = "Libelle";
-
-            cbBoxSujet.ValueMember = "Id";
-            cbBoxSujet.DisplayMember = "Titre";
-
-            cbBoxCategorie.DataSource = Controller.GetAllRubriques();
-            cbBoxSujet.DataSource = Controller.GetSujetsByRubriqueID((int)cbBoxCategorie.SelectedValue);
-        }
-
-        private void cbBoxCategorie_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (Controller.GetSujetsByRubriqueID((int)cbBoxCategorie.SelectedValue) != null)
-            {
-               
-                cbBoxSujet.DataSource = Controller.GetSujetsByRubriqueID((int)cbBoxCategorie.SelectedValue);
-            }else
-            {
-                Sujet s = new Sujet(0, "Pas de sujet");
-                List<Sujet> ss = new List<Sujet>();
-                ss.Add(s);
-                cbBoxSujet.DataSource = ss;
-                                
-            }
-            
-        }
-
-        private void cbBoxSujet_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            List<Reponse> reponses = new List<Reponse>();
-           
-            if (Controller.GetAllReponsesBySujetID((int)cbBoxSujet.SelectedValue)!= null)
-            {
-                dataGridViewReponse.Visible = true;
-                lblNoReponse.Visible = !dataGridViewReponse.Visible;
-
-                reponses = Controller.GetAllReponsesBySujetID((int)cbBoxSujet.SelectedValue);
-                dataGridViewReponse.DataSource = reponses;
-                dataGridViewReponse.Columns["ID"].Visible = false;
-                dataGridViewReponse.Columns["SUJET"].Visible = false;
-                dataGridViewReponse.Columns["UTILISATEUR"].Visible = false;
-
-            }
-            else
-            {
-                dataGridViewReponse.Visible = false;
-                lblNoReponse.Visible = !dataGridViewReponse.Visible;
-            }
-        }
-
-        private void FrmForum_Activated(object sender, EventArgs e)
-        {
-            panelAddSujet.Visible = frmMain.IsConnected;
-            btnChangerMDP.Visible = frmMain.IsConnected;
-            btnDeconnexion.Visible = frmMain.IsConnected;
-            grpBoxAdmin.Visible = frmMain.IsModo;
-            btnIdent.Visible = !frmMain.IsConnected;
-        }
-
         private void btnDeconnexion_Click(object sender, EventArgs e)
         {
             frmMain.IsConnected = false;
@@ -108,9 +47,9 @@ namespace RogueForumWinForm
             using (FrmAddSujet frmAddSujet = new FrmAddSujet())
             {
                 frmAddSujet.rubrique = (Rubrique)cbBoxCategorie.SelectedItem;
-                frmAddSujet.Text = string.Format("Ajouter un sujet dans la rubrique {0}",frmAddSujet.rubrique.Libelle);
+                frmAddSujet.Text = string.Format("Ajouter un sujet dans la rubrique {0}", frmAddSujet.rubrique.Libelle);
                 frmAddSujet.ShowDialog();
-                cbBoxSujet.DataSource = Controller.GetSujetsByRubriqueID((int)cbBoxCategorie.SelectedValue);
+                fillComboBoxSujet(Controller.GetSujetsByRubriqueID((int)cbBoxCategorie.SelectedValue));
             }
         }
 
@@ -119,39 +58,221 @@ namespace RogueForumWinForm
             using (frmAddReponse frmAddReponse = new frmAddReponse())
             {
                 frmAddReponse.sujet = (Sujet)cbBoxSujet.SelectedItem;
-                frmAddReponse.Text = string.Format("Poster une réponse au sujet {0}", frmAddReponse.sujet.Titre); 
+                frmAddReponse.Text = string.Format("Poster une réponse au sujet {0}", frmAddReponse.sujet.Titre);
                 frmAddReponse.ShowDialog();
-                dataGridViewReponse.DataSource = Controller.GetAllReponsesBySujetID((int)cbBoxSujet.SelectedValue);
+               fillDataGridReponses(Controller.GetAllReponsesBySujetID((int)cbBoxSujet.SelectedValue));
             }
         }
 
         private void btnSupprSujet_Click(object sender, EventArgs e)
         {
             DialogResult dr = new DialogResult();
-            dr =MessageBox.Show(Properties.Resources.MsgBoxSupprSujetText, Properties.Resources.MsgBoxSupprSujetTitre, MessageBoxButtons.OKCancel,MessageBoxIcon.Exclamation);
-            if(dr == DialogResult.OK)
+            dr = MessageBox.Show(Properties.Resources.MsgBoxSupprSujetText, Properties.Resources.MsgBoxSupprSujetTitre, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+            if (dr == DialogResult.OK)
             {
-               if( Controller.DeleteSujet((int)cbBoxSujet.SelectedValue) != 1)
+                if (Controller.DeleteSujet((int)cbBoxSujet.SelectedValue) != 1)
                 {
                     MessageBox.Show(Properties.Resources.MsgBoxErreurSupprSujetText, Properties.Resources.MsgBoxErreurSupprSujetTitre);
                 }
-                cbBoxSujet.DataSource = Controller.GetSujetsByRubriqueID((int)cbBoxCategorie.SelectedValue);
+                List<Sujet> sujets = Controller.GetSujetsByRubriqueID((int)cbBoxCategorie.SelectedValue);
+                if (sujets != null)
+                {
+                    fillComboBoxSujet(sujets);
+                }
+            }
+            if (visibiliteSujets())
+            {
+                turnPanelSujetVisible();
+            }
+            else
+            {
+                turnPanelSujetInvisible();
             }
         }
 
         private void btnSupprReponse_Click(object sender, EventArgs e)
         {
             DialogResult dr = new DialogResult();
-            dr = MessageBox.Show(Properties.Resources.MsgBoxSupprSujetText, Properties.Resources.MsgBoxSupprSujetTitre, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+            dr = MessageBox.Show(Properties.Resources.MsgBoxSupprReponseText, Properties.Resources.MsgBoxSupprReponseTitre, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
             if (dr == DialogResult.OK)
             {
                 if (Controller.DeleteReponseByReponseID((int)dataGridViewReponse.CurrentRow.Cells["ID"].Value) != 1)
                 {
-                    MessageBox.Show(Properties.Resources.MsgBoxErreurSupprSujetText, Properties.Resources.MsgBoxErreurSupprSujetTitre);
+                    MessageBox.Show(Properties.Resources.MsgBoxSupprReponseText, Properties.Resources.MsgBoxSupprReponseTitre);
                 }
-                dataGridViewReponse.DataSource = Controller.GetAllReponsesBySujetID((int)cbBoxSujet.SelectedValue);
+                List<Reponse> reponses = Controller.GetAllReponsesBySujetID((int)cbBoxSujet.SelectedValue);
+                if (reponses != null)
+                {
+                    fillDataGridReponses(reponses);
+                }
+            }
+            if (visibiliteReponses())
+            {
+                turnPanelReponseVisible();
+            }
+            else { turnPanelReponseInvisible(); }
+        }
+        #endregion
 
+        #region FormLoad & FormActivate
+        private void FrmForum_Load(object sender, EventArgs e)
+        {
+            fillComboboxCategorie(Controller.GetAllRubriques());
+            fillComboBoxSujet( Controller.GetSujetsByRubriqueID((int)cbBoxCategorie.SelectedValue));
+        }
+
+        private void FrmForum_Activated(object sender, EventArgs e)
+        {
+            panelAddSujet.Visible = frmMain.IsConnected;
+            btnChangerMDP.Visible = frmMain.IsConnected;
+            btnDeconnexion.Visible = frmMain.IsConnected;
+            grpBoxAdmin.Visible = frmMain.IsModo;
+            btnIdent.Visible = !frmMain.IsConnected;
+            
+        }
+        #endregion
+
+        #region IndexChange event
+        private void cbBoxCategorie_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<Sujet> sujets = Controller.GetSujetsByRubriqueID((int)cbBoxCategorie.SelectedValue);
+            if ( sujets != null)
+            {
+                turnPanelSujetVisible();
+                fillComboBoxSujet(sujets);
+            }
+            else
+            {
+                turnPanelSujetInvisible();
             }
         }
+
+        private void cbBoxSujet_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (visibiliteSujets())
+            {
+                turnPanelSujetVisible();
+                Sujet sujet = (Sujet)cbBoxSujet.SelectedItem;
+                txtBoxDescSujet.Text = sujet.Desc;
+                if (visibiliteReponses())
+                {
+                    turnPanelReponseVisible();
+                    List<Reponse> reponses = Controller.GetAllReponsesBySujetID((int)cbBoxSujet.SelectedValue);
+                    if (reponses != null)
+                    {
+                        fillDataGridReponses(reponses);
+                    }
+
+                }
+                else
+                {
+                    turnPanelReponseInvisible();
+                }
+            }
+            else
+            {
+                turnPanelSujetInvisible();
+            }
+            
+            
+        }
+
+        private void dataGridViewReponse_SelectionChanged(object sender, EventArgs e)
+        {
+            if (visibiliteReponses())
+            {
+                turnPanelReponseVisible();
+            }
+            else
+            {
+                turnPanelReponseInvisible();
+            }
+        }
+        #endregion
+
+        #region Methodes de visibilite
+        private bool visibiliteReponses()
+        {
+            if(cbBoxSujet.SelectedIndex != -1) {
+                if (Controller.GetAllReponsesBySujetID((int)cbBoxSujet.SelectedValue) != null)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private void turnPanelReponseVisible()
+        {
+            dataGridViewReponse.Visible = true;
+            lblNoReponse.Visible = false;
+            btnSupprReponse.Enabled = true;           
+        }
+
+        private void turnPanelReponseInvisible()
+        {
+            dataGridViewReponse.Visible = false;
+            lblNoReponse.Visible = true;
+            btnSupprReponse.Enabled = false;
+            
+        }
+
+        private bool visibiliteSujets()
+        {
+            if(cbBoxCategorie.SelectedIndex != -1)
+            {
+                if (Controller.GetSujetsByRubriqueID((int)cbBoxCategorie.SelectedValue) != null)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        private void turnPanelSujetVisible()
+        {
+            btnSupprSujet.Enabled = true;
+            btnEditSujet.Enabled = true;
+            cbBoxSujet.Visible = true;
+            lblNoSujet.Visible = false;
+            grpBoxDescSujet.Visible = true;
+        }
+
+        private void turnPanelSujetInvisible()
+        {
+            btnSupprSujet.Enabled = false;
+            btnEditSujet.Enabled = false;
+            cbBoxSujet.Visible = false;
+            lblNoSujet.Visible = true;
+            grpBoxDescSujet.Visible = false;
+            turnPanelReponseInvisible();
+        }
+        #endregion
+
+        #region Fill ComboBox et Datagrid
+        private void fillComboBoxSujet(List<Sujet> sujets)
+        {
+            cbBoxSujet.ValueMember = "Id";
+            cbBoxSujet.DisplayMember = "Titre";
+            cbBoxSujet.DataSource = sujets;
+            Sujet sujet = (Sujet)cbBoxSujet.SelectedItem;
+            txtBoxDescSujet.Text = sujet.Desc;
+        }
+
+        private void fillComboboxCategorie(List<Rubrique> rubriques)
+        {
+            cbBoxCategorie.ValueMember = "Id";
+            cbBoxCategorie.DisplayMember = "Libelle";
+            cbBoxCategorie.DataSource = rubriques;
+        }
+
+        private void fillDataGridReponses(List<Reponse> reponses)
+        {
+            dataGridViewReponse.DataSource = reponses;
+            dataGridViewReponse.Columns["ID"].Visible = false;
+            dataGridViewReponse.Columns["SUJET"].Visible = false;
+            dataGridViewReponse.Columns["UTILISATEUR"].Visible = false;
+        }
+        #endregion
+
     }
 }

@@ -157,6 +157,24 @@ namespace RogueForumWinForm.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Impossible de supprimer la réponse.
+        /// </summary>
+        internal static string MsgBoxErreurSupprReponseText {
+            get {
+                return ResourceManager.GetString("MsgBoxErreurSupprReponseText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Erreur.
+        /// </summary>
+        internal static string MsgBoxErreurSupprReponseTitre {
+            get {
+                return ResourceManager.GetString("MsgBoxErreurSupprReponseTitre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Impossible de supprimer le sujet.
         /// </summary>
         internal static string MsgBoxErreurSupprSujetText {
@@ -175,6 +193,24 @@ namespace RogueForumWinForm.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Etes vous sur de vouloir supprimer la réponse.
+        /// </summary>
+        internal static string MsgBoxSupprReponseText {
+            get {
+                return ResourceManager.GetString("MsgBoxSupprReponseText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Suppression de la réponse.
+        /// </summary>
+        internal static string MsgBoxSupprReponseTitre {
+            get {
+                return ResourceManager.GetString("MsgBoxSupprReponseTitre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Etes vous sur de vouloir supprimer le sujet.
         /// </summary>
         internal static string MsgBoxSupprSujetText {
@@ -184,7 +220,7 @@ namespace RogueForumWinForm.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Suppression.
+        ///   Recherche une chaîne localisée semblable à Suppression du sujet.
         /// </summary>
         internal static string MsgBoxSupprSujetTitre {
             get {

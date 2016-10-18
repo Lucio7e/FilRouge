@@ -163,16 +163,28 @@
   <data name="MsgBoxDeconnexionTitre" xml:space="preserve">
     <value>Déconnexion</value>
   </data>
+  <data name="MsgBoxErreurSupprReponseText" xml:space="preserve">
+    <value>Impossible de supprimer la réponse</value>
+  </data>
+  <data name="MsgBoxErreurSupprReponseTitre" xml:space="preserve">
+    <value>Erreur</value>
+  </data>
   <data name="MsgBoxErreurSupprSujetText" xml:space="preserve">
     <value>Impossible de supprimer le sujet</value>
   </data>
   <data name="MsgBoxErreurSupprSujetTitre" xml:space="preserve">
     <value>Erreur</value>
   </data>
+  <data name="MsgBoxSupprReponseText" xml:space="preserve">
+    <value>Etes vous sur de vouloir supprimer la réponse</value>
+  </data>
+  <data name="MsgBoxSupprReponseTitre" xml:space="preserve">
+    <value>Suppression de la réponse</value>
+  </data>
   <data name="MsgBoxSupprSujetText" xml:space="preserve">
     <value>Etes vous sur de vouloir supprimer le sujet</value>
   </data>
   <data name="MsgBoxSupprSujetTitre" xml:space="preserve">
-    <value>Suppression</value>
+    <value>Suppression du sujet</value>
   </data>
 </root>

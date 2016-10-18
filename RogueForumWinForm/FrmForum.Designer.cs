@@ -39,18 +39,21 @@
             this.btnPostRep = new System.Windows.Forms.Button();
             this.btnAddSujet = new System.Windows.Forms.Button();
             this.grpBoxSujet = new System.Windows.Forms.GroupBox();
+            this.lblNoSujet = new System.Windows.Forms.Label();
             this.cbBoxSujet = new System.Windows.Forms.ComboBox();
             this.picBoxHome = new System.Windows.Forms.PictureBox();
             this.flowLayPanIdent = new System.Windows.Forms.FlowLayoutPanel();
             this.btnIdent = new System.Windows.Forms.Button();
             this.btnChangerMDP = new System.Windows.Forms.Button();
             this.btnDeconnexion = new System.Windows.Forms.Button();
+            this.dataGridViewReponse = new System.Windows.Forms.DataGridView();
             this.grpBoxAdmin = new System.Windows.Forms.GroupBox();
             this.btnEditSujet = new System.Windows.Forms.Button();
             this.btnSupprReponse = new System.Windows.Forms.Button();
             this.btnSupprSujet = new System.Windows.Forms.Button();
-            this.dataGridViewReponse = new System.Windows.Forms.DataGridView();
             this.lblNoReponse = new System.Windows.Forms.Label();
+            this.grpBoxDescSujet = new System.Windows.Forms.GroupBox();
+            this.txtBoxDescSujet = new System.Windows.Forms.TextBox();
             this.tlpanelFrmForum.SuspendLayout();
             this.tableLayPanCategorie.SuspendLayout();
             this.grpBoxCategorie.SuspendLayout();
@@ -60,8 +63,9 @@
             this.grpBoxSujet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxHome)).BeginInit();
             this.flowLayPanIdent.SuspendLayout();
-            this.grpBoxAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReponse)).BeginInit();
+            this.grpBoxAdmin.SuspendLayout();
+            this.grpBoxDescSujet.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpanelFrmForum
@@ -187,6 +191,8 @@
             // 
             // grpBoxSujet
             // 
+            this.grpBoxSujet.Controls.Add(this.grpBoxDescSujet);
+            this.grpBoxSujet.Controls.Add(this.lblNoSujet);
             this.grpBoxSujet.Controls.Add(this.cbBoxSujet);
             this.grpBoxSujet.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpBoxSujet.Location = new System.Drawing.Point(3, 3);
@@ -196,14 +202,24 @@
             this.grpBoxSujet.TabStop = false;
             this.grpBoxSujet.Text = "Sujets : ";
             // 
+            // lblNoSujet
+            // 
+            this.lblNoSujet.AutoSize = true;
+            this.lblNoSujet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNoSujet.Location = new System.Drawing.Point(6, 42);
+            this.lblNoSujet.Name = "lblNoSujet";
+            this.lblNoSujet.Size = new System.Drawing.Size(292, 20);
+            this.lblNoSujet.TabIndex = 2;
+            this.lblNoSujet.Text = "Il n\'y pas de sujets dans la rubrique";
+            this.lblNoSujet.Visible = false;
+            // 
             // cbBoxSujet
             // 
-            this.cbBoxSujet.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbBoxSujet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBoxSujet.FormattingEnabled = true;
-            this.cbBoxSujet.Location = new System.Drawing.Point(3, 16);
+            this.cbBoxSujet.Location = new System.Drawing.Point(9, 19);
             this.cbBoxSujet.Name = "cbBoxSujet";
-            this.cbBoxSujet.Size = new System.Drawing.Size(395, 21);
+            this.cbBoxSujet.Size = new System.Drawing.Size(108, 21);
             this.cbBoxSujet.TabIndex = 1;
             this.cbBoxSujet.SelectedIndexChanged += new System.EventHandler(this.cbBoxSujet_SelectedIndexChanged);
             // 
@@ -259,6 +275,23 @@
             this.btnDeconnexion.UseVisualStyleBackColor = true;
             this.btnDeconnexion.Click += new System.EventHandler(this.btnDeconnexion_Click);
             // 
+            // dataGridViewReponse
+            // 
+            this.dataGridViewReponse.AllowUserToAddRows = false;
+            this.dataGridViewReponse.AllowUserToDeleteRows = false;
+            this.dataGridViewReponse.AllowUserToResizeColumns = false;
+            this.dataGridViewReponse.AllowUserToResizeRows = false;
+            this.dataGridViewReponse.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewReponse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewReponse.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewReponse.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dataGridViewReponse.Location = new System.Drawing.Point(229, 137);
+            this.dataGridViewReponse.Name = "dataGridViewReponse";
+            this.dataGridViewReponse.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewReponse.Size = new System.Drawing.Size(814, 421);
+            this.dataGridViewReponse.TabIndex = 5;
+            this.dataGridViewReponse.SelectionChanged += new System.EventHandler(this.dataGridViewReponse_SelectionChanged);
+            // 
             // grpBoxAdmin
             // 
             this.grpBoxAdmin.Controls.Add(this.btnEditSujet);
@@ -300,22 +333,6 @@
             this.btnSupprSujet.UseVisualStyleBackColor = true;
             this.btnSupprSujet.Click += new System.EventHandler(this.btnSupprSujet_Click);
             // 
-            // dataGridViewReponse
-            // 
-            this.dataGridViewReponse.AllowUserToAddRows = false;
-            this.dataGridViewReponse.AllowUserToDeleteRows = false;
-            this.dataGridViewReponse.AllowUserToResizeColumns = false;
-            this.dataGridViewReponse.AllowUserToResizeRows = false;
-            this.dataGridViewReponse.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewReponse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewReponse.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewReponse.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridViewReponse.Location = new System.Drawing.Point(229, 137);
-            this.dataGridViewReponse.Name = "dataGridViewReponse";
-            this.dataGridViewReponse.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewReponse.Size = new System.Drawing.Size(814, 421);
-            this.dataGridViewReponse.TabIndex = 5;
-            // 
             // lblNoReponse
             // 
             this.lblNoReponse.AutoSize = true;
@@ -326,6 +343,26 @@
             this.lblNoReponse.Size = new System.Drawing.Size(814, 20);
             this.lblNoReponse.TabIndex = 8;
             this.lblNoReponse.Text = "Il n\'y a pas de réponses pour le sujet";
+            // 
+            // grpBoxDescSujet
+            // 
+            this.grpBoxDescSujet.Controls.Add(this.txtBoxDescSujet);
+            this.grpBoxDescSujet.Location = new System.Drawing.Point(123, 0);
+            this.grpBoxDescSujet.Name = "grpBoxDescSujet";
+            this.grpBoxDescSujet.Size = new System.Drawing.Size(278, 94);
+            this.grpBoxDescSujet.TabIndex = 3;
+            this.grpBoxDescSujet.TabStop = false;
+            this.grpBoxDescSujet.Text = "Description du sujet : ";
+            // 
+            // txtBoxDescSujet
+            // 
+            this.txtBoxDescSujet.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtBoxDescSujet.Enabled = false;
+            this.txtBoxDescSujet.Location = new System.Drawing.Point(3, 16);
+            this.txtBoxDescSujet.Multiline = true;
+            this.txtBoxDescSujet.Name = "txtBoxDescSujet";
+            this.txtBoxDescSujet.Size = new System.Drawing.Size(272, 75);
+            this.txtBoxDescSujet.TabIndex = 0;
             // 
             // FrmForum
             // 
@@ -349,10 +386,13 @@
             this.grpBoxUtilisateur.ResumeLayout(false);
             this.grpBoxUtilisateur.PerformLayout();
             this.grpBoxSujet.ResumeLayout(false);
+            this.grpBoxSujet.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxHome)).EndInit();
             this.flowLayPanIdent.ResumeLayout(false);
-            this.grpBoxAdmin.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReponse)).EndInit();
+            this.grpBoxAdmin.ResumeLayout(false);
+            this.grpBoxDescSujet.ResumeLayout(false);
+            this.grpBoxDescSujet.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -381,5 +421,8 @@
         private System.Windows.Forms.Button btnEditSujet;
         private System.Windows.Forms.DataGridView dataGridViewReponse;
         private System.Windows.Forms.Label lblNoReponse;
+        private System.Windows.Forms.Label lblNoSujet;
+        private System.Windows.Forms.GroupBox grpBoxDescSujet;
+        private System.Windows.Forms.TextBox txtBoxDescSujet;
     }
 }
