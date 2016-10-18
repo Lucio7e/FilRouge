@@ -141,7 +141,7 @@
             this.ClientSize = new System.Drawing.Size(384, 361);
             this.Controls.Add(this.tabLayPanAddSujet);
             this.Name = "FrmAddSujet";
-            this.Text = "Ajouter un sujet";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.tabLayPanAddSujet.ResumeLayout(false);
             this.grpBoxTitreSujet.ResumeLayout(false);
             this.grpBoxTitreSujet.PerformLayout();

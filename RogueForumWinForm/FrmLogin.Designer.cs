@@ -60,11 +60,11 @@
             this.tabLayPanLogin.Margin = new System.Windows.Forms.Padding(4);
             this.tabLayPanLogin.Name = "tabLayPanLogin";
             this.tabLayPanLogin.RowCount = 4;
-            this.tabLayPanLogin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.41176F));
-            this.tabLayPanLogin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.29412F));
-            this.tabLayPanLogin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.29412F));
+            this.tabLayPanLogin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tabLayPanLogin.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tabLayPanLogin.Size = new System.Drawing.Size(501, 629);
+            this.tabLayPanLogin.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tabLayPanLogin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tabLayPanLogin.Size = new System.Drawing.Size(434, 361);
             this.tabLayPanLogin.TabIndex = 0;
             // 
             // tabLayPanUsername
@@ -73,12 +73,12 @@
             this.tabLayPanUsername.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tabLayPanUsername.Controls.Add(this.grpBoxUsername, 0, 0);
             this.tabLayPanUsername.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabLayPanUsername.Location = new System.Drawing.Point(4, 61);
+            this.tabLayPanUsername.Location = new System.Drawing.Point(4, 24);
             this.tabLayPanUsername.Margin = new System.Windows.Forms.Padding(4);
             this.tabLayPanUsername.Name = "tabLayPanUsername";
             this.tabLayPanUsername.RowCount = 1;
             this.tabLayPanUsername.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tabLayPanUsername.Size = new System.Drawing.Size(493, 60);
+            this.tabLayPanUsername.Size = new System.Drawing.Size(426, 60);
             this.tabLayPanUsername.TabIndex = 0;
             // 
             // grpBoxUsername
@@ -88,7 +88,7 @@
             this.grpBoxUsername.Margin = new System.Windows.Forms.Padding(110, 4, 110, 4);
             this.grpBoxUsername.Name = "grpBoxUsername";
             this.grpBoxUsername.Padding = new System.Windows.Forms.Padding(4);
-            this.grpBoxUsername.Size = new System.Drawing.Size(273, 52);
+            this.grpBoxUsername.Size = new System.Drawing.Size(206, 52);
             this.grpBoxUsername.TabIndex = 0;
             this.grpBoxUsername.TabStop = false;
             this.grpBoxUsername.Text = "Nom d\'utilisateur :";
@@ -100,7 +100,7 @@
             this.txtBoxUsername.Location = new System.Drawing.Point(4, 22);
             this.txtBoxUsername.Margin = new System.Windows.Forms.Padding(4);
             this.txtBoxUsername.Name = "txtBoxUsername";
-            this.txtBoxUsername.Size = new System.Drawing.Size(265, 24);
+            this.txtBoxUsername.Size = new System.Drawing.Size(198, 24);
             this.txtBoxUsername.TabIndex = 4;
             // 
             // tabLayPanPwd
@@ -109,12 +109,12 @@
             this.tabLayPanPwd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tabLayPanPwd.Controls.Add(this.grpBoxMDP, 0, 0);
             this.tabLayPanPwd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabLayPanPwd.Location = new System.Drawing.Point(4, 129);
+            this.tabLayPanPwd.Location = new System.Drawing.Point(4, 92);
             this.tabLayPanPwd.Margin = new System.Windows.Forms.Padding(4);
             this.tabLayPanPwd.Name = "tabLayPanPwd";
             this.tabLayPanPwd.RowCount = 1;
             this.tabLayPanPwd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tabLayPanPwd.Size = new System.Drawing.Size(493, 60);
+            this.tabLayPanPwd.Size = new System.Drawing.Size(426, 60);
             this.tabLayPanPwd.TabIndex = 1;
             // 
             // grpBoxMDP
@@ -126,7 +126,7 @@
             this.grpBoxMDP.Margin = new System.Windows.Forms.Padding(110, 4, 110, 4);
             this.grpBoxMDP.Name = "grpBoxMDP";
             this.grpBoxMDP.Padding = new System.Windows.Forms.Padding(4);
-            this.grpBoxMDP.Size = new System.Drawing.Size(273, 52);
+            this.grpBoxMDP.Size = new System.Drawing.Size(206, 52);
             this.grpBoxMDP.TabIndex = 0;
             this.grpBoxMDP.TabStop = false;
             this.grpBoxMDP.Text = "Mot de passe : ";
@@ -137,7 +137,7 @@
             this.txtBoxPwd.Location = new System.Drawing.Point(4, 21);
             this.txtBoxPwd.Margin = new System.Windows.Forms.Padding(4);
             this.txtBoxPwd.Name = "txtBoxPwd";
-            this.txtBoxPwd.Size = new System.Drawing.Size(265, 24);
+            this.txtBoxPwd.Size = new System.Drawing.Size(198, 24);
             this.txtBoxPwd.TabIndex = 5;
             this.txtBoxPwd.UseSystemPasswordChar = true;
             // 
@@ -149,19 +149,18 @@
             this.tabLayPanConn.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tabLayPanConn.Controls.Add(this.panel1, 1, 0);
             this.tabLayPanConn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabLayPanConn.Location = new System.Drawing.Point(4, 197);
+            this.tabLayPanConn.Location = new System.Drawing.Point(4, 160);
             this.tabLayPanConn.Margin = new System.Windows.Forms.Padding(4);
             this.tabLayPanConn.Name = "tabLayPanConn";
-            this.tabLayPanConn.RowCount = 2;
-            this.tabLayPanConn.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tabLayPanConn.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 340F));
-            this.tabLayPanConn.Size = new System.Drawing.Size(493, 428);
+            this.tabLayPanConn.RowCount = 1;
+            this.tabLayPanConn.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tabLayPanConn.Size = new System.Drawing.Size(426, 197);
             this.tabLayPanConn.TabIndex = 2;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.btnConnect);
-            this.panel1.Location = new System.Drawing.Point(146, 3);
+            this.panel1.Location = new System.Drawing.Point(113, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 82);
             this.panel1.TabIndex = 3;
@@ -184,7 +183,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(501, 629);
+            this.ClientSize = new System.Drawing.Size(434, 361);
             this.Controls.Add(this.tabLayPanLogin);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;

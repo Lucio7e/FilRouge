@@ -63,9 +63,9 @@ namespace RogueForumWinForm.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ajouter_32x32__blue {
+        internal static System.Drawing.Bitmap ajouter_32x32_blue {
             get {
-                object obj = ResourceManager.GetObject("ajouter 32x32  blue", resourceCulture);
+                object obj = ResourceManager.GetObject("ajouter_32x32_blue", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -75,7 +75,7 @@ namespace RogueForumWinForm.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Cancel_button_blue {
             get {
-                object obj = ResourceManager.GetObject("Cancel button blue", resourceCulture);
+                object obj = ResourceManager.GetObject("Cancel_button_blue", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -85,7 +85,7 @@ namespace RogueForumWinForm.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap edit_32x32_blue {
             get {
-                object obj = ResourceManager.GetObject("edit 32x32 blue", resourceCulture);
+                object obj = ResourceManager.GetObject("edit_32x32_blue", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -105,7 +105,7 @@ namespace RogueForumWinForm.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap forum_button {
             get {
-                object obj = ResourceManager.GetObject("forum-button", resourceCulture);
+                object obj = ResourceManager.GetObject("forum_button", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -115,7 +115,7 @@ namespace RogueForumWinForm.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap forum_button1 {
             get {
-                object obj = ResourceManager.GetObject("forum-button1", resourceCulture);
+                object obj = ResourceManager.GetObject("forum_button1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -139,11 +139,65 @@ namespace RogueForumWinForm.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Déconnecté avec succès.
+        /// </summary>
+        internal static string MsgBoxDeconnexionText {
+            get {
+                return ResourceManager.GetString("MsgBoxDeconnexionText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Déconnexion.
+        /// </summary>
+        internal static string MsgBoxDeconnexionTitre {
+            get {
+                return ResourceManager.GetString("MsgBoxDeconnexionTitre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Impossible de supprimer le sujet.
+        /// </summary>
+        internal static string MsgBoxErreurSupprSujetText {
+            get {
+                return ResourceManager.GetString("MsgBoxErreurSupprSujetText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Erreur.
+        /// </summary>
+        internal static string MsgBoxErreurSupprSujetTitre {
+            get {
+                return ResourceManager.GetString("MsgBoxErreurSupprSujetTitre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Etes vous sur de vouloir supprimer le sujet.
+        /// </summary>
+        internal static string MsgBoxSupprSujetText {
+            get {
+                return ResourceManager.GetString("MsgBoxSupprSujetText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Suppression.
+        /// </summary>
+        internal static string MsgBoxSupprSujetTitre {
+            get {
+                return ResourceManager.GetString("MsgBoxSupprSujetTitre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Quitter_32x32 {
             get {
-                object obj = ResourceManager.GetObject("Quitter 32x32", resourceCulture);
+                object obj = ResourceManager.GetObject("Quitter_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,7 +227,7 @@ namespace RogueForumWinForm.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap suppr_32x32_blue {
             get {
-                object obj = ResourceManager.GetObject("suppr 32x32 blue", resourceCulture);
+                object obj = ResourceManager.GetObject("suppr_32x32_blue", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,7 +237,7 @@ namespace RogueForumWinForm.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap valid_32x32_blue {
             get {
-                object obj = ResourceManager.GetObject("valid 32x32 blue", resourceCulture);
+                object obj = ResourceManager.GetObject("valid_32x32_blue", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

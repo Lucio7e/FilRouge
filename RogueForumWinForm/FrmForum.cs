@@ -67,19 +67,24 @@ namespace RogueForumWinForm
         private void cbBoxSujet_SelectedIndexChanged(object sender, EventArgs e)
         {
             List<Reponse> reponses = new List<Reponse>();
-            //Todo Rajouter ELSE
+           
             if (Controller.GetAllReponsesBySujetID((int)cbBoxSujet.SelectedValue)!= null)
             {
+                dataGridViewReponse.Visible = true;
+                lblNoReponse.Visible = !dataGridViewReponse.Visible;
+
                 reponses = Controller.GetAllReponsesBySujetID((int)cbBoxSujet.SelectedValue);
-                
-            }else
-            {
-                reponses.Add(new Reponse(0, "Pas de réponses"));
+                dataGridViewReponse.DataSource = reponses;
+                dataGridViewReponse.Columns["ID"].Visible = false;
+                dataGridViewReponse.Columns["SUJET"].Visible = false;
+                dataGridViewReponse.Columns["UTILISATEUR"].Visible = false;
+
             }
-            dataGridViewReponse.DataSource = reponses;
-            dataGridViewReponse.Columns.Remove("ID");
-            dataGridViewReponse.Columns.Remove("SUJET");
-            dataGridViewReponse.Columns.Remove("UTILISATEUR");
+            else
+            {
+                dataGridViewReponse.Visible = false;
+                lblNoReponse.Visible = !dataGridViewReponse.Visible;
+            }
         }
 
         private void FrmForum_Activated(object sender, EventArgs e)
@@ -95,7 +100,7 @@ namespace RogueForumWinForm
         {
             frmMain.IsConnected = false;
             frmMain.IsModo = false;
-            MessageBox.Show("Deconnecté avec succès", "Deconnexion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(Properties.Resources.MsgBoxDeconnexionText, Properties.Resources.MsgBoxDeconnexionTitre, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnAddSujet_Click(object sender, EventArgs e)
@@ -103,6 +108,7 @@ namespace RogueForumWinForm
             using (FrmAddSujet frmAddSujet = new FrmAddSujet())
             {
                 frmAddSujet.rubrique = (Rubrique)cbBoxCategorie.SelectedItem;
+                frmAddSujet.Text = string.Format("Ajouter un sujet dans la rubrique {0}",frmAddSujet.rubrique.Libelle);
                 frmAddSujet.ShowDialog();
                 cbBoxSujet.DataSource = Controller.GetSujetsByRubriqueID((int)cbBoxCategorie.SelectedValue);
             }
@@ -113,8 +119,38 @@ namespace RogueForumWinForm
             using (frmAddReponse frmAddReponse = new frmAddReponse())
             {
                 frmAddReponse.sujet = (Sujet)cbBoxSujet.SelectedItem;
+                frmAddReponse.Text = string.Format("Poster une réponse au sujet {0}", frmAddReponse.sujet.Titre); 
                 frmAddReponse.ShowDialog();
                 dataGridViewReponse.DataSource = Controller.GetAllReponsesBySujetID((int)cbBoxSujet.SelectedValue);
+            }
+        }
+
+        private void btnSupprSujet_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = new DialogResult();
+            dr =MessageBox.Show(Properties.Resources.MsgBoxSupprSujetText, Properties.Resources.MsgBoxSupprSujetTitre, MessageBoxButtons.OKCancel,MessageBoxIcon.Exclamation);
+            if(dr == DialogResult.OK)
+            {
+               if( Controller.DeleteSujet((int)cbBoxSujet.SelectedValue) != 1)
+                {
+                    MessageBox.Show(Properties.Resources.MsgBoxErreurSupprSujetText, Properties.Resources.MsgBoxErreurSupprSujetTitre);
+                }
+                cbBoxSujet.DataSource = Controller.GetSujetsByRubriqueID((int)cbBoxCategorie.SelectedValue);
+            }
+        }
+
+        private void btnSupprReponse_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = new DialogResult();
+            dr = MessageBox.Show(Properties.Resources.MsgBoxSupprSujetText, Properties.Resources.MsgBoxSupprSujetTitre, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+            if (dr == DialogResult.OK)
+            {
+                if (Controller.DeleteReponseByReponseID((int)dataGridViewReponse.CurrentRow.Cells["ID"].Value) != 1)
+                {
+                    MessageBox.Show(Properties.Resources.MsgBoxErreurSupprSujetText, Properties.Resources.MsgBoxErreurSupprSujetTitre);
+                }
+                dataGridViewReponse.DataSource = Controller.GetAllReponsesBySujetID((int)cbBoxSujet.SelectedValue);
+
             }
         }
     }

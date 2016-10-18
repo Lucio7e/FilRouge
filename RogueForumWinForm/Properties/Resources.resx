@@ -118,34 +118,34 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Cancel button blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Cancel_button_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Cancel button blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Formulaire256x256" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Formulaire256x256.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="forum-button1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="forum_button1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\forum-button1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RogueSquadron" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RogueSquadron.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Quitter 32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Quitter_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Quitter 32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="valid 32x32 blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="valid_32x32_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\valid 32x32 blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="suppr 32x32 blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="suppr_32x32_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\suppr 32x32 blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="edit 32x32 blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="edit_32x32_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit 32x32 blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="forum-button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="forum_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\forum-button.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ajouter 32x32  blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ajouter_32x32_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ajouter 32x32  blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RogueSquadron80x80" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -156,5 +156,23 @@
   </data>
   <data name="MsgBoxCancelTitre" xml:space="preserve">
     <value>Annuler ?</value>
+  </data>
+  <data name="MsgBoxDeconnexionText" xml:space="preserve">
+    <value>Déconnecté avec succès</value>
+  </data>
+  <data name="MsgBoxDeconnexionTitre" xml:space="preserve">
+    <value>Déconnexion</value>
+  </data>
+  <data name="MsgBoxErreurSupprSujetText" xml:space="preserve">
+    <value>Impossible de supprimer le sujet</value>
+  </data>
+  <data name="MsgBoxErreurSupprSujetTitre" xml:space="preserve">
+    <value>Erreur</value>
+  </data>
+  <data name="MsgBoxSupprSujetText" xml:space="preserve">
+    <value>Etes vous sur de vouloir supprimer le sujet</value>
+  </data>
+  <data name="MsgBoxSupprSujetTitre" xml:space="preserve">
+    <value>Suppression</value>
   </data>
 </root>

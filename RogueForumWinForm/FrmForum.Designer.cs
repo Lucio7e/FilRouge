@@ -45,11 +45,12 @@
             this.btnIdent = new System.Windows.Forms.Button();
             this.btnChangerMDP = new System.Windows.Forms.Button();
             this.btnDeconnexion = new System.Windows.Forms.Button();
-            this.dataGridViewReponse = new System.Windows.Forms.DataGridView();
             this.grpBoxAdmin = new System.Windows.Forms.GroupBox();
             this.btnEditSujet = new System.Windows.Forms.Button();
             this.btnSupprReponse = new System.Windows.Forms.Button();
             this.btnSupprSujet = new System.Windows.Forms.Button();
+            this.dataGridViewReponse = new System.Windows.Forms.DataGridView();
+            this.lblNoReponse = new System.Windows.Forms.Label();
             this.tlpanelFrmForum.SuspendLayout();
             this.tableLayPanCategorie.SuspendLayout();
             this.grpBoxCategorie.SuspendLayout();
@@ -59,8 +60,8 @@
             this.grpBoxSujet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxHome)).BeginInit();
             this.flowLayPanIdent.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReponse)).BeginInit();
             this.grpBoxAdmin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReponse)).BeginInit();
             this.SuspendLayout();
             // 
             // tlpanelFrmForum
@@ -74,16 +75,19 @@
             this.tlpanelFrmForum.Controls.Add(this.tableLayPanCategorie, 1, 1);
             this.tlpanelFrmForum.Controls.Add(this.tableLayPanSujet, 2, 1);
             this.tlpanelFrmForum.Controls.Add(this.picBoxHome, 3, 1);
-            this.tlpanelFrmForum.Controls.Add(this.flowLayPanIdent, 3, 2);
-            this.tlpanelFrmForum.Controls.Add(this.dataGridViewReponse, 2, 2);
-            this.tlpanelFrmForum.Controls.Add(this.grpBoxAdmin, 1, 2);
+            this.tlpanelFrmForum.Controls.Add(this.flowLayPanIdent, 3, 3);
+            this.tlpanelFrmForum.Controls.Add(this.dataGridViewReponse, 2, 3);
+            this.tlpanelFrmForum.Controls.Add(this.grpBoxAdmin, 1, 3);
+            this.tlpanelFrmForum.Controls.Add(this.lblNoReponse, 2, 2);
             this.tlpanelFrmForum.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpanelFrmForum.Location = new System.Drawing.Point(0, 0);
             this.tlpanelFrmForum.Name = "tlpanelFrmForum";
-            this.tlpanelFrmForum.RowCount = 4;
+            this.tlpanelFrmForum.RowCount = 6;
             this.tlpanelFrmForum.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tlpanelFrmForum.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpanelFrmForum.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpanelFrmForum.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpanelFrmForum.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpanelFrmForum.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpanelFrmForum.Size = new System.Drawing.Size(1158, 581);
             this.tlpanelFrmForum.TabIndex = 0;
@@ -221,9 +225,9 @@
             this.flowLayPanIdent.Controls.Add(this.btnChangerMDP);
             this.flowLayPanIdent.Controls.Add(this.btnDeconnexion);
             this.flowLayPanIdent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayPanIdent.Location = new System.Drawing.Point(1049, 117);
+            this.flowLayPanIdent.Location = new System.Drawing.Point(1049, 137);
             this.flowLayPanIdent.Name = "flowLayPanIdent";
-            this.flowLayPanIdent.Size = new System.Drawing.Size(88, 441);
+            this.flowLayPanIdent.Size = new System.Drawing.Size(88, 421);
             this.flowLayPanIdent.TabIndex = 4;
             // 
             // btnIdent
@@ -255,28 +259,12 @@
             this.btnDeconnexion.UseVisualStyleBackColor = true;
             this.btnDeconnexion.Click += new System.EventHandler(this.btnDeconnexion_Click);
             // 
-            // dataGridViewReponse
-            // 
-            this.dataGridViewReponse.AllowUserToAddRows = false;
-            this.dataGridViewReponse.AllowUserToDeleteRows = false;
-            this.dataGridViewReponse.AllowUserToResizeColumns = false;
-            this.dataGridViewReponse.AllowUserToResizeRows = false;
-            this.dataGridViewReponse.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewReponse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewReponse.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewReponse.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridViewReponse.Location = new System.Drawing.Point(229, 117);
-            this.dataGridViewReponse.Name = "dataGridViewReponse";
-            this.dataGridViewReponse.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewReponse.Size = new System.Drawing.Size(814, 441);
-            this.dataGridViewReponse.TabIndex = 5;
-            // 
             // grpBoxAdmin
             // 
             this.grpBoxAdmin.Controls.Add(this.btnEditSujet);
             this.grpBoxAdmin.Controls.Add(this.btnSupprReponse);
             this.grpBoxAdmin.Controls.Add(this.btnSupprSujet);
-            this.grpBoxAdmin.Location = new System.Drawing.Point(23, 117);
+            this.grpBoxAdmin.Location = new System.Drawing.Point(23, 137);
             this.grpBoxAdmin.Name = "grpBoxAdmin";
             this.grpBoxAdmin.Size = new System.Drawing.Size(200, 229);
             this.grpBoxAdmin.TabIndex = 6;
@@ -300,6 +288,7 @@
             this.btnSupprReponse.TabIndex = 1;
             this.btnSupprReponse.Text = "Supprimer la réponse";
             this.btnSupprReponse.UseVisualStyleBackColor = true;
+            this.btnSupprReponse.Click += new System.EventHandler(this.btnSupprReponse_Click);
             // 
             // btnSupprSujet
             // 
@@ -309,6 +298,34 @@
             this.btnSupprSujet.TabIndex = 0;
             this.btnSupprSujet.Text = "Supprimer le sujet";
             this.btnSupprSujet.UseVisualStyleBackColor = true;
+            this.btnSupprSujet.Click += new System.EventHandler(this.btnSupprSujet_Click);
+            // 
+            // dataGridViewReponse
+            // 
+            this.dataGridViewReponse.AllowUserToAddRows = false;
+            this.dataGridViewReponse.AllowUserToDeleteRows = false;
+            this.dataGridViewReponse.AllowUserToResizeColumns = false;
+            this.dataGridViewReponse.AllowUserToResizeRows = false;
+            this.dataGridViewReponse.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewReponse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewReponse.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewReponse.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dataGridViewReponse.Location = new System.Drawing.Point(229, 137);
+            this.dataGridViewReponse.Name = "dataGridViewReponse";
+            this.dataGridViewReponse.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewReponse.Size = new System.Drawing.Size(814, 421);
+            this.dataGridViewReponse.TabIndex = 5;
+            // 
+            // lblNoReponse
+            // 
+            this.lblNoReponse.AutoSize = true;
+            this.lblNoReponse.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblNoReponse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNoReponse.Location = new System.Drawing.Point(229, 114);
+            this.lblNoReponse.Name = "lblNoReponse";
+            this.lblNoReponse.Size = new System.Drawing.Size(814, 20);
+            this.lblNoReponse.TabIndex = 8;
+            this.lblNoReponse.Text = "Il n\'y a pas de réponses pour le sujet";
             // 
             // FrmForum
             // 
@@ -324,6 +341,7 @@
             this.Activated += new System.EventHandler(this.FrmForum_Activated);
             this.Load += new System.EventHandler(this.FrmForum_Load);
             this.tlpanelFrmForum.ResumeLayout(false);
+            this.tlpanelFrmForum.PerformLayout();
             this.tableLayPanCategorie.ResumeLayout(false);
             this.grpBoxCategorie.ResumeLayout(false);
             this.tableLayPanSujet.ResumeLayout(false);
@@ -333,8 +351,8 @@
             this.grpBoxSujet.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picBoxHome)).EndInit();
             this.flowLayPanIdent.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReponse)).EndInit();
             this.grpBoxAdmin.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReponse)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -347,7 +365,6 @@
         private System.Windows.Forms.PictureBox picBoxHome;
         private System.Windows.Forms.FlowLayoutPanel flowLayPanIdent;
         private System.Windows.Forms.Button btnIdent;
-        private System.Windows.Forms.DataGridView dataGridViewReponse;
         private System.Windows.Forms.GroupBox grpBoxCategorie;
         private System.Windows.Forms.ComboBox cbBoxCategorie;
         private System.Windows.Forms.Panel panelAddSujet;
@@ -362,5 +379,7 @@
         private System.Windows.Forms.Button btnSupprReponse;
         private System.Windows.Forms.Button btnSupprSujet;
         private System.Windows.Forms.Button btnEditSujet;
+        private System.Windows.Forms.DataGridView dataGridViewReponse;
+        private System.Windows.Forms.Label lblNoReponse;
     }
 }

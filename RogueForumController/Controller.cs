@@ -116,6 +116,11 @@ namespace RogueForumController
         {
             return SujetDAO.AddSujet(idUtilisateur, IdRubrique, titre, description);
         }
+
+        public static int DeleteSujet(int idSujet)
+        {
+            return SujetDAO.DeleteSujet(idSujet);
+        }
         #endregion
 
         #region "Methodes Rubrique"
@@ -148,6 +153,10 @@ namespace RogueForumController
             return ReponseDAO.AddReponse(idUtilisateur, idSujet, texte);
         }
 
+        public static int DeleteReponseByReponseID(int idReponse)
+        {
+            return ReponseDAO.DeleteReponseByReponseID(idReponse);
+        }
         #endregion
     }
 }

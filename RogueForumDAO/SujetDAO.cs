@@ -147,6 +147,28 @@ namespace RogueForumDAO
             conn.Close();
             return nbLigne;
         }
+        /// <summary>
+        /// Methode qui supprime le sujet dont l'id est passé en parametre
+        /// </summary>
+        /// <param name="idSujet"></param>
+        /// <returns></returns>
+        public static int DeleteSujet(int idSujet)
+        {
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "DeleteSujet";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            SqlParameter paramIdSujet = cmd.CreateParameter();
+            paramIdSujet.ParameterName = "@ID_SUJET";
+            paramIdSujet.Value = idSujet;
+            cmd.Parameters.Add(paramIdSujet);
+            
+            conn.Open();
+            int nbLigne = cmd.ExecuteNonQuery();
+            conn.Close();
+            
+            return nbLigne;
+        }
         #endregion
         #region "Methodes héritées et substituées"
         #endregion

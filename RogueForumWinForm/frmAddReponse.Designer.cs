@@ -118,6 +118,7 @@
             this.ClientSize = new System.Drawing.Size(382, 374);
             this.Controls.Add(this.tabLayPanAddSujet);
             this.Name = "frmAddReponse";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Poster une réponse";
             this.tabLayPanAddSujet.ResumeLayout(false);
             this.grpBoxReponse.ResumeLayout(false);

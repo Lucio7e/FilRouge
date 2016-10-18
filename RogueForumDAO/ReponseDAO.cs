@@ -114,5 +114,27 @@ namespace RogueForumDAO
 
             return nbLigne;
         }
+
+        /// <summary>
+        /// Methode qui supprime la réponse dont l'id est passé en param
+        /// </summary>
+        /// <param name="idSujet"></param>
+        /// <returns>renvoi 1 si la réponse a été supprimée</returns>
+        public static int DeleteReponseByReponseID(int idReponse)
+        {
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "DeleteReponseByReponseID";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            SqlParameter paramIdReponse = cmd.CreateParameter();
+            paramIdReponse.ParameterName = "@ID_REPONSE";
+            paramIdReponse.Value = idReponse;
+            cmd.Parameters.Add(paramIdReponse);
+
+            conn.Open();
+            int nbLigne = cmd.ExecuteNonQuery();
+            conn.Close();
+            return nbLigne;
+        }
     }
 }
