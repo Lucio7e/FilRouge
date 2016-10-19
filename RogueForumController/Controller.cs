@@ -38,63 +38,6 @@ namespace RogueForumController
         }
         #endregion
 
-        #region "Methodes Moderateur"
-
-        /// <summary>
-        /// Méthode qui permet de supprimer un sujet
-        /// </summary>
-        /// <param name="sujet">le sujet que l'on veut supprimer</param>
-        /// <returns></returns>
-        public static bool SupprimerSujet(Sujet sujet)
-        {
-            return true;
-        }
-        /// <summary>
-        /// Methode permettant de supprimer une liste de sujets
-        /// </summary>
-        /// <param name="sujets"></param>
-        /// <returns></returns>
-        public static bool SupprimerSujet(List<Sujet> sujets)
-        {
-            foreach (Sujet sujet in sujets)
-            {
-                SupprimerSujet(sujet);
-            }
-            return true;
-        }
-        /// <summary>
-        /// Methode qui permet de modifier un sujet
-        /// </summary>
-        /// <param name="sujet">Le sujet que l'on modifie</param>
-        /// <param name="titre">Le titre du sujet que l'on modifie</param>
-        /// <returns></returns>
-        public static bool EditerSujet(Sujet sujet, string titre)
-        {
-
-            return true;
-        }
-        /// <summary>
-        /// Methode permettant de supprimer une réponse
-        /// </summary>
-        /// <param name="reponse">La réponse que l'on supprimer</param>
-        /// <returns></returns>
-        public static bool SupprimerReponse(Reponse reponse)
-        {
-            return true;
-        }
-
-
-        public static bool SupprimerReponse(List<Reponse> reponses)
-        {
-            foreach (Reponse rep in reponses)
-            {
-                SupprimerReponse(rep);
-            }
-            return true;
-        }
-
-        #endregion
-
         #region "Methodes Sujet"
 
         public static List<Sujet> GetAllSujets()
@@ -120,6 +63,11 @@ namespace RogueForumController
         public static int DeleteSujet(int idSujet)
         {
             return SujetDAO.DeleteSujet(idSujet);
+        }
+
+        public static int EditSujet(Sujet sujet, string newTitre, string newDesc)
+        {
+            return SujetDAO.EditSujet(sujet, newTitre, newDesc);
         }
         #endregion
 

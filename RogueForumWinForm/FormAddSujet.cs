@@ -14,6 +14,7 @@ namespace RogueForumWinForm
     public partial class FrmAddSujet : Form
     {
         internal Rubrique rubrique;
+        internal Sujet sujet;
         public FrmAddSujet()
         {
             InitializeComponent();
@@ -32,13 +33,42 @@ namespace RogueForumWinForm
 
         private void btnAddSujet_Click(object sender, EventArgs e)
         {
-           if( RogueForumController.Controller.AddSujet(frmMain.CurrentUser.Id,rubrique.Id, txtBoxTitreSujet.Text, txtBoxDescSujet.Text) == 1){
-                MessageBox.Show("Le sujet a été ajouté avec succès");
+          if(sujet == null) { 
+                if (RogueForumController.Controller.AddSujet(frmMain.CurrentUser.Id, rubrique.Id, txtBoxTitreSujet.Text, txtBoxDescSujet.Text) == 1)
+                {
+                    MessageBox.Show("Le sujet a été ajouté avec succès");
 
-                this.Close();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Impossible d'ajouter un sujet");
+                }
             }else
             {
-                MessageBox.Show("Impossible d'ajouter un sujet");
+                if (RogueForumController.Controller.EditSujet(sujet, txtBoxTitreSujet.Text, txtBoxDescSujet.Text) == 1)
+                {
+                    MessageBox.Show("Le sujet a été modifié avec succés");
+                    this.Close();
+                }else
+                {
+                    MessageBox.Show("Une erreur s'est produite lors de la modification du sujet");
+                }
+            }
+        }
+
+        private void FrmAddSujet_Load(object sender, EventArgs e)
+        {
+            if(sujet == null)
+            {
+                txtBoxTitreSujet.Text = string.Empty;
+                txtBoxDescSujet.Text = string.Empty;
+                btnAddSujet.Text = "Valider l'ajout du sujet";
+            }else
+            {
+                txtBoxTitreSujet.Text = sujet.Titre;
+                txtBoxDescSujet.Text = sujet.Desc;
+                btnAddSujet.Text = "Valider la modification du sujet";
             }
         }
     }

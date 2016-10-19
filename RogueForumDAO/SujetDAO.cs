@@ -169,6 +169,51 @@ namespace RogueForumDAO
             
             return nbLigne;
         }
+
+        /// <summary>
+        /// Methode qui permet de modifier un sujet en changeant le titre et/ou la description
+        /// On passe l'ancient sujet en paramètre pour eviter les accés concurrents
+        /// </summary>
+        /// <param name="sujet"></param>
+        /// <param name="newTitre"></param>
+        /// <param name="newDescription"></param>
+        /// <returns>Retourne le nombre de lignes affectées, 1 si tout va bien</returns>
+        public static int EditSujet(Sujet sujet, string newTitre, string newDescription)
+        {
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "EditSujet";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            SqlParameter paramIdSujet = cmd.CreateParameter();
+            paramIdSujet.ParameterName = "@ID_SUJET";
+            paramIdSujet.Value = sujet.Id;
+            cmd.Parameters.Add(paramIdSujet);
+
+            SqlParameter paramNewTitre = cmd.CreateParameter();
+            paramNewTitre.ParameterName = "@NEW_TITRE";
+            paramNewTitre.Value = newTitre;
+            cmd.Parameters.Add(paramNewTitre);
+
+            SqlParameter paramOldTitre = cmd.CreateParameter();
+            paramOldTitre.ParameterName = "@OLD_TITRE";
+            paramOldTitre.Value = sujet.Titre;
+            cmd.Parameters.Add(paramOldTitre);
+
+            SqlParameter paramNewDesc = cmd.CreateParameter();
+            paramNewDesc.ParameterName = "@NEW_DESC";
+            paramNewDesc.Value = newDescription;
+            cmd.Parameters.Add(paramNewDesc);
+
+            SqlParameter paramOldDesc = cmd.CreateParameter();
+            paramOldDesc.ParameterName = "@OLD_DESC";
+            paramOldDesc.Value = sujet.Desc;
+            cmd.Parameters.Add(paramOldDesc);
+
+            conn.Open();
+            int nbLigne = cmd.ExecuteNonQuery();
+            conn.Close();
+            return nbLigne;
+        }
         #endregion
         #region "Methodes héritées et substituées"
         #endregion

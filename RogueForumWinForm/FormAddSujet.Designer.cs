@@ -142,6 +142,7 @@
             this.Controls.Add(this.tabLayPanAddSujet);
             this.Name = "FrmAddSujet";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Load += new System.EventHandler(this.FrmAddSujet_Load);
             this.tabLayPanAddSujet.ResumeLayout(false);
             this.grpBoxTitreSujet.ResumeLayout(false);
             this.grpBoxTitreSujet.PerformLayout();

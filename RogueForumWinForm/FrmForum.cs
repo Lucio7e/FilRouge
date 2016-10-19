@@ -34,12 +34,14 @@ namespace RogueForumWinForm
             {
                 frmLogin.ShowDialog();
             }
+            visibiliteAdmin();
         }
         private void btnDeconnexion_Click(object sender, EventArgs e)
         {
             frmMain.IsConnected = false;
             frmMain.IsModo = false;
             MessageBox.Show(Properties.Resources.MsgBoxDeconnexionText, Properties.Resources.MsgBoxDeconnexionTitre, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            visibiliteAdmin();
         }
 
         private void btnAddSujet_Click(object sender, EventArgs e)
@@ -64,6 +66,7 @@ namespace RogueForumWinForm
             }
         }
 
+        #region Methode admin
         private void btnSupprSujet_Click(object sender, EventArgs e)
         {
             DialogResult dr = new DialogResult();
@@ -112,6 +115,20 @@ namespace RogueForumWinForm
             }
             else { turnPanelReponseInvisible(); }
         }
+
+        private void btnEditSujet_Click(object sender, EventArgs e)
+        {
+            using (FrmAddSujet frmEditSujet = new FrmAddSujet())
+            {
+                frmEditSujet.rubrique = (Rubrique)cbBoxCategorie.SelectedItem;
+                frmEditSujet.sujet = (Sujet)cbBoxSujet.SelectedItem;
+                frmEditSujet.Text = string.Format("Modifier le sujet {0} dans la rubrique {1}",frmEditSujet.sujet.Titre, frmEditSujet.rubrique.Libelle);
+                
+                frmEditSujet.ShowDialog();
+                fillComboBoxSujet(Controller.GetSujetsByRubriqueID((int)cbBoxCategorie.SelectedValue));
+            }
+        }
+        #endregion
         #endregion
 
         #region FormLoad & FormActivate
@@ -119,16 +136,7 @@ namespace RogueForumWinForm
         {
             fillComboboxCategorie(Controller.GetAllRubriques());
             fillComboBoxSujet( Controller.GetSujetsByRubriqueID((int)cbBoxCategorie.SelectedValue));
-        }
-
-        private void FrmForum_Activated(object sender, EventArgs e)
-        {
-            panelAddSujet.Visible = frmMain.IsConnected;
-            btnChangerMDP.Visible = frmMain.IsConnected;
-            btnDeconnexion.Visible = frmMain.IsConnected;
-            grpBoxAdmin.Visible = frmMain.IsModo;
-            btnIdent.Visible = !frmMain.IsConnected;
-            
+            visibiliteAdmin();
         }
         #endregion
 
@@ -246,6 +254,16 @@ namespace RogueForumWinForm
             grpBoxDescSujet.Visible = false;
             turnPanelReponseInvisible();
         }
+
+        private void visibiliteAdmin()
+        {
+                panelAddSujet.Visible = frmMain.IsConnected;
+                btnChangerMDP.Visible = frmMain.IsConnected;
+                btnDeconnexion.Visible = frmMain.IsConnected;
+                grpBoxAdmin.Visible = frmMain.IsModo;
+                btnIdent.Visible = !frmMain.IsConnected;
+            
+        }
         #endregion
 
         #region Fill ComboBox et Datagrid
@@ -274,5 +292,6 @@ namespace RogueForumWinForm
         }
         #endregion
 
+        
     }
 }
