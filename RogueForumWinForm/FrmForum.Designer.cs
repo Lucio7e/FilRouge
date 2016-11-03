@@ -306,10 +306,12 @@
             this.dataGridViewReponse.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewReponse.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridViewReponse.Location = new System.Drawing.Point(229, 137);
+            this.dataGridViewReponse.MultiSelect = false;
             this.dataGridViewReponse.Name = "dataGridViewReponse";
             this.dataGridViewReponse.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewReponse.Size = new System.Drawing.Size(814, 421);
             this.dataGridViewReponse.TabIndex = 5;
+            this.dataGridViewReponse.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewReponse_CellClick);
             this.dataGridViewReponse.SelectionChanged += new System.EventHandler(this.dataGridViewReponse_SelectionChanged);
             // 
             // grpBoxAdmin

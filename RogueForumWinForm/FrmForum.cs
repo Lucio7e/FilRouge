@@ -290,8 +290,20 @@ namespace RogueForumWinForm
             dataGridViewReponse.Columns["SUJET"].Visible = false;
             dataGridViewReponse.Columns["UTILISATEUR"].Visible = false;
         }
+
         #endregion
 
         
+
+        private void dataGridViewReponse_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int indexCurrentRow = e.RowIndex;
+            DataGridViewRow row = dataGridViewReponse.Rows[indexCurrentRow];
+            using (FrmReponse frmReponse = new FrmReponse())
+            {
+                frmReponse.txtBoxReponse.Text = row.Cells["Texte"].Value.ToString();
+                frmReponse.ShowDialog();
+            }
+        }
     }
 }
