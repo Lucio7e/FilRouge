@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,6 +10,7 @@ namespace RogueForumDLL
     /// <summary>
     /// Un utilisateur est identifié par son ID, son login et son mot de passe
     /// </summary>
+    [Serializable]
     public class Utilisateur
     {
         #region "Propriétés et accesseurs"
@@ -52,6 +54,7 @@ namespace RogueForumDLL
         /// <summary>
         /// Le mot de passe de l'utilisateur
         /// </summary>
+        
         public string Mdp
         {
             get

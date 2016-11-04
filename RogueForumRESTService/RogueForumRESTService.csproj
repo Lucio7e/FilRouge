@@ -61,12 +61,12 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="RogueForumREST.svc" />
+    <Content Include="RESTService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RogueForumREST.svc.cs">
-      <DependentUpon>RogueForumREST.svc</DependentUpon>
+    <Compile Include="RESTService.svc.cs">
+      <DependentUpon>RESTService.svc</DependentUpon>
     </Compile>
     <Compile Include="IRogueForumREST.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,6 +81,16 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RogueForumDAO\RogueForumDAO.csproj">
+      <Project>{c788b6f6-f32a-4d2c-9263-3804310d1513}</Project>
+      <Name>RogueForumDAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RogueForumDLL\RogueForumDLL.csproj">
+      <Project>{C02739C0-62C9-4C03-A5E8-6A7E6483AF4A}</Project>
+      <Name>RogueForumDLL</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -23,16 +23,13 @@ namespace RogueForumDAO.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=176.31.114.215;Initial Catalog=user09;Persist Security Info=True;User" +
             " ID=user09;Password=951user09")]
         public string InfoConnexion {
             get {
                 return ((string)(this["InfoConnexion"]));
-            }
-            set {
-                this["InfoConnexion"] = value;
             }
         }
     }

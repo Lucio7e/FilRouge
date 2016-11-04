@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,10 +10,10 @@ namespace RogueForumDLL
     /// <summary>
     /// La classe rubrique est composé d'un identifiant et d'un libelle
     /// </summary>
+   [Serializable]
+    [DataContract]
     public class Rubrique
     {
-
-
         #region "Propriétés et accesseurs"
 
         private int _Id;
@@ -21,6 +22,7 @@ namespace RogueForumDLL
         /// <summary>
         /// L'identifiant de la rubrique
         /// </summary>
+        [DataMember]
         public int Id
         {
             get
@@ -36,6 +38,7 @@ namespace RogueForumDLL
         /// <summary>
         /// Le libelle de la rubrique
         /// </summary>
+        [DataMember]
         public string Libelle
         {
             get
@@ -61,6 +64,7 @@ namespace RogueForumDLL
             this.Libelle = libelle;
         }
 
+        public Rubrique() { }
         #endregion
         #region "Methodes"
         #endregion

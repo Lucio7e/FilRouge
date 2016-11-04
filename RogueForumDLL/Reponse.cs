@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace RogueForumDLL
 {
+    [Serializable]
+    [DataContract]
     public class Reponse
     {
         
@@ -21,6 +24,7 @@ namespace RogueForumDLL
         /// <summary>
         /// L'identifiant de la réponse
         /// </summary>
+        [DataMember]
         public int Id
         {
             get
@@ -36,6 +40,7 @@ namespace RogueForumDLL
         /// <summary>
         /// Le texte de la réponse
         /// </summary>
+        [DataMember]
         public string Texte
         {
             get
@@ -51,6 +56,7 @@ namespace RogueForumDLL
         /// <summary>
         /// La date de création de la réponse
         /// </summary>
+        [DataMember]
         public DateTime Date
         {
             get
@@ -66,14 +72,17 @@ namespace RogueForumDLL
         /// <summary>
         /// Le sujet auquel appartient la réponse
         /// </summary>
+        [DataMember]
         public Sujet Sujet { get { return _Sujet; }set { _Sujet = value; } }
         /// <summary>
         /// L'utilisateur ayant posté la réponse
         /// </summary>
+        [IgnoreDataMember]
         public Utilisateur Utilisateur { get { return _Utilisateur; } set { _Utilisateur = value; } }
         /// <summary>
         /// Le nom de l'auteur de la réponse
         /// </summary>
+        [DataMember]
         public string NomAuteur
         {
             get
