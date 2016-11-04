@@ -302,6 +302,9 @@ namespace RogueForumWinForm
             using (FrmReponse frmReponse = new FrmReponse())
             {
                 frmReponse.txtBoxReponse.Text = row.Cells["Texte"].Value.ToString();
+                frmReponse.lblNomAuteur.Text += row.Cells["NomAuteur"].Value.ToString();
+                frmReponse.lblDatePost.Text += row.Cells["Date"].Value.ToString();
+
                 frmReponse.ShowDialog();
             }
         }

@@ -30,7 +30,11 @@
         {
             this.tabLayPanReponse = new System.Windows.Forms.TableLayoutPanel();
             this.txtBoxReponse = new System.Windows.Forms.TextBox();
+            this.tabLayPanLabel = new System.Windows.Forms.TableLayoutPanel();
+            this.lblNomAuteur = new System.Windows.Forms.Label();
+            this.lblDatePost = new System.Windows.Forms.Label();
             this.tabLayPanReponse.SuspendLayout();
+            this.tabLayPanLabel.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabLayPanReponse
@@ -40,12 +44,14 @@
             this.tabLayPanReponse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tabLayPanReponse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tabLayPanReponse.Controls.Add(this.txtBoxReponse, 1, 1);
+            this.tabLayPanReponse.Controls.Add(this.tabLayPanLabel, 1, 2);
             this.tabLayPanReponse.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabLayPanReponse.Location = new System.Drawing.Point(0, 0);
             this.tabLayPanReponse.Name = "tabLayPanReponse";
-            this.tabLayPanReponse.RowCount = 3;
+            this.tabLayPanReponse.RowCount = 4;
             this.tabLayPanReponse.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tabLayPanReponse.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tabLayPanReponse.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tabLayPanReponse.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tabLayPanReponse.Size = new System.Drawing.Size(367, 275);
             this.tabLayPanReponse.TabIndex = 0;
@@ -57,8 +63,41 @@
             this.txtBoxReponse.Location = new System.Drawing.Point(23, 23);
             this.txtBoxReponse.Multiline = true;
             this.txtBoxReponse.Name = "txtBoxReponse";
-            this.txtBoxReponse.Size = new System.Drawing.Size(321, 229);
+            this.txtBoxReponse.Size = new System.Drawing.Size(321, 209);
             this.txtBoxReponse.TabIndex = 0;
+            // 
+            // tabLayPanLabel
+            // 
+            this.tabLayPanLabel.ColumnCount = 2;
+            this.tabLayPanLabel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tabLayPanLabel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tabLayPanLabel.Controls.Add(this.lblNomAuteur, 0, 0);
+            this.tabLayPanLabel.Controls.Add(this.lblDatePost, 1, 0);
+            this.tabLayPanLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabLayPanLabel.Location = new System.Drawing.Point(23, 238);
+            this.tabLayPanLabel.Name = "tabLayPanLabel";
+            this.tabLayPanLabel.RowCount = 1;
+            this.tabLayPanLabel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tabLayPanLabel.Size = new System.Drawing.Size(321, 14);
+            this.tabLayPanLabel.TabIndex = 1;
+            // 
+            // lblNomAuteur
+            // 
+            this.lblNomAuteur.AutoSize = true;
+            this.lblNomAuteur.Location = new System.Drawing.Point(3, 0);
+            this.lblNomAuteur.Name = "lblNomAuteur";
+            this.lblNomAuteur.Size = new System.Drawing.Size(61, 13);
+            this.lblNomAuteur.TabIndex = 0;
+            this.lblNomAuteur.Text = "Posté par : ";
+            // 
+            // lblDatePost
+            // 
+            this.lblDatePost.AutoSize = true;
+            this.lblDatePost.Location = new System.Drawing.Point(163, 0);
+            this.lblDatePost.Name = "lblDatePost";
+            this.lblDatePost.Size = new System.Drawing.Size(56, 13);
+            this.lblDatePost.TabIndex = 1;
+            this.lblDatePost.Text = "Publié le : ";
             // 
             // FrmReponse
             // 
@@ -71,6 +110,8 @@
             this.Text = "Réponse";
             this.tabLayPanReponse.ResumeLayout(false);
             this.tabLayPanReponse.PerformLayout();
+            this.tabLayPanLabel.ResumeLayout(false);
+            this.tabLayPanLabel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -79,5 +120,8 @@
 
         private System.Windows.Forms.TableLayoutPanel tabLayPanReponse;
         internal System.Windows.Forms.TextBox txtBoxReponse;
+        private System.Windows.Forms.TableLayoutPanel tabLayPanLabel;
+        internal System.Windows.Forms.Label lblNomAuteur;
+        internal System.Windows.Forms.Label lblDatePost;
     }
 }
