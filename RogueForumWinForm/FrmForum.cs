@@ -308,5 +308,14 @@ namespace RogueForumWinForm
                 frmReponse.ShowDialog();
             }
         }
+
+        private void btnChangerMDP_Click(object sender, EventArgs e)
+        {
+            using (FrmModifierMDP frmModifMDP = new FrmModifierMDP())
+            {
+                
+                frmModifMDP.ShowDialog();
+            }
+        }
     }
 }

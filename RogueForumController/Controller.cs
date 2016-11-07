@@ -36,6 +36,11 @@ namespace RogueForumController
         {
             return UtilisateurDAO.Login(login, mdp);
         }
+
+        public static int ChangeMDP(int userID, string mdp)
+        {
+            return UtilisateurDAO.ChangeMDP(userID, mdp);
+        }
         #endregion
 
         #region "Methodes Sujet"

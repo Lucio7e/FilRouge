@@ -104,5 +104,26 @@ namespace RogueForumDAO
             }
             return null;
         }
+
+        public static int ChangeMDP(int userId, string mdp)
+        {
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "ChangeMDP";
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlParameter paramUserID= cmd.CreateParameter();
+            paramUserID.ParameterName = "@IDUSER";
+            paramUserID.Value = userId;
+
+            SqlParameter paramMDP = cmd.CreateParameter();
+            paramMDP.ParameterName = "@MDP";
+            paramMDP.Value = mdp;
+            cmd.Parameters.Add(paramUserID);
+            cmd.Parameters.Add(paramMDP);
+
+            conn.Open();
+            int nbLigne = cmd.ExecuteNonQuery();
+            conn.Close();
+            return nbLigne;
+        }
     }
 }

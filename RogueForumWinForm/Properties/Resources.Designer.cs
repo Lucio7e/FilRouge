@@ -139,6 +139,24 @@ namespace RogueForumWinForm.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Êtes vous sur de vouloir changer votre mot de passe?.
+        /// </summary>
+        internal static string MsgBoxConfirmerChangementMDPTexte {
+            get {
+                return ResourceManager.GetString("MsgBoxConfirmerChangementMDPTexte", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Confirmer .
+        /// </summary>
+        internal static string MsgBoxConfirmerChangementMDPTitre {
+            get {
+                return ResourceManager.GetString("MsgBoxConfirmerChangementMDPTitre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Déconnecté avec succès.
         /// </summary>
         internal static string MsgBoxDeconnexionText {

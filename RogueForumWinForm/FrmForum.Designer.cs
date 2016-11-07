@@ -237,7 +237,7 @@
             // 
             this.cbBoxSujet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBoxSujet.FormattingEnabled = true;
-            this.cbBoxSujet.Location = new System.Drawing.Point(9, 19);
+            this.cbBoxSujet.Location = new System.Drawing.Point(9, 16);
             this.cbBoxSujet.Name = "cbBoxSujet";
             this.cbBoxSujet.Size = new System.Drawing.Size(108, 21);
             this.cbBoxSujet.TabIndex = 1;
@@ -284,6 +284,7 @@
             this.btnChangerMDP.TabIndex = 1;
             this.btnChangerMDP.Text = "Changer mot de passe";
             this.btnChangerMDP.UseVisualStyleBackColor = true;
+            this.btnChangerMDP.Click += new System.EventHandler(this.btnChangerMDP_Click);
             // 
             // btnDeconnexion
             // 
