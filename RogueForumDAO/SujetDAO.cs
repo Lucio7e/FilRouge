@@ -39,7 +39,8 @@ namespace RogueForumDAO
                 List<Sujet> _Sujets = new List<Sujet>();
                 foreach (DataRow row in dt.Rows)
                 {
-                    _Sujets.Add(new Sujet(int.Parse(row["ID_SUJET"].ToString()), row["TITRE_SUJET"].ToString(), row["DESCRIPTION_SUJET"].ToString(),
+                    _Sujets.Add(new Sujet(int.Parse(row["ID_SUJET"].ToString()),UtilisateurDAO.GetUtilisateurByID(int.Parse(row["ID_UTILISATEUR"].ToString())),
+                        row["TITRE_SUJET"].ToString(), row["DESCRIPTION_SUJET"].ToString(),
                         RubriqueDAO.GetRubriqueByID(int.Parse(row["ID_RUBRIQUE"].ToString()))));
                 }
                 return _Sujets;
@@ -69,7 +70,7 @@ namespace RogueForumDAO
             if (dt.Rows.Count == 1)
             {
                 DataRow row = dt.Rows[0];
-                Sujet sujet = new Sujet(int.Parse(row["ID_SUJET"].ToString()), row["TITRE_SUJET"].ToString(), row["DESCRIPTION_SUJET"].ToString(),
+                Sujet sujet = new Sujet(int.Parse(row["ID_SUJET"].ToString()), UtilisateurDAO.GetUtilisateurByID(int.Parse(row["ID_UTILISATEUR"].ToString())), row["TITRE_SUJET"].ToString(), row["DESCRIPTION_SUJET"].ToString(),
                     RubriqueDAO.GetRubriqueByID(int.Parse(row["ID_RUBRIQUE"].ToString())));
                 return sujet;
             }
@@ -100,7 +101,8 @@ namespace RogueForumDAO
                 List<Sujet> _Sujets = new List<Sujet>();
                 foreach (DataRow row in dt.Rows)
                 {
-                    _Sujets.Add(new Sujet(int.Parse(row["ID_SUJET"].ToString()), row["TITRE_SUJET"].ToString(), row["DESCRIPTION_SUJET"].ToString(),
+                    _Sujets.Add(new Sujet(int.Parse(row["ID_SUJET"].ToString()), UtilisateurDAO.GetUtilisateurByID(int.Parse(row["ID_UTILISATEUR"].ToString())),
+                        row["TITRE_SUJET"].ToString(), row["DESCRIPTION_SUJET"].ToString(),
                         RubriqueDAO.GetRubriqueByID(idRubrique)));
                 }
                 return _Sujets;
@@ -151,7 +153,7 @@ namespace RogueForumDAO
         /// Methode qui supprime le sujet dont l'id est passé en parametre
         /// </summary>
         /// <param name="idSujet"></param>
-        /// <returns></returns>
+        /// <returns>Retourne le nombre de lignes affectées, 1 si tout va bien</returns>
         public static int DeleteSujet(int idSujet)
         {
             SqlCommand cmd = conn.CreateCommand();

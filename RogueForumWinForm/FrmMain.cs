@@ -25,7 +25,9 @@ namespace RogueForumWinForm
         {
             using (FrmForum frmForum = new FrmForum())
             {
+                Cursor.Current = Cursors.WaitCursor;
                 frmForum.ShowDialog();
+                Cursor.Current = Cursors.Default;
             }
         }
 

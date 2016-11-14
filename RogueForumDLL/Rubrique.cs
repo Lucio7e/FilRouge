@@ -69,6 +69,10 @@ namespace RogueForumDLL
         #region "Methodes"
         #endregion
         #region "Methodes héritées et substituées"
+        public override string ToString()
+        {
+            return "Libelle rubrique : "+this.Libelle;
+        }
         #endregion
         #region "Methodes à implementer pour les interfaces"
         #endregion

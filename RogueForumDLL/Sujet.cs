@@ -20,6 +20,7 @@ namespace RogueForumDLL
         private string _Desc;
         private DateTime _Date;
         private Rubrique _Rubrique;
+        private Utilisateur _Utilisateur;
         private List<Reponse> _Reponses;
 
         /// <summary>
@@ -113,6 +114,22 @@ namespace RogueForumDLL
                 _Rubrique = value;
             }
         }
+
+        /// <summary>
+        /// L'utilisateur ayant posté le sujet
+        /// </summary>
+        public Utilisateur Utilisateur
+        {
+            get
+            {
+                return _Utilisateur;
+            }
+
+            set
+            {
+                _Utilisateur = value;
+            }
+        }
         #endregion
 
         #region "Constructeurs"
@@ -130,9 +147,10 @@ namespace RogueForumDLL
             Reponses = new List<Reponse>();
         }
 
-        public Sujet(int id, string titre, string description, Rubrique rubrique)
+        public Sujet(int id, Utilisateur utilisateur, string titre, string description, Rubrique rubrique)
         {
             this.Id = id;
+            this.Utilisateur = utilisateur;
             this.Titre = titre;
             this.Desc = description;
             this.Date = DateTime.Now;
@@ -158,6 +176,12 @@ namespace RogueForumDLL
         #region "Methodes"
         #endregion
         #region "Methodes héritées et substituées"
+
+        public override string ToString()
+        {
+            return "Titre sujet :  "+this.Titre+" Description : " + this.Desc +" Date sujet : "+this.Date;
+        }
+
         #endregion
         #region "Methodes à implementer pour les interfaces"
         #endregion

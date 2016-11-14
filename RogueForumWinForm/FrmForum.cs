@@ -23,11 +23,20 @@ namespace RogueForumWinForm
         }
 
         #region Click event
+        /// <summary>
+        /// Evenement clic sur le logo du forum qui permet de revenir à l'écran d'accueil
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void picBoxHome_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
+        /// <summary>
+        /// Evenement clic sur le bouton d'identification
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnIdent_Click(object sender, EventArgs e)
         {
             using (FrmLogin frmLogin = new FrmLogin())
@@ -36,25 +45,39 @@ namespace RogueForumWinForm
             }
             visibiliteAdmin();
         }
+        /// <summary>
+        /// Evenement clic sur le bouton déconnexion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDeconnexion_Click(object sender, EventArgs e)
         {
             frmMain.IsConnected = false;
             frmMain.IsModo = false;
+            //Affichage d'un message de succès de la déconnexion
             MessageBox.Show(Properties.Resources.MsgBoxDeconnexionText, Properties.Resources.MsgBoxDeconnexionTitre, MessageBoxButtons.OK, MessageBoxIcon.Information);
             visibiliteAdmin();
         }
-
+        /// <summary>
+        /// Evenement clic sur le bouton d'ajout de sujet
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddSujet_Click(object sender, EventArgs e)
         {
             using (FrmAddSujet frmAddSujet = new FrmAddSujet())
             {
-                frmAddSujet.rubrique = (Rubrique)cbBoxCategorie.SelectedItem;
+                frmAddSujet.rubrique = (Rubrique)cbBoxRubrique.SelectedItem;
                 frmAddSujet.Text = string.Format("Ajouter un sujet dans la rubrique {0}", frmAddSujet.rubrique.Libelle);
-                frmAddSujet.ShowDialog();
-                fillComboBoxSujet(Controller.GetSujetsByRubriqueID((int)cbBoxCategorie.SelectedValue));
+                frmAddSujet.ShowDialog();                
+                fillComboBoxSujet(Controller.GetSujetsByRubriqueID((int)cbBoxRubrique.SelectedValue));
             }
         }
-
+        /// <summary>
+        /// Evenement clic sur le bouton "Poster une réponse"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPostRep_Click(object sender, EventArgs e)
         {
             using (frmAddReponse frmAddReponse = new frmAddReponse())
@@ -62,7 +85,29 @@ namespace RogueForumWinForm
                 frmAddReponse.sujet = (Sujet)cbBoxSujet.SelectedItem;
                 frmAddReponse.Text = string.Format("Poster une réponse au sujet {0}", frmAddReponse.sujet.Titre);
                 frmAddReponse.ShowDialog();
-               fillDataGridReponses(Controller.GetAllReponsesBySujetID((int)cbBoxSujet.SelectedValue));
+                fillDataGridReponses(Controller.GetAllReponsesBySujetID((int)cbBoxSujet.SelectedValue));
+            }
+        }
+
+        private void dataGridViewReponse_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int indexCurrentRow = e.RowIndex;
+            DataGridViewRow row = dataGridViewReponse.Rows[indexCurrentRow];
+            using (FrmReponse frmReponse = new FrmReponse())
+            {
+                frmReponse.txtBoxReponse.Text = row.Cells["Texte"].Value.ToString();
+                frmReponse.lblNomAuteur.Text += row.Cells["NomAuteur"].Value.ToString();
+                frmReponse.lblDatePost.Text += row.Cells["Date"].Value.ToString();
+
+                frmReponse.ShowDialog();
+            }
+        }
+
+        private void btnChangerMDP_Click(object sender, EventArgs e)
+        {
+            using (FrmModifierMDP frmModifMDP = new FrmModifierMDP())
+            {
+                frmModifMDP.ShowDialog();
             }
         }
 
@@ -77,7 +122,7 @@ namespace RogueForumWinForm
                 {
                     MessageBox.Show(Properties.Resources.MsgBoxErreurSupprSujetText, Properties.Resources.MsgBoxErreurSupprSujetTitre);
                 }
-                List<Sujet> sujets = Controller.GetSujetsByRubriqueID((int)cbBoxCategorie.SelectedValue);
+                List<Sujet> sujets = Controller.GetSujetsByRubriqueID((int)cbBoxRubrique.SelectedValue);
                 if (sujets != null)
                 {
                     fillComboBoxSujet(sujets);
@@ -120,33 +165,41 @@ namespace RogueForumWinForm
         {
             using (FrmAddSujet frmEditSujet = new FrmAddSujet())
             {
-                frmEditSujet.rubrique = (Rubrique)cbBoxCategorie.SelectedItem;
+                frmEditSujet.rubrique = (Rubrique)cbBoxRubrique.SelectedItem;
                 frmEditSujet.sujet = (Sujet)cbBoxSujet.SelectedItem;
                 frmEditSujet.Text = string.Format("Modifier le sujet {0} dans la rubrique {1}",frmEditSujet.sujet.Titre, frmEditSujet.rubrique.Libelle);
                 
                 frmEditSujet.ShowDialog();
-                fillComboBoxSujet(Controller.GetSujetsByRubriqueID((int)cbBoxCategorie.SelectedValue));
+                fillComboBoxSujet(Controller.GetSujetsByRubriqueID((int)cbBoxRubrique.SelectedValue));
             }
         }
         #endregion
         #endregion
 
-        #region FormLoad & FormActivate
+        #region FormLoad 
         private void FrmForum_Load(object sender, EventArgs e)
         {
             fillComboboxCategorie(Controller.GetAllRubriques());
-            fillComboBoxSujet( Controller.GetSujetsByRubriqueID((int)cbBoxCategorie.SelectedValue));
+            fillComboBoxSujet( Controller.GetSujetsByRubriqueID((int)cbBoxRubrique.SelectedValue));
             visibiliteAdmin();
         }
         #endregion
 
         #region IndexChange event
-        private void cbBoxCategorie_SelectedIndexChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Evenement sur la comboBox des rubriques
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cbBoxRubrique_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<Sujet> sujets = Controller.GetSujetsByRubriqueID((int)cbBoxCategorie.SelectedValue);
+            //stocke dans une Liste de sujets le resultats de l'appel de la méthode GetSujetByRubrique
+            List<Sujet> sujets = Controller.GetSujetsByRubriqueID((int)cbBoxRubrique.SelectedValue);
+            //On verifie que la liste des sujets n'est pas vide
             if ( sujets != null)
             {
                 turnPanelSujetVisible();
+                //On rempli la comboBox des sujets avec la liste
                 fillComboBoxSujet(sujets);
             }
             else
@@ -161,7 +214,7 @@ namespace RogueForumWinForm
             {
                 turnPanelSujetVisible();
                 Sujet sujet = (Sujet)cbBoxSujet.SelectedItem;
-                txtBoxDescSujet.Text = sujet.Desc;
+                txtBoxDescSujet.Text = sujet.Desc + Environment.NewLine + "posté par : " + sujet.Utilisateur.Login;
                 if (visibiliteReponses())
                 {
                     turnPanelReponseVisible();
@@ -170,7 +223,6 @@ namespace RogueForumWinForm
                     {
                         fillDataGridReponses(reponses);
                     }
-
                 }
                 else
                 {
@@ -181,8 +233,6 @@ namespace RogueForumWinForm
             {
                 turnPanelSujetInvisible();
             }
-            
-            
         }
 
         private void dataGridViewReponse_SelectionChanged(object sender, EventArgs e)
@@ -227,9 +277,9 @@ namespace RogueForumWinForm
 
         private bool visibiliteSujets()
         {
-            if(cbBoxCategorie.SelectedIndex != -1)
+            if(cbBoxRubrique.SelectedIndex != -1)
             {
-                if (Controller.GetSujetsByRubriqueID((int)cbBoxCategorie.SelectedValue) != null)
+                if (Controller.GetSujetsByRubriqueID((int)cbBoxRubrique.SelectedValue) != null)
                 {
                     return true;
                 }
@@ -273,14 +323,14 @@ namespace RogueForumWinForm
             cbBoxSujet.DisplayMember = "Titre";
             cbBoxSujet.DataSource = sujets;
             Sujet sujet = (Sujet)cbBoxSujet.SelectedItem;
-            txtBoxDescSujet.Text = sujet.Desc;
+            txtBoxDescSujet.Text = sujet.Desc+ Environment.NewLine + "posté par : " + sujet.Utilisateur.Login;
         }
 
         private void fillComboboxCategorie(List<Rubrique> rubriques)
         {
-            cbBoxCategorie.ValueMember = "Id";
-            cbBoxCategorie.DisplayMember = "Libelle";
-            cbBoxCategorie.DataSource = rubriques;
+            cbBoxRubrique.ValueMember = "Id";
+            cbBoxRubrique.DisplayMember = "Libelle";
+            cbBoxRubrique.DataSource = rubriques;
         }
 
         private void fillDataGridReponses(List<Reponse> reponses)
@@ -292,30 +342,5 @@ namespace RogueForumWinForm
         }
 
         #endregion
-
-        
-
-        private void dataGridViewReponse_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int indexCurrentRow = e.RowIndex;
-            DataGridViewRow row = dataGridViewReponse.Rows[indexCurrentRow];
-            using (FrmReponse frmReponse = new FrmReponse())
-            {
-                frmReponse.txtBoxReponse.Text = row.Cells["Texte"].Value.ToString();
-                frmReponse.lblNomAuteur.Text += row.Cells["NomAuteur"].Value.ToString();
-                frmReponse.lblDatePost.Text += row.Cells["Date"].Value.ToString();
-
-                frmReponse.ShowDialog();
-            }
-        }
-
-        private void btnChangerMDP_Click(object sender, EventArgs e)
-        {
-            using (FrmModifierMDP frmModifMDP = new FrmModifierMDP())
-            {
-                
-                frmModifMDP.ShowDialog();
-            }
-        }
     }
 }

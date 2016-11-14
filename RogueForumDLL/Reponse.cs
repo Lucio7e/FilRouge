@@ -10,8 +10,7 @@ namespace RogueForumDLL
     [Serializable]
     [DataContract]
     public class Reponse
-    {
-        
+    {        
         #region "Propriétés et accesseurs"
         
         private int _Id;
