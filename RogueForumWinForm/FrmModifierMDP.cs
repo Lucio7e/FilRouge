@@ -36,7 +36,7 @@ namespace RogueForumWinForm
             dr= MessageBox.Show(Properties.Resources.MsgBoxConfirmerChangementMDPTexte, Properties.Resources.MsgBoxConfirmerChangementMDPTitre, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (dr == DialogResult.Yes)
             {
-                RogueForumController.Controller.ChangeMDP(frmMain.CurrentUser.Id, txtBoxMDP.Text);
+                UtilisateurDAO.ChangeMDP(frmMain.CurrentUser.Id, txtBoxMDP.Text);
                 this.Close();
             }
         }

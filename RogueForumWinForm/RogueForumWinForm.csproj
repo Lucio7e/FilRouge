@@ -165,10 +165,6 @@
     <None Include="Resources\RogueSquadron80x80.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RogueForumController\RogueForumController.csproj">
-      <Project>{dbc58775-ef2d-454f-9316-37f49ae2d7a7}</Project>
-      <Name>RogueForumController</Name>
-    </ProjectReference>
     <ProjectReference Include="..\RogueForumDAO\RogueForumDAO.csproj">
       <Project>{C788B6F6-F32A-4D2C-9263-3804310D1513}</Project>
       <Name>RogueForumDAO</Name>

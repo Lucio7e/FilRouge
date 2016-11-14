@@ -1,5 +1,4 @@
-﻿using RogueForumController;
-
+﻿using RogueForumDAO;
 using RogueForumDLL;
 using System;
 using System.Collections;
@@ -70,7 +69,7 @@ namespace RogueForumWinForm
                 frmAddSujet.rubrique = (Rubrique)cbBoxRubrique.SelectedItem;
                 frmAddSujet.Text = string.Format("Ajouter un sujet dans la rubrique {0}", frmAddSujet.rubrique.Libelle);
                 frmAddSujet.ShowDialog();                
-                fillComboBoxSujet(Controller.GetSujetsByRubriqueID((int)cbBoxRubrique.SelectedValue));
+                fillComboBoxSujet(SujetDAO.GetSujetsByRubriqueID((int)cbBoxRubrique.SelectedValue));
             }
         }
         /// <summary>
@@ -85,7 +84,7 @@ namespace RogueForumWinForm
                 frmAddReponse.sujet = (Sujet)cbBoxSujet.SelectedItem;
                 frmAddReponse.Text = string.Format("Poster une réponse au sujet {0}", frmAddReponse.sujet.Titre);
                 frmAddReponse.ShowDialog();
-                fillDataGridReponses(Controller.GetAllReponsesBySujetID((int)cbBoxSujet.SelectedValue));
+                fillDataGridReponses(ReponseDAO.GetAllReponsesBySujetID((int)cbBoxSujet.SelectedValue));
             }
         }
 
@@ -118,11 +117,11 @@ namespace RogueForumWinForm
             dr = MessageBox.Show(Properties.Resources.MsgBoxSupprSujetText, Properties.Resources.MsgBoxSupprSujetTitre, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
             if (dr == DialogResult.OK)
             {
-                if (Controller.DeleteSujet((int)cbBoxSujet.SelectedValue) != 1)
+                if (SujetDAO.DeleteSujet((int)cbBoxSujet.SelectedValue) != 1)
                 {
                     MessageBox.Show(Properties.Resources.MsgBoxErreurSupprSujetText, Properties.Resources.MsgBoxErreurSupprSujetTitre);
                 }
-                List<Sujet> sujets = Controller.GetSujetsByRubriqueID((int)cbBoxRubrique.SelectedValue);
+                List<Sujet> sujets = SujetDAO.GetSujetsByRubriqueID((int)cbBoxRubrique.SelectedValue);
                 if (sujets != null)
                 {
                     fillComboBoxSujet(sujets);
@@ -144,11 +143,11 @@ namespace RogueForumWinForm
             dr = MessageBox.Show(Properties.Resources.MsgBoxSupprReponseText, Properties.Resources.MsgBoxSupprReponseTitre, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
             if (dr == DialogResult.OK)
             {
-                if (Controller.DeleteReponseByReponseID((int)dataGridViewReponse.CurrentRow.Cells["ID"].Value) != 1)
+                if (ReponseDAO.DeleteReponseByReponseID((int)dataGridViewReponse.CurrentRow.Cells["ID"].Value) != 1)
                 {
                     MessageBox.Show(Properties.Resources.MsgBoxSupprReponseText, Properties.Resources.MsgBoxSupprReponseTitre);
                 }
-                List<Reponse> reponses = Controller.GetAllReponsesBySujetID((int)cbBoxSujet.SelectedValue);
+                List<Reponse> reponses = ReponseDAO.GetAllReponsesBySujetID((int)cbBoxSujet.SelectedValue);
                 if (reponses != null)
                 {
                     fillDataGridReponses(reponses);
@@ -170,7 +169,7 @@ namespace RogueForumWinForm
                 frmEditSujet.Text = string.Format("Modifier le sujet {0} dans la rubrique {1}",frmEditSujet.sujet.Titre, frmEditSujet.rubrique.Libelle);
                 
                 frmEditSujet.ShowDialog();
-                fillComboBoxSujet(Controller.GetSujetsByRubriqueID((int)cbBoxRubrique.SelectedValue));
+                fillComboBoxSujet(SujetDAO.GetSujetsByRubriqueID((int)cbBoxRubrique.SelectedValue));
             }
         }
         #endregion
@@ -179,8 +178,8 @@ namespace RogueForumWinForm
         #region FormLoad 
         private void FrmForum_Load(object sender, EventArgs e)
         {
-            fillComboboxCategorie(Controller.GetAllRubriques());
-            fillComboBoxSujet( Controller.GetSujetsByRubriqueID((int)cbBoxRubrique.SelectedValue));
+            fillComboboxRubrique(RubriqueDAO.GetAllRubriques());
+            fillComboBoxSujet( SujetDAO.GetSujetsByRubriqueID((int)cbBoxRubrique.SelectedValue));
             visibiliteAdmin();
         }
         #endregion
@@ -194,7 +193,7 @@ namespace RogueForumWinForm
         private void cbBoxRubrique_SelectedIndexChanged(object sender, EventArgs e)
         {
             //stocke dans une Liste de sujets le resultats de l'appel de la méthode GetSujetByRubrique
-            List<Sujet> sujets = Controller.GetSujetsByRubriqueID((int)cbBoxRubrique.SelectedValue);
+            List<Sujet> sujets = SujetDAO.GetSujetsByRubriqueID((int)cbBoxRubrique.SelectedValue);
             //On verifie que la liste des sujets n'est pas vide
             if ( sujets != null)
             {
@@ -218,7 +217,7 @@ namespace RogueForumWinForm
                 if (visibiliteReponses())
                 {
                     turnPanelReponseVisible();
-                    List<Reponse> reponses = Controller.GetAllReponsesBySujetID((int)cbBoxSujet.SelectedValue);
+                    List<Reponse> reponses = ReponseDAO.GetAllReponsesBySujetID((int)cbBoxSujet.SelectedValue);
                     if (reponses != null)
                     {
                         fillDataGridReponses(reponses);
@@ -252,7 +251,7 @@ namespace RogueForumWinForm
         private bool visibiliteReponses()
         {
             if(cbBoxSujet.SelectedIndex != -1) {
-                if (Controller.GetAllReponsesBySujetID((int)cbBoxSujet.SelectedValue) != null)
+                if (ReponseDAO.GetAllReponsesBySujetID((int)cbBoxSujet.SelectedValue) != null)
                 {
                     return true;
                 }
@@ -279,7 +278,7 @@ namespace RogueForumWinForm
         {
             if(cbBoxRubrique.SelectedIndex != -1)
             {
-                if (Controller.GetSujetsByRubriqueID((int)cbBoxRubrique.SelectedValue) != null)
+                if (SujetDAO.GetSujetsByRubriqueID((int)cbBoxRubrique.SelectedValue) != null)
                 {
                     return true;
                 }
@@ -326,7 +325,7 @@ namespace RogueForumWinForm
             txtBoxDescSujet.Text = sujet.Desc+ Environment.NewLine + "posté par : " + sujet.Utilisateur.Login;
         }
 
-        private void fillComboboxCategorie(List<Rubrique> rubriques)
+        private void fillComboboxRubrique(List<Rubrique> rubriques)
         {
             cbBoxRubrique.ValueMember = "Id";
             cbBoxRubrique.DisplayMember = "Libelle";

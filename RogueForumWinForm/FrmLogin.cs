@@ -1,4 +1,5 @@
-﻿using RogueForumDLL;
+﻿using RogueForumDAO;
+using RogueForumDLL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,7 +21,7 @@ namespace RogueForumWinForm
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-           frmMain.CurrentUser = RogueForumController.Controller.Login(txtBoxUsername.Text, txtBoxPwd.Text);
+           frmMain.CurrentUser = UtilisateurDAO.Login(txtBoxUsername.Text, txtBoxPwd.Text);
             if (frmMain.CurrentUser != null)
             {
                 frmMain.IsConnected = true;

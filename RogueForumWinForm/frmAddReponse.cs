@@ -1,4 +1,5 @@
-﻿using RogueForumDLL;
+﻿using RogueForumDAO;
+using RogueForumDLL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,7 +32,7 @@ namespace RogueForumWinForm
 
         private void btnAddReponse_Click(object sender, EventArgs e)
         {
-            if (RogueForumController.Controller.AddReponse(frmMain.CurrentUser.Id, sujet.Id, txtBoxReponse.Text) == 1)
+            if (ReponseDAO.AddReponse(frmMain.CurrentUser.Id, sujet.Id, txtBoxReponse.Text) == 1)
             {
                 MessageBox.Show("Votre réponse a été postée avec succés");
                 

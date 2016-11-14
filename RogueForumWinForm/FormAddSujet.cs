@@ -1,4 +1,5 @@
-﻿using RogueForumDLL;
+﻿using RogueForumDAO;
+using RogueForumDLL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,7 +35,7 @@ namespace RogueForumWinForm
         private void btnAddSujet_Click(object sender, EventArgs e)
         {
           if(sujet == null) { 
-                if (RogueForumController.Controller.AddSujet(frmMain.CurrentUser.Id, rubrique.Id, txtBoxTitreSujet.Text, txtBoxDescSujet.Text) == 1)
+                if (SujetDAO.AddSujet(frmMain.CurrentUser.Id, rubrique.Id, txtBoxTitreSujet.Text, txtBoxDescSujet.Text) == 1)
                 {
                     MessageBox.Show("Le sujet a été ajouté avec succès");
 
@@ -46,7 +47,7 @@ namespace RogueForumWinForm
                 }
             }else
             {
-                if (RogueForumController.Controller.EditSujet(sujet, txtBoxTitreSujet.Text, txtBoxDescSujet.Text) == 1)
+                if (SujetDAO.EditSujet(sujet, txtBoxTitreSujet.Text, txtBoxDescSujet.Text) == 1)
                 {
                     MessageBox.Show("Le sujet a été modifié avec succés");
                     this.Close();
