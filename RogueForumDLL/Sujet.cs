@@ -147,13 +147,13 @@ namespace RogueForumDLL
             Reponses = new List<Reponse>();
         }
 
-        public Sujet(int id, Utilisateur utilisateur, string titre, string description, Rubrique rubrique)
+        public Sujet(int id, Utilisateur utilisateur, string titre, string description, Rubrique rubrique, DateTime date)
         {
             this.Id = id;
             this.Utilisateur = utilisateur;
             this.Titre = titre;
             this.Desc = description;
-            this.Date = DateTime.Now;
+            this.Date = date;
             this.Rubrique = rubrique;
             this.Reponses = new List<Reponse>();
         }

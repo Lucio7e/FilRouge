@@ -321,6 +321,7 @@
             this.grpBoxAdmin.Controls.Add(this.btnEditSujet);
             this.grpBoxAdmin.Controls.Add(this.btnSupprReponse);
             this.grpBoxAdmin.Controls.Add(this.btnSupprSujet);
+            this.grpBoxAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpBoxAdmin.Location = new System.Drawing.Point(23, 149);
             this.grpBoxAdmin.Name = "grpBoxAdmin";
             this.grpBoxAdmin.Size = new System.Drawing.Size(200, 229);

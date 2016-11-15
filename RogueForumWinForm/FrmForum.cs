@@ -322,7 +322,7 @@ namespace RogueForumWinForm
             cbBoxSujet.DisplayMember = "Titre";
             cbBoxSujet.DataSource = sujets;
             Sujet sujet = (Sujet)cbBoxSujet.SelectedItem;
-            txtBoxDescSujet.Text = sujet.Desc+ Environment.NewLine + "posté par : " + sujet.Utilisateur.Login;
+            txtBoxDescSujet.Text = sujet.Desc+ Environment.NewLine + "posté par : " + sujet.Utilisateur.Login + Environment.NewLine + "Le : " + sujet.Date;
         }
 
         private void fillComboboxRubrique(List<Rubrique> rubriques)

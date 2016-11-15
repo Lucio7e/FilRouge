@@ -41,7 +41,7 @@ namespace RogueForumDAO
                 {
                     _Sujets.Add(new Sujet(int.Parse(row["ID_SUJET"].ToString()),UtilisateurDAO.GetUtilisateurByID(int.Parse(row["ID_UTILISATEUR"].ToString())),
                         row["TITRE_SUJET"].ToString(), row["DESCRIPTION_SUJET"].ToString(),
-                        RubriqueDAO.GetRubriqueByID(int.Parse(row["ID_RUBRIQUE"].ToString()))));
+                        RubriqueDAO.GetRubriqueByID(int.Parse(row["ID_RUBRIQUE"].ToString())),DateTime.Parse(row["DATE_CREATION"].ToString())));
                 }
                 return _Sujets;
             }
@@ -71,7 +71,7 @@ namespace RogueForumDAO
             {
                 DataRow row = dt.Rows[0];
                 Sujet sujet = new Sujet(int.Parse(row["ID_SUJET"].ToString()), UtilisateurDAO.GetUtilisateurByID(int.Parse(row["ID_UTILISATEUR"].ToString())), row["TITRE_SUJET"].ToString(), row["DESCRIPTION_SUJET"].ToString(),
-                    RubriqueDAO.GetRubriqueByID(int.Parse(row["ID_RUBRIQUE"].ToString())));
+                    RubriqueDAO.GetRubriqueByID(int.Parse(row["ID_RUBRIQUE"].ToString())), DateTime.Parse(row["DATE_CREATION"].ToString()));
                 return sujet;
             }
             return null;
@@ -103,7 +103,7 @@ namespace RogueForumDAO
                 {
                     _Sujets.Add(new Sujet(int.Parse(row["ID_SUJET"].ToString()), UtilisateurDAO.GetUtilisateurByID(int.Parse(row["ID_UTILISATEUR"].ToString())),
                         row["TITRE_SUJET"].ToString(), row["DESCRIPTION_SUJET"].ToString(),
-                        RubriqueDAO.GetRubriqueByID(idRubrique)));
+                        RubriqueDAO.GetRubriqueByID(idRubrique),DateTime.Parse(row["DATE_CREATION"].ToString())));
                 }
                 return _Sujets;
             }
