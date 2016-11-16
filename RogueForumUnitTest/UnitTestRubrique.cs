@@ -26,7 +26,7 @@ namespace RogueForumUnitTest
         public void TestGetRubriqueByID()
         {
             string expectedString = "Développement";
-            Rubrique rubrique = RubriqueDAO.GetRubriqueByID(1);
+            Rubrique rubrique = Controller.GetRubriqueByID(1);
             Assert.AreEqual(rubrique.Libelle, expectedString);
         }
     }

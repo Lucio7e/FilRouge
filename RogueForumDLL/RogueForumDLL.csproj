@@ -41,11 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller.cs" />
     <Compile Include="Reponse.cs" />
     <Compile Include="Rubrique.cs" />
     <Compile Include="Sujet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilisateur.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RogueForumDAO\RogueForumDAO.csproj">
+      <Project>{c788b6f6-f32a-4d2c-9263-3804310d1513}</Project>
+      <Name>RogueForumDAO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

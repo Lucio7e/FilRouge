@@ -21,7 +21,7 @@ namespace RogueForumDLL
         private DateTime _Date;
         private Rubrique _Rubrique;
         private Utilisateur _Utilisateur;
-        private List<Reponse> _Reponses;
+        private List<Reponse> _Reponses = new List<Reponse>();
 
         /// <summary>
         /// L'identifiant du sujet
@@ -133,20 +133,16 @@ namespace RogueForumDLL
         #endregion
 
         #region "Constructeurs"
+       
         /// <summary>
-        /// Constructeur d'un nouveau sujet  n'ayant pas encore de réponses
+        /// Constructeur par défaut d'un sujet n'ayant pas de réponse
         /// </summary>
-        /// <param name="titre">Le titre du sujet</param>
-        /// <param name="description">La description du sujet</param>
-        public Sujet(string titre, string description, Rubrique rubrique)
-        {
-            Titre = titre;
-            Desc = description;
-            Date = DateTime.Now;
-            Rubrique = rubrique;
-            Reponses = new List<Reponse>();
-        }
-
+        /// <param name="id"></param>
+        /// <param name="utilisateur"></param>
+        /// <param name="titre"></param>
+        /// <param name="description"></param>
+        /// <param name="rubrique"></param>
+        /// <param name="date"></param>
         public Sujet(int id, Utilisateur utilisateur, string titre, string description, Rubrique rubrique, DateTime date)
         {
             this.Id = id;
@@ -155,7 +151,6 @@ namespace RogueForumDLL
             this.Desc = description;
             this.Date = date;
             this.Rubrique = rubrique;
-            this.Reponses = new List<Reponse>();
         }
         /// <summary>
         /// Constructeur d'un objet Sujet ayant déjà des réponses
@@ -164,14 +159,10 @@ namespace RogueForumDLL
         /// <param name="description"></param>
         /// <param name="rubrique"></param>
         /// <param name="reponses"></param>
-        public Sujet(string titre, string description, Rubrique rubrique,List<Reponse> reponses):this(titre,description,rubrique) {
-            _Reponses = Reponses;
+        public Sujet(int id,Utilisateur utilisateur,string titre, string description, Rubrique rubrique,DateTime date, List<Reponse> reponses):this(id, utilisateur,titre, description,rubrique,date) {
+            _Reponses = reponses;
         }
-        public Sujet(int id, string titre)
-        {
-            this.Id = id;
-            this.Titre = titre;
-        }
+
         #endregion
         #region "Methodes"
         #endregion

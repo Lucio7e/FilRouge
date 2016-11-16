@@ -16,7 +16,7 @@ namespace RogueForumRESTService
        
         public List<Rubrique> GetAllRubriques()
         {
-            return RogueForumDAO.RubriqueDAO.GetAllRubriques();
+            return Controller.GetAllRubriques();
         }
 
         public List<Sujet> GetAllSujetsByRubrique(string idrubrique)
@@ -24,7 +24,7 @@ namespace RogueForumRESTService
             int r;
             if (int.TryParse(idrubrique, out r))
             {
-                return RogueForumDAO.SujetDAO.GetSujetsByRubriqueID(r);
+                return Controller.GetSujetsByRubriqueID(r);
             }
 
             else
@@ -37,7 +37,7 @@ namespace RogueForumRESTService
         {
             int r;
             if (int.TryParse(idsujet, out r)) {
-                return RogueForumDAO.ReponseDAO.GetAllReponsesBySujetID(r);
+                return Controller.GetAllReponsesBySujetID(r);
             }
 
             else

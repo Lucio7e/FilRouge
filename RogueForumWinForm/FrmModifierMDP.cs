@@ -1,4 +1,5 @@
-﻿using RogueForumDAO;
+﻿
+using RogueForumDLL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,7 +37,7 @@ namespace RogueForumWinForm
             dr= MessageBox.Show(Properties.Resources.MsgBoxConfirmerChangementMDPTexte, Properties.Resources.MsgBoxConfirmerChangementMDPTitre, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (dr == DialogResult.Yes)
             {
-                UtilisateurDAO.ChangeMDP(frmMain.CurrentUser.Id, txtBoxMDP.Text);
+                Controller.ChangeMdp(frmMain.CurrentUser.Id, txtBoxMDP.Text);
                 this.Close();
             }
         }

@@ -53,12 +53,6 @@
     <Compile Include="UtilisateurDAO.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RogueForumDLL\RogueForumDLL.csproj">
-      <Project>{c02739c0-62c9-4c03-a5e8-6a7e6483af4a}</Project>
-      <Name>RogueForumDLL</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">

@@ -1,4 +1,4 @@
-﻿using RogueForumDLL;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,42 +11,14 @@ namespace RogueForumDAO
 {
     public abstract class UtilisateurDAO
     {
-        private static SqlConnection conn = ConnexionSQLServer.GetConnexion();
-      
-        /// <summary>
-        /// Methode d'accés aux données permettant de récupérer la liste de tous les utilisateurs
-        /// </summary>
-        /// <returns></returns>
-        public static List<Utilisateur> GetAllUtilisateur()
-        {
-            //conn.Open();
-            SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT ID_UTILISATEUR, LOGIN, MDP, MODERATEUR FROM UTILISATEUR";
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable("Utilisateurs");
-            da.Fill(dt);
-            //conn.Close();
-            if(dt.Rows.Count >= 1)
-            {
-                List<Utilisateur> _Utilisateurs = new List<Utilisateur>();
-                foreach (DataRow row in dt.Rows)
-                {
-                    Utilisateur utilisateur = new Utilisateur(int.Parse(row["ID_UTILISATEUR"].ToString()), row["LOGIN"].ToString(),
-                        row["MDP"].ToString(), (bool)row["MODERATEUR"]);
-                    _Utilisateurs.Add(utilisateur);
-                }
-                return _Utilisateurs;
-            }
-            return null;
-           
-        }
+        private static SqlConnection conn = ConnexionSQLServer.GetConnexion();   
 
         /// <summary>
         /// Methode d'accés aux données permettant de récupérer l'utilisateur dont l'identifiant est passé en parametre
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public static Utilisateur GetUtilisateurByID(int id)
+        public static DataTable GetUtilisateurByID(int id)
         {
            // conn.Open();
             SqlCommand cmd = conn.CreateCommand();
@@ -59,17 +31,8 @@ namespace RogueForumDAO
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable("Utilisateurs");
             da.Fill(dt);
-           // conn.Close();
-            if (dt.Rows.Count == 1)
-            {
-                DataRow row = dt.Rows[0];
-                Utilisateur utilisateur = new Utilisateur(int.Parse(row["ID_UTILISATEUR"].ToString()), row["LOGIN"].ToString(),
-                        row["MDP"].ToString(), (bool)row["MODERATEUR"]);
-                return utilisateur;
-            }
-
-            return null;
-           
+            return dt;
+          
         }
 
         /// <summary>
@@ -78,7 +41,7 @@ namespace RogueForumDAO
         /// <param name="login"></param>
         /// <param name="mdp"></param>
         /// <returns></returns>
-        public static Utilisateur Login(string login, string mdp)
+        public static DataTable Login(string login, string mdp)
         {
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = "GetLoginMDP";
@@ -97,14 +60,15 @@ namespace RogueForumDAO
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable("Login");
             da.Fill(dt);
-            if (dt.Rows.Count == 1)
-            {
-                DataRow row = dt.Rows[0];
-                return GetUtilisateurByID(int.Parse(row["ID_UTILISATEUR"].ToString()));
-            }
-            return null;
+            return dt;
         }
 
+        /// <summary>
+        /// Methode permettant à l'utilisateur connecté de changer son mdp
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="mdp"></param>
+        /// <returns></returns>
         public static int ChangeMDP(int userId, string mdp)
         {
             SqlCommand cmd = conn.CreateCommand();

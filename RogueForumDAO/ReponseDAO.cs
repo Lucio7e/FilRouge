@@ -1,4 +1,4 @@
-﻿using RogueForumDLL;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -18,9 +18,9 @@ namespace RogueForumDAO
         /// Methode d'accés aux données permettant de récupérer la liste des réponses pour un sujet dont l'id est passé en parametre
         /// </summary>
         /// <returns></returns>
-        public static List<Reponse> GetAllReponsesBySujetID(int idSujet)
+        public static DataTable GetAllReponsesBySujetID(int idSujet)
         {
-          //  conn.Open();
+         
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = "GetAllReponsesByIdSujet";
             cmd.CommandType = CommandType.StoredProcedure;
@@ -31,19 +31,7 @@ namespace RogueForumDAO
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable("Reponses");
             da.Fill(dt);
-           // conn.Close();
-            if (dt.Rows.Count >= 1)
-            {
-                List<Reponse> _Reponses = new List<Reponse>();
-                foreach (DataRow row in dt.Rows)
-                {
-                    Reponse rep = new Reponse(int.Parse(row["ID_REPONSE"].ToString()), row["TEXTE_REPONSE"].ToString(),DateTime.Parse(row["DATE_REPONSE"].ToString()), SujetDAO.GetSujetByID(idSujet),
-                       UtilisateurDAO.GetUtilisateurByID(int.Parse(row["ID_UTILISATEUR"].ToString())));
-                    _Reponses.Add(rep);
-                }
-                return _Reponses;
-            }
-            return null;
+            return dt;
         }
 
         /// <summary>
@@ -51,7 +39,7 @@ namespace RogueForumDAO
         /// </summary>
         /// <param name="idUser"></param>
         /// <returns></returns>
-        public static List<Reponse> GetAllReponsesByUserID(int idUser)
+        public static DataTable GetAllReponsesByUserID(int idUser)
         {
            // conn.Open();
             SqlCommand cmd = conn.CreateCommand();
@@ -64,20 +52,8 @@ namespace RogueForumDAO
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable("Reponses");
             da.Fill(dt);
-           // conn.Close();
-            if(dt.Rows.Count >= 1)
-            {
-                List<Reponse> _Reponses = new List<Reponse>();
-                foreach (DataRow row in dt.Rows)
-                {
-                    Reponse rep = new Reponse(int.Parse(row["ID_REPONSE"].ToString()), row["TEXTE_REPONSE"].ToString(), DateTime.Parse(row["DATE_REPONSE"].ToString()), SujetDAO.GetSujetByID(int.Parse(row["ID_SUJET"].ToString())),
-                       UtilisateurDAO.GetUtilisateurByID(idUser));
-                    _Reponses.Add(rep);
-                }
-                return _Reponses;
-            }
-            return null;
-           
+            return dt;
+          
         }
 
         /// <summary>

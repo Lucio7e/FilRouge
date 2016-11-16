@@ -1,4 +1,4 @@
-﻿using RogueForumDLL;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -19,41 +19,14 @@ namespace RogueForumDAO
         #endregion
         
         #region "Methodes"
-        /// <summary>
-        /// Methode qui Retourne tous les sujets du forum
-        /// </summary>
-        /// <returns>La liste des sujets</returns>
-        public static List<Sujet> GetAllSujets()
-        {
-            //conn.Open();
-            SqlCommand cmd =  conn.CreateCommand();
-            cmd.CommandText = "GetAllSujets";
-            cmd.CommandType = CommandType.StoredProcedure;
-            
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable("AllSujets");
-            da.Fill(dt);
-           // conn.Close();
-            if (dt.Rows.Count >= 1)
-            {
-                List<Sujet> _Sujets = new List<Sujet>();
-                foreach (DataRow row in dt.Rows)
-                {
-                    _Sujets.Add(new Sujet(int.Parse(row["ID_SUJET"].ToString()),UtilisateurDAO.GetUtilisateurByID(int.Parse(row["ID_UTILISATEUR"].ToString())),
-                        row["TITRE_SUJET"].ToString(), row["DESCRIPTION_SUJET"].ToString(),
-                        RubriqueDAO.GetRubriqueByID(int.Parse(row["ID_RUBRIQUE"].ToString())),DateTime.Parse(row["DATE_CREATION"].ToString())));
-                }
-                return _Sujets;
-            }
-            return null;
-        }
+      
 
         /// <summary>
         /// Methode qui retourne le sujet dont l'id est passé en parametre
         /// </summary>
         /// <param name="idsujet"></param>
         /// <returns>Un sujet</returns>
-        public static Sujet GetSujetByID(int idsujet)
+        public static DataTable GetSujetByID(int idsujet)
         {
             //conn.Open();
             SqlCommand cmd = conn.CreateCommand();
@@ -66,15 +39,7 @@ namespace RogueForumDAO
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable("Sujet");
             da.Fill(dt);
-           // conn.Close();
-            if (dt.Rows.Count == 1)
-            {
-                DataRow row = dt.Rows[0];
-                Sujet sujet = new Sujet(int.Parse(row["ID_SUJET"].ToString()), UtilisateurDAO.GetUtilisateurByID(int.Parse(row["ID_UTILISATEUR"].ToString())), row["TITRE_SUJET"].ToString(), row["DESCRIPTION_SUJET"].ToString(),
-                    RubriqueDAO.GetRubriqueByID(int.Parse(row["ID_RUBRIQUE"].ToString())), DateTime.Parse(row["DATE_CREATION"].ToString()));
-                return sujet;
-            }
-            return null;
+            return dt;
         }
 
         /// <summary>
@@ -82,7 +47,7 @@ namespace RogueForumDAO
         /// </summary>
         /// <param name="idRubrique"></param>
         /// <returns>La liste des sujets pour la rubrique</returns>
-        public static List<Sujet> GetSujetsByRubriqueID(int idRubrique)
+        public static DataTable GetSujetsByRubriqueID(int idRubrique)
         {
             //conn.Open();
             SqlCommand cmd = conn.CreateCommand();
@@ -95,19 +60,7 @@ namespace RogueForumDAO
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable("AllSujets");
             da.Fill(dt);
-            // conn.Close();
-            if (dt.Rows.Count >= 1)
-            {
-                List<Sujet> _Sujets = new List<Sujet>();
-                foreach (DataRow row in dt.Rows)
-                {
-                    _Sujets.Add(new Sujet(int.Parse(row["ID_SUJET"].ToString()), UtilisateurDAO.GetUtilisateurByID(int.Parse(row["ID_UTILISATEUR"].ToString())),
-                        row["TITRE_SUJET"].ToString(), row["DESCRIPTION_SUJET"].ToString(),
-                        RubriqueDAO.GetRubriqueByID(idRubrique),DateTime.Parse(row["DATE_CREATION"].ToString())));
-                }
-                return _Sujets;
-            }
-            return null;
+            return dt;
         }
 
         /// <summary>
@@ -180,7 +133,7 @@ namespace RogueForumDAO
         /// <param name="newTitre"></param>
         /// <param name="newDescription"></param>
         /// <returns>Retourne le nombre de lignes affectées, 1 si tout va bien</returns>
-        public static int EditSujet(Sujet sujet, string newTitre, string newDescription)
+        public static int EditSujet(int idsujet,string oldTitre, string oldDesc, string newTitre, string newDescription)
         {
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = "EditSujet";
@@ -188,7 +141,7 @@ namespace RogueForumDAO
 
             SqlParameter paramIdSujet = cmd.CreateParameter();
             paramIdSujet.ParameterName = "@ID_SUJET";
-            paramIdSujet.Value = sujet.Id;
+            paramIdSujet.Value = idsujet;
             cmd.Parameters.Add(paramIdSujet);
 
             SqlParameter paramNewTitre = cmd.CreateParameter();
@@ -198,7 +151,7 @@ namespace RogueForumDAO
 
             SqlParameter paramOldTitre = cmd.CreateParameter();
             paramOldTitre.ParameterName = "@OLD_TITRE";
-            paramOldTitre.Value = sujet.Titre;
+            paramOldTitre.Value = oldTitre;
             cmd.Parameters.Add(paramOldTitre);
 
             SqlParameter paramNewDesc = cmd.CreateParameter();
@@ -208,7 +161,7 @@ namespace RogueForumDAO
 
             SqlParameter paramOldDesc = cmd.CreateParameter();
             paramOldDesc.ParameterName = "@OLD_DESC";
-            paramOldDesc.Value = sujet.Desc;
+            paramOldDesc.Value = oldDesc;
             cmd.Parameters.Add(paramOldDesc);
 
             conn.Open();
@@ -217,10 +170,7 @@ namespace RogueForumDAO
             return nbLigne;
         }
         #endregion
-        #region "Methodes héritées et substituées"
-        #endregion
-        #region "Methodes à implementer pour les interfaces"
-        #endregion
+    
 
     }
 }
