@@ -213,7 +213,7 @@ namespace RogueForumWinForm
             {
                 turnPanelSujetVisible();
                 Sujet sujet = (Sujet)cbBoxSujet.SelectedItem;
-                txtBoxDescSujet.Text = sujet.Desc + Environment.NewLine + "posté par : " + sujet.Utilisateur.Login;
+                txtBoxDescSujet.Text = sujet.Desc + Environment.NewLine + "posté par : " + sujet.NomAuteur;
                 if (visibiliteReponses())
                 {
                     turnPanelReponseVisible();

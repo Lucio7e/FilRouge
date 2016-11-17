@@ -21,6 +21,7 @@ namespace RogueForumDLL
         private DateTime _Date;
         private Rubrique _Rubrique;
         private Utilisateur _Utilisateur;
+        private string _NomAuteur;
         private List<Reponse> _Reponses = new List<Reponse>();
 
         /// <summary>
@@ -130,10 +131,23 @@ namespace RogueForumDLL
                 _Utilisateur = value;
             }
         }
+        [DataMember]
+        public string NomAuteur
+        {
+            get
+            {
+                return _NomAuteur;
+            }
+
+            set
+            {
+                _NomAuteur = value;
+            }
+        }
         #endregion
 
         #region "Constructeurs"
-       
+
         /// <summary>
         /// Constructeur par défaut d'un sujet n'ayant pas de réponse
         /// </summary>
@@ -151,6 +165,7 @@ namespace RogueForumDLL
             this.Desc = description;
             this.Date = date;
             this.Rubrique = rubrique;
+            this.NomAuteur = utilisateur.Login;
         }
         /// <summary>
         /// Constructeur d'un objet Sujet ayant déjà des réponses
