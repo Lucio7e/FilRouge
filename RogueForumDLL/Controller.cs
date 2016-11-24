@@ -152,6 +152,28 @@ namespace RogueForumDLL
         }
 
         /// <summary>
+        /// Methode qui renvoi la Liste des réponses correspondant à un sujet
+        /// </summary>
+        /// <param name="idsujet"></param>
+        /// <returns></returns>
+        public static List<Reponse> GetTop10ReponsesBySujetID(int idsujet)
+        {
+            DataTable dt = ReponseDAO.GetTop10ReponsesBySujetID(idsujet);
+            if (dt.Rows.Count >= 1)
+            {
+                List<Reponse> _Reponses = new List<Reponse>();
+                foreach (DataRow row in dt.Rows)
+                {
+                    Reponse rep = new Reponse(int.Parse(row["ID_REPONSE"].ToString()), row["TEXTE_REPONSE"].ToString(), DateTime.Parse(row["DATE_REPONSE"].ToString()), GetSujetByID(idsujet),
+                       GetUtilisateurByID(int.Parse(row["ID_UTILISATEUR"].ToString())));
+                    _Reponses.Add(rep);
+                }
+                return _Reponses;
+            }
+            return null;
+        }
+
+        /// <summary>
         /// Methode qui renvoi la list des réponses d'un utilisateur
         /// </summary>
         /// <param name="idUser"></param>

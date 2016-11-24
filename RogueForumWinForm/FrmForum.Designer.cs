@@ -54,6 +54,7 @@
             this.btnSupprReponse = new System.Windows.Forms.Button();
             this.btnSupprSujet = new System.Windows.Forms.Button();
             this.lblNoReponse = new System.Windows.Forms.Label();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.tlpanelFrmForum.SuspendLayout();
             this.tableLayPanCategorie.SuspendLayout();
             this.grpBoxCategorie.SuspendLayout();
@@ -83,6 +84,7 @@
             this.tlpanelFrmForum.Controls.Add(this.dataGridViewReponse, 2, 3);
             this.tlpanelFrmForum.Controls.Add(this.grpBoxAdmin, 1, 3);
             this.tlpanelFrmForum.Controls.Add(this.lblNoReponse, 2, 2);
+            this.tlpanelFrmForum.Controls.Add(this.progressBar, 1, 2);
             this.tlpanelFrmForum.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpanelFrmForum.Location = new System.Drawing.Point(0, 0);
             this.tlpanelFrmForum.Name = "tlpanelFrmForum";
@@ -324,7 +326,7 @@
             this.grpBoxAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpBoxAdmin.Location = new System.Drawing.Point(23, 149);
             this.grpBoxAdmin.Name = "grpBoxAdmin";
-            this.grpBoxAdmin.Size = new System.Drawing.Size(200, 229);
+            this.grpBoxAdmin.Size = new System.Drawing.Size(200, 421);
             this.grpBoxAdmin.TabIndex = 6;
             this.grpBoxAdmin.TabStop = false;
             this.grpBoxAdmin.Text = "Administration du forum";
@@ -370,6 +372,14 @@
             this.lblNoReponse.Size = new System.Drawing.Size(814, 20);
             this.lblNoReponse.TabIndex = 8;
             this.lblNoReponse.Text = "Il n\'y a pas de réponses pour le sujet";
+            // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(23, 129);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(200, 14);
+            this.progressBar.TabIndex = 9;
+            this.progressBar.Visible = false;
             // 
             // FrmForum
             // 
@@ -430,5 +440,6 @@
         private System.Windows.Forms.Label lblNoSujet;
         private System.Windows.Forms.GroupBox grpBoxDescSujet;
         private System.Windows.Forms.TextBox txtBoxDescSujet;
+        private System.Windows.Forms.ProgressBar progressBar;
     }
 }

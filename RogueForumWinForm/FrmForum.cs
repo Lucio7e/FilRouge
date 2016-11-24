@@ -9,6 +9,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,6 +17,7 @@ namespace RogueForumWinForm
 {
     public partial class FrmForum : Form
     {
+      
         public FrmForum()
         {
             InitializeComponent();
@@ -84,7 +86,7 @@ namespace RogueForumWinForm
                 frmAddReponse.sujet = (Sujet)cbBoxSujet.SelectedItem;
                 frmAddReponse.Text = string.Format("Poster une réponse au sujet {0}", frmAddReponse.sujet.Titre);
                 frmAddReponse.ShowDialog();
-                fillDataGridReponses(Controller.GetAllReponsesBySujetID((int)cbBoxSujet.SelectedValue));
+                fillDataGridReponses(Controller.GetTop10ReponsesBySujetID((int)cbBoxSujet.SelectedValue));
             }
         }
 
@@ -178,8 +180,10 @@ namespace RogueForumWinForm
         #region FormLoad 
         private void FrmForum_Load(object sender, EventArgs e)
         {
+           
             fillComboboxRubrique(Controller.GetAllRubriques());
             fillComboBoxSujet(Controller.GetSujetsByRubriqueID((int)cbBoxRubrique.SelectedValue));
+           
             visibiliteAdmin();
         }
         #endregion
@@ -192,6 +196,7 @@ namespace RogueForumWinForm
         /// <param name="e"></param>
         private void cbBoxRubrique_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             //stocke dans une Liste de sujets le resultats de l'appel de la méthode GetSujetByRubrique
             List<Sujet> sujets = Controller.GetSujetsByRubriqueID((int)cbBoxRubrique.SelectedValue);
             //On verifie que la liste des sujets n'est pas vide
@@ -205,10 +210,12 @@ namespace RogueForumWinForm
             {
                 turnPanelSujetInvisible();
             }
+            Cursor.Current = Cursors.Default;
         }
 
         private void cbBoxSujet_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             if (visibiliteSujets())
             {
                 turnPanelSujetVisible();
@@ -232,6 +239,7 @@ namespace RogueForumWinForm
             {
                 turnPanelSujetInvisible();
             }
+            Cursor.Current = Cursors.Default;
         }
 
         private void dataGridViewReponse_SelectionChanged(object sender, EventArgs e)
@@ -327,11 +335,12 @@ namespace RogueForumWinForm
 
         private void fillComboboxRubrique(List<Rubrique> rubriques)
         {
-            cbBoxRubrique.ValueMember = "Id";
-            cbBoxRubrique.DisplayMember = "Libelle";
-            cbBoxRubrique.DataSource = rubriques;
-        }
-
+                cbBoxRubrique.ValueMember = "Id";
+                cbBoxRubrique.DisplayMember = "Libelle";
+                cbBoxRubrique.DataSource = rubriques;
+         }
+       
+       
         private void fillDataGridReponses(List<Reponse> reponses)
         {
             dataGridViewReponse.DataSource = reponses;
@@ -339,6 +348,7 @@ namespace RogueForumWinForm
             dataGridViewReponse.Columns["SUJET"].Visible = false;
             dataGridViewReponse.Columns["UTILISATEUR"].Visible = false;
         }
+
 
         #endregion
     }

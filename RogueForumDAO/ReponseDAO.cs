@@ -35,6 +35,26 @@ namespace RogueForumDAO
         }
 
         /// <summary>
+        /// Methode d'accés aux données permettant de récupérer la liste des 10 réponses les plus récentes pour un sujet dont l'id est passé en parametre
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable GetTop10ReponsesBySujetID(int idSujet)
+        {
+
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "GetTop10ReponsesByIdSujet";
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlParameter param = cmd.CreateParameter();
+            param.ParameterName = "@IdSujet";
+            param.Value = idSujet;
+            cmd.Parameters.Add(param);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable("Reponses");
+            da.Fill(dt);
+            return dt;
+        }
+
+        /// <summary>
         /// Methode d'accés aux données permettant de récupérer la liste des réponses pour un utilisateur donnée dont l'id est passé en parametre
         /// </summary>
         /// <param name="idUser"></param>
