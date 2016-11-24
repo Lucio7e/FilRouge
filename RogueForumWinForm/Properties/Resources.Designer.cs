@@ -71,6 +71,15 @@ namespace RogueForumWinForm.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Voici votre nouveau mot de passe : {0} , vous pourrez le modifier après vous être connecté.
+        /// </summary>
+        internal static string BodyMail {
+            get {
+                return ResourceManager.GetString("BodyMail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Cancel_button_blue {
@@ -175,6 +184,15 @@ namespace RogueForumWinForm.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Nous venons de vous envoyer un E-mail avec votre nouveau mot de passe.
+        /// </summary>
+        internal static string MsgBoxEnvoiMail {
+            get {
+                return ResourceManager.GetString("MsgBoxEnvoiMail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Impossible de supprimer la réponse.
         /// </summary>
         internal static string MsgBoxErreurSupprReponseText {
@@ -207,6 +225,24 @@ namespace RogueForumWinForm.Properties {
         internal static string MsgBoxErreurSupprSujetTitre {
             get {
                 return ResourceManager.GetString("MsgBoxErreurSupprSujetTitre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Veuillez saisr votre email afin de vous voir attribué un nouveau mot de passe.
+        /// </summary>
+        internal static string MsgBoxMailText {
+            get {
+                return ResourceManager.GetString("MsgBoxMailText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Saisir votre mail.
+        /// </summary>
+        internal static string MsgBoxMailTitre {
+            get {
+                return ResourceManager.GetString("MsgBoxMailTitre", resourceCulture);
             }
         }
         

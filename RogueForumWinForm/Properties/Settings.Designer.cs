@@ -22,5 +22,53 @@ namespace RogueForumWinForm.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("loic.montcouquiol")]
+        public string InfoMail {
+            get {
+                return ((string)(this["InfoMail"]));
+            }
+            set {
+                this["InfoMail"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("pFJ8anp2")]
+        public string InfoMailMdp {
+            get {
+                return ((string)(this["InfoMailMdp"]));
+            }
+            set {
+                this["InfoMailMdp"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2isalinmail.2isa.org")]
+        public string SMTP {
+            get {
+                return ((string)(this["SMTP"]));
+            }
+            set {
+                this["SMTP"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("25")]
+        public string PortSMTP {
+            get {
+                return ((string)(this["PortSMTP"]));
+            }
+            set {
+                this["PortSMTP"] = value;
+            }
+        }
     }
 }

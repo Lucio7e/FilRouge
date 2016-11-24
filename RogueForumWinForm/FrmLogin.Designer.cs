@@ -39,6 +39,9 @@
             this.tabLayPanConn = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnConnect = new System.Windows.Forms.Button();
+            this.btnMDPPerdu = new System.Windows.Forms.Button();
+            this.grpBoxMail = new System.Windows.Forms.GroupBox();
+            this.txtBoxMail = new System.Windows.Forms.TextBox();
             this.tabLayPanLogin.SuspendLayout();
             this.tabLayPanUsername.SuspendLayout();
             this.grpBoxUsername.SuspendLayout();
@@ -46,6 +49,7 @@
             this.grpBoxMDP.SuspendLayout();
             this.tabLayPanConn.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.grpBoxMail.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabLayPanLogin
@@ -61,9 +65,9 @@
             this.tabLayPanLogin.Name = "tabLayPanLogin";
             this.tabLayPanLogin.RowCount = 4;
             this.tabLayPanLogin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tabLayPanLogin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 133F));
             this.tabLayPanLogin.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tabLayPanLogin.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tabLayPanLogin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tabLayPanLogin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tabLayPanLogin.Size = new System.Drawing.Size(434, 361);
             this.tabLayPanLogin.TabIndex = 0;
             // 
@@ -78,17 +82,19 @@
             this.tabLayPanUsername.Name = "tabLayPanUsername";
             this.tabLayPanUsername.RowCount = 1;
             this.tabLayPanUsername.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tabLayPanUsername.Size = new System.Drawing.Size(426, 60);
+            this.tabLayPanUsername.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tabLayPanUsername.Size = new System.Drawing.Size(426, 125);
             this.tabLayPanUsername.TabIndex = 0;
             // 
             // grpBoxUsername
             // 
+            this.grpBoxUsername.Controls.Add(this.grpBoxMail);
             this.grpBoxUsername.Controls.Add(this.txtBoxUsername);
             this.grpBoxUsername.Location = new System.Drawing.Point(110, 4);
             this.grpBoxUsername.Margin = new System.Windows.Forms.Padding(110, 4, 110, 4);
             this.grpBoxUsername.Name = "grpBoxUsername";
             this.grpBoxUsername.Padding = new System.Windows.Forms.Padding(4);
-            this.grpBoxUsername.Size = new System.Drawing.Size(206, 52);
+            this.grpBoxUsername.Size = new System.Drawing.Size(206, 117);
             this.grpBoxUsername.TabIndex = 0;
             this.grpBoxUsername.TabStop = false;
             this.grpBoxUsername.Text = "Nom d\'utilisateur :";
@@ -102,6 +108,7 @@
             this.txtBoxUsername.Name = "txtBoxUsername";
             this.txtBoxUsername.Size = new System.Drawing.Size(198, 24);
             this.txtBoxUsername.TabIndex = 4;
+            this.txtBoxUsername.TextChanged += new System.EventHandler(this.txtBoxUsername_TextChanged);
             // 
             // tabLayPanPwd
             // 
@@ -109,7 +116,7 @@
             this.tabLayPanPwd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tabLayPanPwd.Controls.Add(this.grpBoxMDP, 0, 0);
             this.tabLayPanPwd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabLayPanPwd.Location = new System.Drawing.Point(4, 92);
+            this.tabLayPanPwd.Location = new System.Drawing.Point(4, 157);
             this.tabLayPanPwd.Margin = new System.Windows.Forms.Padding(4);
             this.tabLayPanPwd.Name = "tabLayPanPwd";
             this.tabLayPanPwd.RowCount = 1;
@@ -140,6 +147,7 @@
             this.txtBoxPwd.Size = new System.Drawing.Size(198, 24);
             this.txtBoxPwd.TabIndex = 5;
             this.txtBoxPwd.UseSystemPasswordChar = true;
+            this.txtBoxPwd.TextChanged += new System.EventHandler(this.txtBoxPwd_TextChanged);
             // 
             // tabLayPanConn
             // 
@@ -149,20 +157,21 @@
             this.tabLayPanConn.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tabLayPanConn.Controls.Add(this.panel1, 1, 0);
             this.tabLayPanConn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabLayPanConn.Location = new System.Drawing.Point(4, 160);
+            this.tabLayPanConn.Location = new System.Drawing.Point(4, 225);
             this.tabLayPanConn.Margin = new System.Windows.Forms.Padding(4);
             this.tabLayPanConn.Name = "tabLayPanConn";
             this.tabLayPanConn.RowCount = 1;
             this.tabLayPanConn.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tabLayPanConn.Size = new System.Drawing.Size(426, 197);
+            this.tabLayPanConn.Size = new System.Drawing.Size(426, 132);
             this.tabLayPanConn.TabIndex = 2;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnMDPPerdu);
             this.panel1.Controls.Add(this.btnConnect);
             this.panel1.Location = new System.Drawing.Point(113, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 82);
+            this.panel1.Size = new System.Drawing.Size(200, 113);
             this.panel1.TabIndex = 3;
             // 
             // btnConnect
@@ -170,6 +179,7 @@
             this.btnConnect.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnConnect.AutoSize = true;
+            this.btnConnect.Enabled = false;
             this.btnConnect.Location = new System.Drawing.Point(26, 13);
             this.btnConnect.Margin = new System.Windows.Forms.Padding(75, 4, 75, 4);
             this.btnConnect.Name = "btnConnect";
@@ -178,6 +188,36 @@
             this.btnConnect.Text = "Se connecter";
             this.btnConnect.UseVisualStyleBackColor = true;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
+            // 
+            // btnMDPPerdu
+            // 
+            this.btnMDPPerdu.Enabled = false;
+            this.btnMDPPerdu.Location = new System.Drawing.Point(26, 49);
+            this.btnMDPPerdu.Name = "btnMDPPerdu";
+            this.btnMDPPerdu.Size = new System.Drawing.Size(148, 46);
+            this.btnMDPPerdu.TabIndex = 3;
+            this.btnMDPPerdu.Text = "Mot de passe perdu?";
+            this.btnMDPPerdu.UseVisualStyleBackColor = true;
+            this.btnMDPPerdu.Click += new System.EventHandler(this.btnMDPPerdu_Click);
+            // 
+            // grpBoxMail
+            // 
+            this.grpBoxMail.Controls.Add(this.txtBoxMail);
+            this.grpBoxMail.Location = new System.Drawing.Point(7, 53);
+            this.grpBoxMail.Name = "grpBoxMail";
+            this.grpBoxMail.Size = new System.Drawing.Size(192, 57);
+            this.grpBoxMail.TabIndex = 5;
+            this.grpBoxMail.TabStop = false;
+            this.grpBoxMail.Text = "Mail :";
+            // 
+            // txtBoxMail
+            // 
+            this.txtBoxMail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtBoxMail.Location = new System.Drawing.Point(3, 20);
+            this.txtBoxMail.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBoxMail.Name = "txtBoxMail";
+            this.txtBoxMail.Size = new System.Drawing.Size(186, 24);
+            this.txtBoxMail.TabIndex = 5;
             // 
             // FrmLogin
             // 
@@ -204,6 +244,8 @@
             this.tabLayPanConn.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.grpBoxMail.ResumeLayout(false);
+            this.grpBoxMail.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -220,5 +262,8 @@
         private System.Windows.Forms.TableLayoutPanel tabLayPanConn;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnConnect;
+        private System.Windows.Forms.Button btnMDPPerdu;
+        private System.Windows.Forms.GroupBox grpBoxMail;
+        private System.Windows.Forms.TextBox txtBoxMail;
     }
 }

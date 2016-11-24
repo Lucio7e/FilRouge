@@ -120,6 +120,7 @@ namespace RogueForumDAO
             cmd.Parameters.Add(paramIdSujet);
             
             conn.Open();
+           
             int nbLigne = cmd.ExecuteNonQuery();
             conn.Close();
             

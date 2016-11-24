@@ -15,6 +15,7 @@ namespace RogueForumWinForm
     {
         static internal bool IsConnected;
         static internal bool IsModo;
+        //Une variable internal qui est commune a tous les formulaires, dans mon cas elle est différente de Null si l'utilisateur est connecté
         static internal Utilisateur CurrentUser;
         public frmMain()
         {

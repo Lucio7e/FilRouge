@@ -69,14 +69,14 @@ namespace RogueForumDAO
         /// <param name="userId"></param>
         /// <param name="mdp"></param>
         /// <returns></returns>
-        public static int ChangeMDP(int userId, string mdp)
+        public static int ChangeMDP(string login, string mdp)
         {
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = "ChangeMDP";
             cmd.CommandType = CommandType.StoredProcedure;
             SqlParameter paramUserID= cmd.CreateParameter();
-            paramUserID.ParameterName = "@IDUSER";
-            paramUserID.Value = userId;
+            paramUserID.ParameterName = "@LOGIN";
+            paramUserID.Value = login;
 
             SqlParameter paramMDP = cmd.CreateParameter();
             paramMDP.ParameterName = "@MDP";
@@ -88,6 +88,33 @@ namespace RogueForumDAO
             int nbLigne = cmd.ExecuteNonQuery();
             conn.Close();
             return nbLigne;
+        }
+
+        /// <summary>
+        /// Appel la procédure stocké permettant de savoir si la combinaison Login/Mail correspond afin d'autoriser la génération d'un nouveau mdp
+        /// </summary>
+        /// <param name="login"></param>
+        /// <param name="mail"></param>
+        /// <returns>Le nombre de lignes affectées (1 si tout va bien)</returns>
+        public static DataTable GetUserByLoginMail(string login, string mail)
+        {
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "GetUserByLoginMail";
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlParameter paramUserID = cmd.CreateParameter();
+            paramUserID.ParameterName = "@LOGIN";
+            paramUserID.Value = login;
+
+            SqlParameter paramMail = cmd.CreateParameter();
+            paramMail.ParameterName = "@MAIL";
+            paramMail.Value = mail;
+            cmd.Parameters.Add(paramUserID);
+            cmd.Parameters.Add(paramMail);
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable("Mail");
+            da.Fill(dt);
+            return dt;
         }
     }
 }

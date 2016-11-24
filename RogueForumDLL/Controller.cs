@@ -262,9 +262,19 @@ namespace RogueForumDLL
         /// <param name="userId"></param>
         /// <param name="mdp"></param>
         /// <returns></returns>
-        public static int ChangeMdp(int userId, string mdp)
+        public static int ChangeMdp(string login, string mdp)
         {
-            return UtilisateurDAO.ChangeMDP(userId, mdp);
+            return UtilisateurDAO.ChangeMDP(login, mdp);
+        }
+
+        public static bool GetUserByLoginMail(string login, string mail)
+        {
+            DataTable dt = UtilisateurDAO.GetUserByLoginMail(login, mail);
+            if (dt.Rows.Count == 1)
+            {
+                return true;
+            }
+            return false;
         }
     #endregion
 }
