@@ -32,24 +32,24 @@
             this.tabLayPanLogin = new System.Windows.Forms.TableLayoutPanel();
             this.tabLayPanUsername = new System.Windows.Forms.TableLayoutPanel();
             this.grpBoxUsername = new System.Windows.Forms.GroupBox();
+            this.grpBoxMail = new System.Windows.Forms.GroupBox();
+            this.txtBoxMail = new System.Windows.Forms.TextBox();
             this.txtBoxUsername = new System.Windows.Forms.TextBox();
             this.tabLayPanPwd = new System.Windows.Forms.TableLayoutPanel();
             this.grpBoxMDP = new System.Windows.Forms.GroupBox();
             this.txtBoxPwd = new System.Windows.Forms.TextBox();
             this.tabLayPanConn = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnConnect = new System.Windows.Forms.Button();
             this.btnMDPPerdu = new System.Windows.Forms.Button();
-            this.grpBoxMail = new System.Windows.Forms.GroupBox();
-            this.txtBoxMail = new System.Windows.Forms.TextBox();
+            this.btnConnect = new System.Windows.Forms.Button();
             this.tabLayPanLogin.SuspendLayout();
             this.tabLayPanUsername.SuspendLayout();
             this.grpBoxUsername.SuspendLayout();
+            this.grpBoxMail.SuspendLayout();
             this.tabLayPanPwd.SuspendLayout();
             this.grpBoxMDP.SuspendLayout();
             this.tabLayPanConn.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.grpBoxMail.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabLayPanLogin
@@ -82,7 +82,7 @@
             this.tabLayPanUsername.Name = "tabLayPanUsername";
             this.tabLayPanUsername.RowCount = 1;
             this.tabLayPanUsername.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tabLayPanUsername.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tabLayPanUsername.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 125F));
             this.tabLayPanUsername.Size = new System.Drawing.Size(426, 125);
             this.tabLayPanUsername.TabIndex = 0;
             // 
@@ -98,6 +98,25 @@
             this.grpBoxUsername.TabIndex = 0;
             this.grpBoxUsername.TabStop = false;
             this.grpBoxUsername.Text = "Nom d\'utilisateur :";
+            // 
+            // grpBoxMail
+            // 
+            this.grpBoxMail.Controls.Add(this.txtBoxMail);
+            this.grpBoxMail.Location = new System.Drawing.Point(7, 53);
+            this.grpBoxMail.Name = "grpBoxMail";
+            this.grpBoxMail.Size = new System.Drawing.Size(192, 57);
+            this.grpBoxMail.TabIndex = 5;
+            this.grpBoxMail.TabStop = false;
+            this.grpBoxMail.Text = "Mail :";
+            // 
+            // txtBoxMail
+            // 
+            this.txtBoxMail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtBoxMail.Location = new System.Drawing.Point(3, 20);
+            this.txtBoxMail.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBoxMail.Name = "txtBoxMail";
+            this.txtBoxMail.Size = new System.Drawing.Size(186, 24);
+            this.txtBoxMail.TabIndex = 5;
             // 
             // txtBoxUsername
             // 
@@ -174,6 +193,17 @@
             this.panel1.Size = new System.Drawing.Size(200, 113);
             this.panel1.TabIndex = 3;
             // 
+            // btnMDPPerdu
+            // 
+            this.btnMDPPerdu.Enabled = false;
+            this.btnMDPPerdu.Location = new System.Drawing.Point(26, 49);
+            this.btnMDPPerdu.Name = "btnMDPPerdu";
+            this.btnMDPPerdu.Size = new System.Drawing.Size(148, 46);
+            this.btnMDPPerdu.TabIndex = 3;
+            this.btnMDPPerdu.Text = "Mot de passe perdu?";
+            this.btnMDPPerdu.UseVisualStyleBackColor = true;
+            this.btnMDPPerdu.Click += new System.EventHandler(this.btnMDPPerdu_Click);
+            // 
             // btnConnect
             // 
             this.btnConnect.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -189,38 +219,9 @@
             this.btnConnect.UseVisualStyleBackColor = true;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
-            // btnMDPPerdu
-            // 
-            this.btnMDPPerdu.Enabled = false;
-            this.btnMDPPerdu.Location = new System.Drawing.Point(26, 49);
-            this.btnMDPPerdu.Name = "btnMDPPerdu";
-            this.btnMDPPerdu.Size = new System.Drawing.Size(148, 46);
-            this.btnMDPPerdu.TabIndex = 3;
-            this.btnMDPPerdu.Text = "Mot de passe perdu?";
-            this.btnMDPPerdu.UseVisualStyleBackColor = true;
-            this.btnMDPPerdu.Click += new System.EventHandler(this.btnMDPPerdu_Click);
-            // 
-            // grpBoxMail
-            // 
-            this.grpBoxMail.Controls.Add(this.txtBoxMail);
-            this.grpBoxMail.Location = new System.Drawing.Point(7, 53);
-            this.grpBoxMail.Name = "grpBoxMail";
-            this.grpBoxMail.Size = new System.Drawing.Size(192, 57);
-            this.grpBoxMail.TabIndex = 5;
-            this.grpBoxMail.TabStop = false;
-            this.grpBoxMail.Text = "Mail :";
-            // 
-            // txtBoxMail
-            // 
-            this.txtBoxMail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtBoxMail.Location = new System.Drawing.Point(3, 20);
-            this.txtBoxMail.Margin = new System.Windows.Forms.Padding(4);
-            this.txtBoxMail.Name = "txtBoxMail";
-            this.txtBoxMail.Size = new System.Drawing.Size(186, 24);
-            this.txtBoxMail.TabIndex = 5;
-            // 
             // FrmLogin
             // 
+            this.AcceptButton = this.btnConnect;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(434, 361);
@@ -238,14 +239,14 @@
             this.tabLayPanUsername.ResumeLayout(false);
             this.grpBoxUsername.ResumeLayout(false);
             this.grpBoxUsername.PerformLayout();
+            this.grpBoxMail.ResumeLayout(false);
+            this.grpBoxMail.PerformLayout();
             this.tabLayPanPwd.ResumeLayout(false);
             this.grpBoxMDP.ResumeLayout(false);
             this.grpBoxMDP.PerformLayout();
             this.tabLayPanConn.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.grpBoxMail.ResumeLayout(false);
-            this.grpBoxMail.PerformLayout();
             this.ResumeLayout(false);
 
         }

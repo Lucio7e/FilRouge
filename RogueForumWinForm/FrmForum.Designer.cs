@@ -131,6 +131,7 @@
             this.cbBoxRubrique.Name = "cbBoxRubrique";
             this.cbBoxRubrique.Size = new System.Drawing.Size(188, 21);
             this.cbBoxRubrique.TabIndex = 1;
+            this.cbBoxRubrique.TabStop = false;
             this.cbBoxRubrique.SelectedIndexChanged += new System.EventHandler(this.cbBoxRubrique_SelectedIndexChanged);
             // 
             // tableLayPanSujet
@@ -175,7 +176,7 @@
             this.btnPostRep.Location = new System.Drawing.Point(111, 32);
             this.btnPostRep.Name = "btnPostRep";
             this.btnPostRep.Size = new System.Drawing.Size(109, 23);
-            this.btnPostRep.TabIndex = 3;
+            this.btnPostRep.TabIndex = 4;
             this.btnPostRep.Text = "Poster une réponse";
             this.btnPostRep.UseVisualStyleBackColor = true;
             this.btnPostRep.Click += new System.EventHandler(this.btnPostRep_Click);
@@ -186,7 +187,7 @@
             this.btnAddSujet.Location = new System.Drawing.Point(6, 32);
             this.btnAddSujet.Name = "btnAddSujet";
             this.btnAddSujet.Size = new System.Drawing.Size(90, 23);
-            this.btnAddSujet.TabIndex = 2;
+            this.btnAddSujet.TabIndex = 3;
             this.btnAddSujet.Text = "Ajouter un sujet";
             this.btnAddSujet.UseVisualStyleBackColor = true;
             this.btnAddSujet.Click += new System.EventHandler(this.btnAddSujet_Click);
@@ -223,6 +224,7 @@
             this.txtBoxDescSujet.Name = "txtBoxDescSujet";
             this.txtBoxDescSujet.Size = new System.Drawing.Size(272, 75);
             this.txtBoxDescSujet.TabIndex = 0;
+            this.txtBoxDescSujet.TabStop = false;
             // 
             // lblNoSujet
             // 
@@ -244,6 +246,7 @@
             this.cbBoxSujet.Name = "cbBoxSujet";
             this.cbBoxSujet.Size = new System.Drawing.Size(108, 21);
             this.cbBoxSujet.TabIndex = 1;
+            this.cbBoxSujet.TabStop = false;
             this.cbBoxSujet.SelectedIndexChanged += new System.EventHandler(this.cbBoxSujet_SelectedIndexChanged);
             // 
             // picBoxHome
@@ -315,6 +318,7 @@
             this.dataGridViewReponse.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewReponse.Size = new System.Drawing.Size(814, 421);
             this.dataGridViewReponse.TabIndex = 5;
+            this.dataGridViewReponse.TabStop = false;
             this.dataGridViewReponse.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewReponse_CellClick);
             this.dataGridViewReponse.SelectionChanged += new System.EventHandler(this.dataGridViewReponse_SelectionChanged);
             // 
@@ -336,7 +340,7 @@
             this.btnEditSujet.Location = new System.Drawing.Point(60, 35);
             this.btnEditSujet.Name = "btnEditSujet";
             this.btnEditSujet.Size = new System.Drawing.Size(75, 41);
-            this.btnEditSujet.TabIndex = 2;
+            this.btnEditSujet.TabIndex = 5;
             this.btnEditSujet.Text = "Modifier le sujet";
             this.btnEditSujet.UseVisualStyleBackColor = true;
             this.btnEditSujet.Click += new System.EventHandler(this.btnEditSujet_Click);
@@ -346,7 +350,7 @@
             this.btnSupprReponse.Location = new System.Drawing.Point(60, 129);
             this.btnSupprReponse.Name = "btnSupprReponse";
             this.btnSupprReponse.Size = new System.Drawing.Size(75, 41);
-            this.btnSupprReponse.TabIndex = 1;
+            this.btnSupprReponse.TabIndex = 7;
             this.btnSupprReponse.Text = "Supprimer la réponse";
             this.btnSupprReponse.UseVisualStyleBackColor = true;
             this.btnSupprReponse.Click += new System.EventHandler(this.btnSupprReponse_Click);
@@ -356,7 +360,7 @@
             this.btnSupprSujet.Location = new System.Drawing.Point(60, 82);
             this.btnSupprSujet.Name = "btnSupprSujet";
             this.btnSupprSujet.Size = new System.Drawing.Size(75, 41);
-            this.btnSupprSujet.TabIndex = 0;
+            this.btnSupprSujet.TabIndex = 6;
             this.btnSupprSujet.Text = "Supprimer le sujet";
             this.btnSupprSujet.UseVisualStyleBackColor = true;
             this.btnSupprSujet.Click += new System.EventHandler(this.btnSupprSujet_Click);
