@@ -272,6 +272,7 @@ namespace RogueForumWinForm
             dataGridViewReponse.Visible = true;
             lblNoReponse.Visible = false;
             btnSupprReponse.Enabled = true;           
+            posterUneRéponseToolStripMenuItem.Enabled = ajouterUnSujetToolStripMenuItem.Visible;
         }
 
         private void turnPanelReponseInvisible()
@@ -279,7 +280,8 @@ namespace RogueForumWinForm
             dataGridViewReponse.Visible = false;
             lblNoReponse.Visible = true;
             btnSupprReponse.Enabled = false;
-            
+            ajouterUnSujetToolStripMenuItem.Enabled = dataGridViewReponse.Visible;
+            posterUneRéponseToolStripMenuItem.Enabled = ajouterUnSujetToolStripMenuItem.Visible;
         }
 
         private bool visibiliteSujets()
@@ -300,6 +302,8 @@ namespace RogueForumWinForm
             cbBoxSujet.Visible = true;
             lblNoSujet.Visible = false;
             grpBoxDescSujet.Visible = true;
+            modifierUnSujetToolStripMenuItem.Enabled = btnEditSujet.Visible;
+            supprimerLeSujetToolStripMenuItem.Enabled = btnSupprSujet.Visible;
         }
 
         private void turnPanelSujetInvisible()
@@ -309,17 +313,25 @@ namespace RogueForumWinForm
             cbBoxSujet.Visible = false;
             lblNoSujet.Visible = true;
             grpBoxDescSujet.Visible = false;
+            modifierUnSujetToolStripMenuItem.Enabled = btnEditSujet.Visible;
+            supprimerLeSujetToolStripMenuItem.Enabled = btnSupprSujet.Visible;
             turnPanelReponseInvisible();
         }
 
         private void visibiliteAdmin()
         {
-                panelAddSujet.Visible = frmMain.IsConnected;
-                btnChangerMDP.Visible = frmMain.IsConnected;
-                btnDeconnexion.Visible = frmMain.IsConnected;
-                grpBoxAdmin.Visible = frmMain.IsModo;
-                btnIdent.Visible = !frmMain.IsConnected;
-            
+            panelAddSujet.Visible = frmMain.IsConnected;
+            btnChangerMDP.Visible = frmMain.IsConnected;
+            btnDeconnexion.Visible = frmMain.IsConnected;
+            grpBoxAdmin.Visible = frmMain.IsModo;
+            btnIdent.Visible = !frmMain.IsConnected;
+            changerMotDePasseToolStripMenuItem.Enabled = frmMain.IsConnected;
+            déconnecterVousToolStripMenuItem.Enabled = frmMain.IsConnected;
+            ajouterUnSujetToolStripMenuItem.Enabled = frmMain.IsConnected;
+            modifierUnSujetToolStripMenuItem.Enabled = frmMain.IsModo;
+            supprimerLeSujetToolStripMenuItem.Enabled = frmMain.IsModo;
+            supprimerLaRéponseToolStripMenuItem.Enabled = frmMain.IsModo;
+            posterUneRéponseToolStripMenuItem.Enabled = frmMain.IsConnected;
         }
         #endregion
 

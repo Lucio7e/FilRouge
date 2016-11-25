@@ -55,6 +55,20 @@
             this.btnSupprSujet = new System.Windows.Forms.Button();
             this.lblNoReponse = new System.Windows.Forms.Label();
             this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.applicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sujetsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.réponsesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.utilisateurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajouterUnSujetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modifierUnSujetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.supprimerLeSujetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.posterUneRéponseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.supprimerLaRéponseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.identifiezvousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changerMotDePasseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.déconnecterVousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tlpanelFrmForum.SuspendLayout();
             this.tableLayPanCategorie.SuspendLayout();
             this.grpBoxCategorie.SuspendLayout();
@@ -67,6 +81,7 @@
             this.flowLayPanIdent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReponse)).BeginInit();
             this.grpBoxAdmin.SuspendLayout();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpanelFrmForum
@@ -85,11 +100,12 @@
             this.tlpanelFrmForum.Controls.Add(this.grpBoxAdmin, 1, 3);
             this.tlpanelFrmForum.Controls.Add(this.lblNoReponse, 2, 2);
             this.tlpanelFrmForum.Controls.Add(this.progressBar, 1, 2);
+            this.tlpanelFrmForum.Controls.Add(this.menuStrip, 2, 0);
             this.tlpanelFrmForum.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpanelFrmForum.Location = new System.Drawing.Point(0, 0);
             this.tlpanelFrmForum.Name = "tlpanelFrmForum";
             this.tlpanelFrmForum.RowCount = 6;
-            this.tlpanelFrmForum.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpanelFrmForum.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpanelFrmForum.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpanelFrmForum.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpanelFrmForum.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -104,7 +120,7 @@
             this.tableLayPanCategorie.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayPanCategorie.Controls.Add(this.grpBoxCategorie, 0, 0);
             this.tableLayPanCategorie.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayPanCategorie.Location = new System.Drawing.Point(23, 23);
+            this.tableLayPanCategorie.Location = new System.Drawing.Point(23, 27);
             this.tableLayPanCategorie.Name = "tableLayPanCategorie";
             this.tableLayPanCategorie.RowCount = 1;
             this.tableLayPanCategorie.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -142,7 +158,7 @@
             this.tableLayPanSujet.Controls.Add(this.panelAddSujet, 1, 0);
             this.tableLayPanSujet.Controls.Add(this.grpBoxSujet, 0, 0);
             this.tableLayPanSujet.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayPanSujet.Location = new System.Drawing.Point(229, 23);
+            this.tableLayPanSujet.Location = new System.Drawing.Point(229, 27);
             this.tableLayPanSujet.Name = "tableLayPanSujet";
             this.tableLayPanSujet.RowCount = 1;
             this.tableLayPanSujet.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -253,7 +269,7 @@
             // 
             this.picBoxHome.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picBoxHome.Image = global::RogueForumWinForm.Properties.Resources.RogueSquadron80x80;
-            this.picBoxHome.Location = new System.Drawing.Point(1049, 23);
+            this.picBoxHome.Location = new System.Drawing.Point(1049, 27);
             this.picBoxHome.Name = "picBoxHome";
             this.picBoxHome.Size = new System.Drawing.Size(88, 100);
             this.picBoxHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -267,7 +283,7 @@
             this.flowLayPanIdent.Controls.Add(this.btnChangerMDP);
             this.flowLayPanIdent.Controls.Add(this.btnDeconnexion);
             this.flowLayPanIdent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayPanIdent.Location = new System.Drawing.Point(1049, 149);
+            this.flowLayPanIdent.Location = new System.Drawing.Point(1049, 153);
             this.flowLayPanIdent.Name = "flowLayPanIdent";
             this.flowLayPanIdent.Size = new System.Drawing.Size(88, 421);
             this.flowLayPanIdent.TabIndex = 4;
@@ -312,7 +328,7 @@
             this.dataGridViewReponse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewReponse.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewReponse.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridViewReponse.Location = new System.Drawing.Point(229, 149);
+            this.dataGridViewReponse.Location = new System.Drawing.Point(229, 153);
             this.dataGridViewReponse.MultiSelect = false;
             this.dataGridViewReponse.Name = "dataGridViewReponse";
             this.dataGridViewReponse.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -328,7 +344,7 @@
             this.grpBoxAdmin.Controls.Add(this.btnSupprReponse);
             this.grpBoxAdmin.Controls.Add(this.btnSupprSujet);
             this.grpBoxAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grpBoxAdmin.Location = new System.Drawing.Point(23, 149);
+            this.grpBoxAdmin.Location = new System.Drawing.Point(23, 153);
             this.grpBoxAdmin.Name = "grpBoxAdmin";
             this.grpBoxAdmin.Size = new System.Drawing.Size(200, 421);
             this.grpBoxAdmin.TabIndex = 6;
@@ -371,7 +387,7 @@
             this.lblNoReponse.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblNoReponse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNoReponse.ForeColor = System.Drawing.Color.Crimson;
-            this.lblNoReponse.Location = new System.Drawing.Point(229, 126);
+            this.lblNoReponse.Location = new System.Drawing.Point(229, 130);
             this.lblNoReponse.Name = "lblNoReponse";
             this.lblNoReponse.Size = new System.Drawing.Size(814, 20);
             this.lblNoReponse.TabIndex = 8;
@@ -379,11 +395,125 @@
             // 
             // progressBar
             // 
-            this.progressBar.Location = new System.Drawing.Point(23, 129);
+            this.progressBar.Location = new System.Drawing.Point(23, 133);
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(200, 14);
             this.progressBar.TabIndex = 9;
             this.progressBar.Visible = false;
+            // 
+            // menuStrip
+            // 
+            this.menuStrip.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.applicationToolStripMenuItem,
+            this.sujetsToolStripMenuItem,
+            this.réponsesToolStripMenuItem,
+            this.utilisateurToolStripMenuItem});
+            this.menuStrip.Location = new System.Drawing.Point(226, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(820, 24);
+            this.menuStrip.TabIndex = 10;
+            this.menuStrip.Text = "menuStrip1";
+            // 
+            // applicationToolStripMenuItem
+            // 
+            this.applicationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.quitterToolStripMenuItem});
+            this.applicationToolStripMenuItem.Name = "applicationToolStripMenuItem";
+            this.applicationToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
+            this.applicationToolStripMenuItem.Text = "Application";
+            // 
+            // sujetsToolStripMenuItem
+            // 
+            this.sujetsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ajouterUnSujetToolStripMenuItem,
+            this.modifierUnSujetToolStripMenuItem,
+            this.supprimerLeSujetToolStripMenuItem});
+            this.sujetsToolStripMenuItem.Name = "sujetsToolStripMenuItem";
+            this.sujetsToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.sujetsToolStripMenuItem.Text = "Sujets";
+            // 
+            // réponsesToolStripMenuItem
+            // 
+            this.réponsesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.posterUneRéponseToolStripMenuItem,
+            this.supprimerLaRéponseToolStripMenuItem});
+            this.réponsesToolStripMenuItem.Name = "réponsesToolStripMenuItem";
+            this.réponsesToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.réponsesToolStripMenuItem.Text = "Réponses";
+            // 
+            // utilisateurToolStripMenuItem
+            // 
+            this.utilisateurToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.identifiezvousToolStripMenuItem,
+            this.changerMotDePasseToolStripMenuItem,
+            this.déconnecterVousToolStripMenuItem});
+            this.utilisateurToolStripMenuItem.Name = "utilisateurToolStripMenuItem";
+            this.utilisateurToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.utilisateurToolStripMenuItem.Text = "Utilisateur";
+            // 
+            // quitterToolStripMenuItem
+            // 
+            this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
+            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.quitterToolStripMenuItem.Text = "Quitter";
+            this.quitterToolStripMenuItem.Click += new System.EventHandler(this.picBoxHome_Click);
+            // 
+            // ajouterUnSujetToolStripMenuItem
+            // 
+            this.ajouterUnSujetToolStripMenuItem.Name = "ajouterUnSujetToolStripMenuItem";
+            this.ajouterUnSujetToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.ajouterUnSujetToolStripMenuItem.Text = "Ajouter un sujet";
+            this.ajouterUnSujetToolStripMenuItem.Click += new System.EventHandler(this.btnAddSujet_Click);
+            // 
+            // modifierUnSujetToolStripMenuItem
+            // 
+            this.modifierUnSujetToolStripMenuItem.Name = "modifierUnSujetToolStripMenuItem";
+            this.modifierUnSujetToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.modifierUnSujetToolStripMenuItem.Text = "Modifier le sujet";
+            this.modifierUnSujetToolStripMenuItem.Click += new System.EventHandler(this.btnEditSujet_Click);
+            // 
+            // supprimerLeSujetToolStripMenuItem
+            // 
+            this.supprimerLeSujetToolStripMenuItem.Name = "supprimerLeSujetToolStripMenuItem";
+            this.supprimerLeSujetToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.supprimerLeSujetToolStripMenuItem.Text = "Supprimer le sujet";
+            this.supprimerLeSujetToolStripMenuItem.Click += new System.EventHandler(this.btnSupprSujet_Click);
+            // 
+            // posterUneRéponseToolStripMenuItem
+            // 
+            this.posterUneRéponseToolStripMenuItem.Name = "posterUneRéponseToolStripMenuItem";
+            this.posterUneRéponseToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.posterUneRéponseToolStripMenuItem.Text = "Poster une réponse";
+            this.posterUneRéponseToolStripMenuItem.Click += new System.EventHandler(this.btnPostRep_Click);
+            // 
+            // supprimerLaRéponseToolStripMenuItem
+            // 
+            this.supprimerLaRéponseToolStripMenuItem.Name = "supprimerLaRéponseToolStripMenuItem";
+            this.supprimerLaRéponseToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.supprimerLaRéponseToolStripMenuItem.Text = "Supprimer la réponse";
+            this.supprimerLaRéponseToolStripMenuItem.Click += new System.EventHandler(this.btnSupprReponse_Click);
+            // 
+            // identifiezvousToolStripMenuItem
+            // 
+            this.identifiezvousToolStripMenuItem.Name = "identifiezvousToolStripMenuItem";
+            this.identifiezvousToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.identifiezvousToolStripMenuItem.Text = "Identifiez-vous";
+            this.identifiezvousToolStripMenuItem.Click += new System.EventHandler(this.btnIdent_Click);
+            // 
+            // changerMotDePasseToolStripMenuItem
+            // 
+            this.changerMotDePasseToolStripMenuItem.Name = "changerMotDePasseToolStripMenuItem";
+            this.changerMotDePasseToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.changerMotDePasseToolStripMenuItem.Text = "Changer mot de passe";
+            this.changerMotDePasseToolStripMenuItem.Click += new System.EventHandler(this.btnChangerMDP_Click);
+            // 
+            // déconnecterVousToolStripMenuItem
+            // 
+            this.déconnecterVousToolStripMenuItem.Name = "déconnecterVousToolStripMenuItem";
+            this.déconnecterVousToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.déconnecterVousToolStripMenuItem.Text = "Déconnecter vous";
+            this.déconnecterVousToolStripMenuItem.Click += new System.EventHandler(this.btnDeconnexion_Click);
             // 
             // FrmForum
             // 
@@ -393,6 +523,7 @@
             this.Controls.Add(this.tlpanelFrmForum);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip;
             this.Name = "FrmForum";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Rogue Forum";
@@ -413,6 +544,8 @@
             this.flowLayPanIdent.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReponse)).EndInit();
             this.grpBoxAdmin.ResumeLayout(false);
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -445,5 +578,19 @@
         private System.Windows.Forms.GroupBox grpBoxDescSujet;
         private System.Windows.Forms.TextBox txtBoxDescSujet;
         private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.MenuStrip menuStrip;
+        private System.Windows.Forms.ToolStripMenuItem applicationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quitterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sujetsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ajouterUnSujetToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modifierUnSujetToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem supprimerLeSujetToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem réponsesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem posterUneRéponseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem supprimerLaRéponseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem utilisateurToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem identifiezvousToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changerMotDePasseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem déconnecterVousToolStripMenuItem;
     }
 }
