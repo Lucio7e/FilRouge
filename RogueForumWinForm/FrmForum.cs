@@ -17,7 +17,7 @@ namespace RogueForumWinForm
 {
     public partial class FrmForum : Form
     {
-      
+        
         public FrmForum()
         {
             InitializeComponent();
@@ -180,67 +180,15 @@ namespace RogueForumWinForm
         #region FormLoad 
         private void FrmForum_Load(object sender, EventArgs e)
         {
-           
             fillComboboxRubrique(Controller.GetAllRubriques());
             fillComboBoxSujet(Controller.GetSujetsByRubriqueID((int)cbBoxRubrique.SelectedValue));
-           
+            ComboBoxSujet_CommitSelection();
             visibiliteAdmin();
+
         }
         #endregion
 
         #region IndexChange event
-        /// <summary>
-        /// Evenement sur la comboBox des rubriques
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void cbBoxRubrique_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Cursor.Current = Cursors.WaitCursor;
-            //stocke dans une Liste de sujets le resultats de l'appel de la méthode GetSujetByRubrique
-            List<Sujet> sujets = Controller.GetSujetsByRubriqueID((int)cbBoxRubrique.SelectedValue);
-            //On verifie que la liste des sujets n'est pas vide
-            if ( sujets != null)
-            {
-                turnPanelSujetVisible();
-                //On rempli la comboBox des sujets avec la liste
-                fillComboBoxSujet(sujets);
-            }
-            else
-            {
-                turnPanelSujetInvisible();
-            }
-            Cursor.Current = Cursors.Default;
-        }
-
-        private void cbBoxSujet_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Cursor.Current = Cursors.WaitCursor;
-            if (visibiliteSujets())
-            {
-                turnPanelSujetVisible();
-                Sujet sujet = (Sujet)cbBoxSujet.SelectedItem;
-                txtBoxDescSujet.Text = sujet.Desc + Environment.NewLine + "posté par : " + sujet.NomAuteur;
-                if (visibiliteReponses())
-                {
-                    turnPanelReponseVisible();
-                    List<Reponse> reponses = sujet.Reponses;
-                    if (reponses != null)
-                    {
-                        fillDataGridReponses(reponses);
-                    }
-                }
-                else
-                {
-                    turnPanelReponseInvisible();
-                }
-            }
-            else
-            {
-                turnPanelSujetInvisible();
-            }
-            Cursor.Current = Cursors.Default;
-        }
 
         private void dataGridViewReponse_SelectionChanged(object sender, EventArgs e)
         {
@@ -363,5 +311,64 @@ namespace RogueForumWinForm
 
 
         #endregion
+
+        private void cbBoxRubrique_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            ComboRubrique_CommitSelection();
+            ComboBoxSujet_CommitSelection();
+        }
+
+        private void cbBoxSujet_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            ComboBoxSujet_CommitSelection();
+        }
+
+        private void ComboBoxSujet_CommitSelection()
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            if (visibiliteSujets())
+            {
+                turnPanelSujetVisible();
+                Sujet sujet = (Sujet)cbBoxSujet.SelectedItem;
+                txtBoxDescSujet.Text = sujet.Desc + Environment.NewLine + "posté par : " + sujet.NomAuteur;
+                if (visibiliteReponses())
+                {
+                    turnPanelReponseVisible();
+                    List<Reponse> reponses = sujet.Reponses;
+                    if (reponses != null)
+                    {
+                        fillDataGridReponses(reponses);
+                    }
+                }
+                else
+                {
+                    turnPanelReponseInvisible();
+                }
+            }
+            else
+            {
+                turnPanelSujetInvisible();
+            }
+            Cursor.Current = Cursors.Default;
+        }
+        
+        private void ComboRubrique_CommitSelection()
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            //stocke dans une Liste de sujets le resultats de l'appel de la méthode GetSujetByRubrique
+            List<Sujet> sujets = Controller.GetSujetsByRubriqueID((int)cbBoxRubrique.SelectedValue);
+            //On verifie que la liste des sujets n'est pas vide
+            if (sujets != null)
+            {
+                turnPanelSujetVisible();
+                //On rempli la comboBox des sujets avec la liste
+                fillComboBoxSujet(sujets);
+            }
+            else
+            {
+                turnPanelSujetInvisible();
+            }
+            Cursor.Current = Cursors.Default;
+        }
     }
 }

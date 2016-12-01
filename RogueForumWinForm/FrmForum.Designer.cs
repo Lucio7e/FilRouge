@@ -57,15 +57,15 @@
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.applicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sujetsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.réponsesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.utilisateurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sujetsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajouterUnSujetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modifierUnSujetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supprimerLeSujetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.réponsesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.posterUneRéponseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supprimerLaRéponseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.utilisateurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.identifiezvousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changerMotDePasseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.déconnecterVousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -148,7 +148,7 @@
             this.cbBoxRubrique.Size = new System.Drawing.Size(188, 21);
             this.cbBoxRubrique.TabIndex = 1;
             this.cbBoxRubrique.TabStop = false;
-            this.cbBoxRubrique.SelectedIndexChanged += new System.EventHandler(this.cbBoxRubrique_SelectedIndexChanged);
+            this.cbBoxRubrique.SelectionChangeCommitted += new System.EventHandler(this.cbBoxRubrique_SelectionChangeCommitted);
             // 
             // tableLayPanSujet
             // 
@@ -263,7 +263,7 @@
             this.cbBoxSujet.Size = new System.Drawing.Size(108, 21);
             this.cbBoxSujet.TabIndex = 1;
             this.cbBoxSujet.TabStop = false;
-            this.cbBoxSujet.SelectedIndexChanged += new System.EventHandler(this.cbBoxSujet_SelectedIndexChanged);
+            this.cbBoxSujet.SelectionChangeCommitted += new System.EventHandler(this.cbBoxSujet_SelectionChangeCommitted);
             // 
             // picBoxHome
             // 
@@ -423,6 +423,13 @@
             this.applicationToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
             this.applicationToolStripMenuItem.Text = "Application";
             // 
+            // quitterToolStripMenuItem
+            // 
+            this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
+            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.quitterToolStripMenuItem.Text = "Quitter";
+            this.quitterToolStripMenuItem.Click += new System.EventHandler(this.picBoxHome_Click);
+            // 
             // sujetsToolStripMenuItem
             // 
             this.sujetsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -432,32 +439,6 @@
             this.sujetsToolStripMenuItem.Name = "sujetsToolStripMenuItem";
             this.sujetsToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.sujetsToolStripMenuItem.Text = "Sujets";
-            // 
-            // réponsesToolStripMenuItem
-            // 
-            this.réponsesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.posterUneRéponseToolStripMenuItem,
-            this.supprimerLaRéponseToolStripMenuItem});
-            this.réponsesToolStripMenuItem.Name = "réponsesToolStripMenuItem";
-            this.réponsesToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
-            this.réponsesToolStripMenuItem.Text = "Réponses";
-            // 
-            // utilisateurToolStripMenuItem
-            // 
-            this.utilisateurToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.identifiezvousToolStripMenuItem,
-            this.changerMotDePasseToolStripMenuItem,
-            this.déconnecterVousToolStripMenuItem});
-            this.utilisateurToolStripMenuItem.Name = "utilisateurToolStripMenuItem";
-            this.utilisateurToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
-            this.utilisateurToolStripMenuItem.Text = "Utilisateur";
-            // 
-            // quitterToolStripMenuItem
-            // 
-            this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
-            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.quitterToolStripMenuItem.Text = "Quitter";
-            this.quitterToolStripMenuItem.Click += new System.EventHandler(this.picBoxHome_Click);
             // 
             // ajouterUnSujetToolStripMenuItem
             // 
@@ -480,6 +461,15 @@
             this.supprimerLeSujetToolStripMenuItem.Text = "Supprimer le sujet";
             this.supprimerLeSujetToolStripMenuItem.Click += new System.EventHandler(this.btnSupprSujet_Click);
             // 
+            // réponsesToolStripMenuItem
+            // 
+            this.réponsesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.posterUneRéponseToolStripMenuItem,
+            this.supprimerLaRéponseToolStripMenuItem});
+            this.réponsesToolStripMenuItem.Name = "réponsesToolStripMenuItem";
+            this.réponsesToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.réponsesToolStripMenuItem.Text = "Réponses";
+            // 
             // posterUneRéponseToolStripMenuItem
             // 
             this.posterUneRéponseToolStripMenuItem.Name = "posterUneRéponseToolStripMenuItem";
@@ -493,6 +483,16 @@
             this.supprimerLaRéponseToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.supprimerLaRéponseToolStripMenuItem.Text = "Supprimer la réponse";
             this.supprimerLaRéponseToolStripMenuItem.Click += new System.EventHandler(this.btnSupprReponse_Click);
+            // 
+            // utilisateurToolStripMenuItem
+            // 
+            this.utilisateurToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.identifiezvousToolStripMenuItem,
+            this.changerMotDePasseToolStripMenuItem,
+            this.déconnecterVousToolStripMenuItem});
+            this.utilisateurToolStripMenuItem.Name = "utilisateurToolStripMenuItem";
+            this.utilisateurToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.utilisateurToolStripMenuItem.Text = "Utilisateur";
             // 
             // identifiezvousToolStripMenuItem
             // 
