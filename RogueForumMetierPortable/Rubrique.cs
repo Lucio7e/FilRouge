@@ -5,12 +5,12 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RogueForumDLL
+namespace RogueForumMetierPortable
 {
     /// <summary>
     /// La classe rubrique est composé d'un identifiant et d'un libelle
     /// </summary>
-   [Serializable]
+   
     [DataContract]
     public class Rubrique
     {

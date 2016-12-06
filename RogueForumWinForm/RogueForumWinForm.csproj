@@ -169,6 +169,10 @@
       <Project>{c02739c0-62c9-4c03-a5e8-6a7e6483af4a}</Project>
       <Name>RogueForumDLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RogueForumMetierPortable\RogueForumMetierPortable.csproj">
+      <Project>{3f429ba0-e29a-4d5f-be23-b88563e2dbb8}</Project>
+      <Name>RogueForumMetierPortable</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

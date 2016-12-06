@@ -1,5 +1,6 @@
 ﻿
 using RogueForumDLL;
+using RogueForumMetierPortable;
 using System;
 using System.Collections;
 using System.Collections.Generic;

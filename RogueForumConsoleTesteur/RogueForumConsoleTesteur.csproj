@@ -50,13 +50,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RogueForumDAO\RogueForumDAO.csproj">
-      <Project>{C788B6F6-F32A-4D2C-9263-3804310D1513}</Project>
-      <Name>RogueForumDAO</Name>
+    <ProjectReference Include="..\RogueForumConsumeWSR\RogueForumConsumeWSR.csproj">
+      <Project>{c296debb-8ce3-4007-ad4c-e4a79853f0fe}</Project>
+      <Name>RogueForumConsumeWSR</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RogueForumDLL\RogueForumDLL.csproj">
-      <Project>{c02739c0-62c9-4c03-a5e8-6a7e6483af4a}</Project>
-      <Name>RogueForumDLL</Name>
+    <ProjectReference Include="..\RogueForumMetierPortable\RogueForumMetierPortable.csproj">
+      <Project>{3f429ba0-e29a-4d5f-be23-b88563e2dbb8}</Project>
+      <Name>RogueForumMetierPortable</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

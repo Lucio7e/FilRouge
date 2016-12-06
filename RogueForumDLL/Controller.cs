@@ -5,7 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using RogueForumMetierPortable;
 namespace RogueForumDLL
 {
     public static class Controller

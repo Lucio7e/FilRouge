@@ -65,6 +65,10 @@
       <Project>{c02739c0-62c9-4c03-a5e8-6a7e6483af4a}</Project>
       <Name>RogueForumDLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RogueForumMetierPortable\RogueForumMetierPortable.csproj">
+      <Project>{3F429BA0-E29A-4D5F-BE23-B88563E2DBB8}</Project>
+      <Name>RogueForumMetierPortable</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

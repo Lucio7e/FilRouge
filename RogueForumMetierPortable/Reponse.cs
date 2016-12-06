@@ -5,9 +5,9 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RogueForumDLL
+namespace RogueForumMetierPortable
 {
-    [Serializable]
+    
     [DataContract]
     public class Reponse
     {        

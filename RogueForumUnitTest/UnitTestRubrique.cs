@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RogueForumDLL;
 using RogueForumDAO;
+using RogueForumMetierPortable;
 
 namespace RogueForumUnitTest
 {
