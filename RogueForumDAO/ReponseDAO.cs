@@ -28,10 +28,17 @@ namespace RogueForumDAO
             param.ParameterName = "@IdSujet";
             param.Value = idSujet;
             cmd.Parameters.Add(param);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable("Reponses");
-            da.Fill(dt);
-            return dt;
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable("Reponses");
+                da.Fill(dt);
+                return dt;
+            }
+            catch (Exception)
+            {
+               return null;
+            }
         }
 
         /// <summary>
@@ -48,10 +55,19 @@ namespace RogueForumDAO
             param.ParameterName = "@IdSujet";
             param.Value = idSujet;
             cmd.Parameters.Add(param);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable("Reponses");
-            da.Fill(dt);
-            return dt;
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable("Reponses");
+                da.Fill(dt);
+                return dt;
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+           
         }
 
         /// <summary>
@@ -69,11 +85,17 @@ namespace RogueForumDAO
             param.ParameterName = "@IdUtilisateur";
             param.Value = idUser;
             cmd.Parameters.Add(param);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable("Reponses");
-            da.Fill(dt);
-            return dt;
-          
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable("Reponses");
+                da.Fill(dt);
+                return dt;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         /// <summary>
@@ -126,11 +148,18 @@ namespace RogueForumDAO
             paramIdReponse.ParameterName = "@ID_REPONSE";
             paramIdReponse.Value = idReponse;
             cmd.Parameters.Add(paramIdReponse);
-
-            conn.Open();
-            int nbLigne = cmd.ExecuteNonQuery();
-            conn.Close();
-            return nbLigne;
+            try
+            {
+                conn.Open();
+                int nbLigne = cmd.ExecuteNonQuery();
+                conn.Close();
+                return nbLigne;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+           
         }
     }
 }

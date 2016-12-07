@@ -36,10 +36,18 @@ namespace RogueForumDAO
             param.ParameterName = "@IdSujet";
             param.Value = idsujet;
             cmd.Parameters.Add(param);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable("Sujet");
-            da.Fill(dt);
-            return dt;
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable("Sujet");
+                da.Fill(dt);
+                return dt;
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
         }
 
         /// <summary>
@@ -57,10 +65,18 @@ namespace RogueForumDAO
             param.ParameterName = "@IdRubrique";
             param.Value = idRubrique;
             cmd.Parameters.Add(param);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable("AllSujets");
-            da.Fill(dt);
-            return dt;
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable("AllSujets");
+                da.Fill(dt);
+                return dt;
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
         }
         
 
@@ -118,13 +134,17 @@ namespace RogueForumDAO
             paramIdSujet.ParameterName = "@ID_SUJET";
             paramIdSujet.Value = idSujet;
             cmd.Parameters.Add(paramIdSujet);
-            
-            conn.Open();
-           
-            int nbLigne = cmd.ExecuteNonQuery();
-            conn.Close();
-            
-            return nbLigne;
+            try
+            {
+                conn.Open();
+                int nbLigne = cmd.ExecuteNonQuery();
+                conn.Close();
+                return nbLigne;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
         }
 
         /// <summary>
@@ -165,11 +185,17 @@ namespace RogueForumDAO
             paramOldDesc.ParameterName = "@OLD_DESC";
             paramOldDesc.Value = oldDesc;
             cmd.Parameters.Add(paramOldDesc);
-
-            conn.Open();
-            int nbLigne = cmd.ExecuteNonQuery();
-            conn.Close();
-            return nbLigne;
+            try
+            {
+                conn.Open();
+                int nbLigne = cmd.ExecuteNonQuery();
+                conn.Close();
+                return nbLigne;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
         }
         #endregion
     

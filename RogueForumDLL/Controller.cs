@@ -19,13 +19,17 @@ namespace RogueForumDLL
         /// <returns></returns>
         public static Sujet GetSujetByID(int idsujet)
         {
-           DataTable dt = SujetDAO.GetSujetByID(idsujet);
-            if (dt.Rows.Count == 1)
+            DataTable dt = SujetDAO.GetSujetByID(idsujet);
+            if (dt != null)
             {
-                DataRow row = dt.Rows[0];
-                Sujet sujet = new Sujet(int.Parse(row["ID_SUJET"].ToString()), GetUtilisateurByID(int.Parse(row["ID_UTILISATEUR"].ToString())), row["TITRE_SUJET"].ToString(), row["DESCRIPTION_SUJET"].ToString(),
-                   GetRubriqueByID(int.Parse(row["ID_RUBRIQUE"].ToString())), DateTime.Parse(row["DATE_CREATION"].ToString()));
-                return sujet;
+                if (dt.Rows.Count == 1)
+                {
+                    DataRow row = dt.Rows[0];
+                    Sujet sujet = new Sujet(int.Parse(row["ID_SUJET"].ToString()), GetUtilisateurByID(int.Parse(row["ID_UTILISATEUR"].ToString())), row["TITRE_SUJET"].ToString(), row["DESCRIPTION_SUJET"].ToString(),
+                       GetRubriqueByID(int.Parse(row["ID_RUBRIQUE"].ToString())), DateTime.Parse(row["DATE_CREATION"].ToString()));
+                    return sujet;
+                }
+
             }
             return null;
         }
@@ -41,7 +45,7 @@ namespace RogueForumDLL
             if (dt.Rows.Count >= 1)
             {
                 List<Sujet> _Sujets = new List<Sujet>();
-                
+
                 foreach (DataRow row in dt.Rows)
                 {
                     int idsujet = int.Parse(row["ID_SUJET"].ToString());
@@ -137,16 +141,19 @@ namespace RogueForumDLL
         public static List<Reponse> GetAllReponsesBySujetID(int idsujet)
         {
             DataTable dt = ReponseDAO.GetAllReponsesBySujetID(idsujet);
-            if (dt.Rows.Count >= 1)
+            if (dt != null)
             {
-                List<Reponse> _Reponses = new List<Reponse>();
-                foreach (DataRow row in dt.Rows)
+                if (dt.Rows.Count >= 1)
                 {
-                    Reponse rep = new Reponse(int.Parse(row["ID_REPONSE"].ToString()), row["TEXTE_REPONSE"].ToString(), DateTime.Parse(row["DATE_REPONSE"].ToString()), GetSujetByID(idsujet),
-                       GetUtilisateurByID(int.Parse(row["ID_UTILISATEUR"].ToString())));
-                    _Reponses.Add(rep);
+                    List<Reponse> _Reponses = new List<Reponse>();
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        Reponse rep = new Reponse(int.Parse(row["ID_REPONSE"].ToString()), row["TEXTE_REPONSE"].ToString(), DateTime.Parse(row["DATE_REPONSE"].ToString()), GetSujetByID(idsujet),
+                           GetUtilisateurByID(int.Parse(row["ID_UTILISATEUR"].ToString())));
+                        _Reponses.Add(rep);
+                    }
+                    return _Reponses;
                 }
-                return _Reponses;
             }
             return null;
         }
@@ -181,16 +188,19 @@ namespace RogueForumDLL
         public static List<Reponse> GetAllReponsesByUserID(int idUser)
         {
             DataTable dt = ReponseDAO.GetAllReponsesByUserID(idUser);
-            if (dt.Rows.Count >= 1)
+            if (dt != null)
             {
-                List<Reponse> _Reponses = new List<Reponse>();
-                foreach (DataRow row in dt.Rows)
+                if (dt.Rows.Count >= 1)
                 {
-                    Reponse rep = new Reponse(int.Parse(row["ID_REPONSE"].ToString()), row["TEXTE_REPONSE"].ToString(), DateTime.Parse(row["DATE_REPONSE"].ToString()), GetSujetByID(int.Parse(row["ID_SUJET"].ToString())),
-                      GetUtilisateurByID(idUser));
-                    _Reponses.Add(rep);
+                    List<Reponse> _Reponses = new List<Reponse>();
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        Reponse rep = new Reponse(int.Parse(row["ID_REPONSE"].ToString()), row["TEXTE_REPONSE"].ToString(), DateTime.Parse(row["DATE_REPONSE"].ToString()), GetSujetByID(int.Parse(row["ID_SUJET"].ToString())),
+                          GetUtilisateurByID(idUser));
+                        _Reponses.Add(rep);
+                    }
+                    return _Reponses;
                 }
-                return _Reponses;
             }
             return null;
 
@@ -221,24 +231,28 @@ namespace RogueForumDLL
 
         #region Methodes Utilisateurs
 
-            /// <summary>
-            /// Renvoi un utilisateur dont l'id est passé en param
-            /// </summary>
-            /// <param name="id"></param>
-            /// <returns></returns>
+        /// <summary>
+        /// Renvoi un utilisateur dont l'id est passé en param
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static Utilisateur GetUtilisateurByID(int id)
         {
             DataTable dt = UtilisateurDAO.GetUtilisateurByID(id);
-            if (dt.Rows.Count == 1)
+            if (dt != null)
             {
-                DataRow row = dt.Rows[0];
-                Utilisateur utilisateur = new Utilisateur(int.Parse(row["ID_UTILISATEUR"].ToString()), row["LOGIN"].ToString(),
-                        row["MDP"].ToString(), (bool)row["MODERATEUR"]);
-                return utilisateur;
+                if (dt.Rows.Count == 1)
+                {
+                    DataRow row = dt.Rows[0];
+                    Utilisateur utilisateur = new Utilisateur(int.Parse(row["ID_UTILISATEUR"].ToString()), row["LOGIN"].ToString(),
+                            row["MDP"].ToString(), (bool)row["MODERATEUR"]);
+                    return utilisateur;
+                }
             }
+           
             return null;
         }
-        
+
         /// <summary>
         /// Renvoi un utilisateur si la combinaison Login/mdp est bonne, null sinon
         /// </summary>
@@ -248,12 +262,16 @@ namespace RogueForumDLL
         public static Utilisateur Login(string login, string mdp)
         {
             DataTable dt = UtilisateurDAO.Login(login, mdp);
-            if (dt.Rows.Count == 1)
+            if (dt != null)
             {
-                DataRow row = dt.Rows[0];
-                return GetUtilisateurByID(int.Parse(row["ID_UTILISATEUR"].ToString()));
+                if (dt.Rows.Count == 1)
+                {
+                    DataRow row = dt.Rows[0];
+                    return GetUtilisateurByID(int.Parse(row["ID_UTILISATEUR"].ToString()));
+                }
+                return null;
             }
-            return null;
+           
         }
 
         /// <summary>
@@ -270,12 +288,16 @@ namespace RogueForumDLL
         public static bool GetUserByLoginMail(string login, string mail)
         {
             DataTable dt = UtilisateurDAO.GetUserByLoginMail(login, mail);
-            if (dt.Rows.Count == 1)
+            if(dt != null)
             {
-                return true;
+                if (dt.Rows.Count == 1)
+                {
+                    return true;
+                }
+                
             }
             return false;
         }
-    #endregion
-}
+        #endregion
+    }
 }

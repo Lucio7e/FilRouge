@@ -28,10 +28,18 @@ namespace RogueForumDAO
             param.ParameterName = "@IdUtilisateur";
             param.Value = id;
             cmd.Parameters.Add(param);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable("Utilisateurs");
-            da.Fill(dt);
-            return dt;
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable("Utilisateurs");
+                da.Fill(dt);
+                return dt;
+            }
+            catch (Exception)
+            {
+
+                return null; 
+            }
           
         }
 
@@ -56,11 +64,18 @@ namespace RogueForumDAO
             
             cmd.Parameters.Add(paramLogin);
             cmd.Parameters.Add(paramMDP);
-            
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable("Login");
-            da.Fill(dt);
-            return dt;
+
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable("Login");
+                da.Fill(dt);
+                return dt;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         /// <summary>
@@ -84,10 +99,18 @@ namespace RogueForumDAO
             cmd.Parameters.Add(paramUserID);
             cmd.Parameters.Add(paramMDP);
 
-            conn.Open();
-            int nbLigne = cmd.ExecuteNonQuery();
-            conn.Close();
-            return nbLigne;
+            try
+            {
+                conn.Open();
+                int nbLigne = cmd.ExecuteNonQuery();
+                conn.Close();
+                return nbLigne;
+            }
+            catch (Exception)
+            {
+
+                return 0;
+            }
         }
 
         /// <summary>
@@ -111,10 +134,18 @@ namespace RogueForumDAO
             cmd.Parameters.Add(paramUserID);
             cmd.Parameters.Add(paramMail);
 
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable("Mail");
-            da.Fill(dt);
-            return dt;
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable("Mail");
+                da.Fill(dt);
+                return dt;
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
         }
     }
 }

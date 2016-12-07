@@ -93,16 +93,20 @@ namespace RogueForumWinForm
 
         private void dataGridViewReponse_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             int indexCurrentRow = e.RowIndex;
             DataGridViewRow row = dataGridViewReponse.Rows[indexCurrentRow];
+            
             using (FrmReponse frmReponse = new FrmReponse())
             {
+               
                 frmReponse.txtBoxReponse.Text = row.Cells["Texte"].Value.ToString();
                 frmReponse.lblNomAuteur.Text += row.Cells["NomAuteur"].Value.ToString();
                 frmReponse.lblDatePost.Text += row.Cells["Date"].Value.ToString();
 
                 frmReponse.ShowDialog();
             }
+            Cursor.Current = Cursors.Default;
         }
 
         private void btnChangerMDP_Click(object sender, EventArgs e)
@@ -370,6 +374,11 @@ namespace RogueForumWinForm
                 turnPanelSujetInvisible();
             }
             Cursor.Current = Cursors.Default;
+        }
+
+        private void btnIdent_MouseHover(object sender, EventArgs e)
+        {
+
         }
     }
 }

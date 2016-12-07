@@ -26,11 +26,19 @@ namespace RogueForumDAO
             param.ParameterName = "@IdRubrique";
             param.Value = idRubrique;
             cmd.Parameters.Add(param);
-           
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable("Rubrique");
-            da.Fill(dt);
-            return dt;
+
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable("Rubrique");
+                da.Fill(dt);
+                return dt;
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
           
         }
 
@@ -40,11 +48,18 @@ namespace RogueForumDAO
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = "GetAllRubriques";
             cmd.CommandType = CommandType.StoredProcedure;
-            
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable("Rubriques");
-            da.Fill(dt);
-            return dt;
+
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable("Rubriques");
+                da.Fill(dt);
+                return dt;
+            }
+            catch ( Exception)
+            {
+                return null;
+            }
           
         }
     }

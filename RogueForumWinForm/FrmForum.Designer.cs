@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmForum));
             this.tlpanelFrmForum = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayPanCategorie = new System.Windows.Forms.TableLayoutPanel();
@@ -69,6 +70,7 @@
             this.identifiezvousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changerMotDePasseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.déconnecterVousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.tlpanelFrmForum.SuspendLayout();
             this.tableLayPanCategorie.SuspendLayout();
             this.grpBoxCategorie.SuspendLayout();
@@ -148,6 +150,7 @@
             this.cbBoxRubrique.Size = new System.Drawing.Size(188, 21);
             this.cbBoxRubrique.TabIndex = 1;
             this.cbBoxRubrique.TabStop = false;
+            this.toolTip.SetToolTip(this.cbBoxRubrique, "Les rubriques du forum");
             this.cbBoxRubrique.SelectionChangeCommitted += new System.EventHandler(this.cbBoxRubrique_SelectionChangeCommitted);
             // 
             // tableLayPanSujet
@@ -194,6 +197,7 @@
             this.btnPostRep.Size = new System.Drawing.Size(109, 23);
             this.btnPostRep.TabIndex = 4;
             this.btnPostRep.Text = "Poster une réponse";
+            this.toolTip.SetToolTip(this.btnPostRep, "Ouvre une fenêtre permettant l\'ajout d\'une réponse dans le sujet selectionné");
             this.btnPostRep.UseVisualStyleBackColor = true;
             this.btnPostRep.Click += new System.EventHandler(this.btnPostRep_Click);
             // 
@@ -205,6 +209,7 @@
             this.btnAddSujet.Size = new System.Drawing.Size(90, 23);
             this.btnAddSujet.TabIndex = 3;
             this.btnAddSujet.Text = "Ajouter un sujet";
+            this.toolTip.SetToolTip(this.btnAddSujet, "Ouvre une fenêtre permettant l\'ajout d\'un sujet dans la rubrique selectionnée");
             this.btnAddSujet.UseVisualStyleBackColor = true;
             this.btnAddSujet.Click += new System.EventHandler(this.btnAddSujet_Click);
             // 
@@ -263,6 +268,7 @@
             this.cbBoxSujet.Size = new System.Drawing.Size(108, 21);
             this.cbBoxSujet.TabIndex = 1;
             this.cbBoxSujet.TabStop = false;
+            this.toolTip.SetToolTip(this.cbBoxSujet, "La liste des sujets de la rubrique selectionnée");
             this.cbBoxSujet.SelectionChangeCommitted += new System.EventHandler(this.cbBoxSujet_SelectionChangeCommitted);
             // 
             // picBoxHome
@@ -275,6 +281,7 @@
             this.picBoxHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picBoxHome.TabIndex = 3;
             this.picBoxHome.TabStop = false;
+            this.toolTip.SetToolTip(this.picBoxHome, "Retour à l\'accueil");
             this.picBoxHome.Click += new System.EventHandler(this.picBoxHome_Click);
             // 
             // flowLayPanIdent
@@ -295,6 +302,7 @@
             this.btnIdent.Size = new System.Drawing.Size(85, 39);
             this.btnIdent.TabIndex = 0;
             this.btnIdent.Text = "Identifiez vous";
+            this.toolTip.SetToolTip(this.btnIdent, "Ouvre une fenêtre permettant de vous identifiez");
             this.btnIdent.UseVisualStyleBackColor = true;
             this.btnIdent.Click += new System.EventHandler(this.btnIdent_Click);
             // 
@@ -305,6 +313,7 @@
             this.btnChangerMDP.Size = new System.Drawing.Size(85, 39);
             this.btnChangerMDP.TabIndex = 1;
             this.btnChangerMDP.Text = "Changer mot de passe";
+            this.toolTip.SetToolTip(this.btnChangerMDP, "Ouvre une fenêtre permettant de changer votre mot de passe");
             this.btnChangerMDP.UseVisualStyleBackColor = true;
             this.btnChangerMDP.Click += new System.EventHandler(this.btnChangerMDP_Click);
             // 
@@ -315,6 +324,7 @@
             this.btnDeconnexion.Size = new System.Drawing.Size(85, 39);
             this.btnDeconnexion.TabIndex = 2;
             this.btnDeconnexion.Text = "Se deconnecter";
+            this.toolTip.SetToolTip(this.btnDeconnexion, "Cliquer pour vous déconnecter");
             this.btnDeconnexion.UseVisualStyleBackColor = true;
             this.btnDeconnexion.Click += new System.EventHandler(this.btnDeconnexion_Click);
             // 
@@ -358,6 +368,7 @@
             this.btnEditSujet.Size = new System.Drawing.Size(75, 41);
             this.btnEditSujet.TabIndex = 5;
             this.btnEditSujet.Text = "Modifier le sujet";
+            this.toolTip.SetToolTip(this.btnEditSujet, "Ouvre une fenêtre permettant de modifier le sujet selectionné");
             this.btnEditSujet.UseVisualStyleBackColor = true;
             this.btnEditSujet.Click += new System.EventHandler(this.btnEditSujet_Click);
             // 
@@ -368,6 +379,7 @@
             this.btnSupprReponse.Size = new System.Drawing.Size(75, 41);
             this.btnSupprReponse.TabIndex = 7;
             this.btnSupprReponse.Text = "Supprimer la réponse";
+            this.toolTip.SetToolTip(this.btnSupprReponse, "Supprime la réponse selectionnée");
             this.btnSupprReponse.UseVisualStyleBackColor = true;
             this.btnSupprReponse.Click += new System.EventHandler(this.btnSupprReponse_Click);
             // 
@@ -378,6 +390,7 @@
             this.btnSupprSujet.Size = new System.Drawing.Size(75, 41);
             this.btnSupprSujet.TabIndex = 6;
             this.btnSupprSujet.Text = "Supprimer le sujet";
+            this.toolTip.SetToolTip(this.btnSupprSujet, "Supprime le sujet selectionné ainsi que les réponses associées");
             this.btnSupprSujet.UseVisualStyleBackColor = true;
             this.btnSupprSujet.Click += new System.EventHandler(this.btnSupprSujet_Click);
             // 
@@ -592,5 +605,6 @@
         private System.Windows.Forms.ToolStripMenuItem identifiezvousToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem changerMotDePasseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem déconnecterVousToolStripMenuItem;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }
