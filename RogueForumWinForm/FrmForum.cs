@@ -89,6 +89,7 @@ namespace RogueForumWinForm
                 frmAddReponse.ShowDialog();
                 fillDataGridReponses(Controller.GetTop10ReponsesBySujetID((int)cbBoxSujet.SelectedValue));
             }
+            
         }
 
         private void dataGridViewReponse_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -376,9 +377,6 @@ namespace RogueForumWinForm
             Cursor.Current = Cursors.Default;
         }
 
-        private void btnIdent_MouseHover(object sender, EventArgs e)
-        {
-
-        }
+      
     }
 }

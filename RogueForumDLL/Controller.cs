@@ -102,30 +102,37 @@ namespace RogueForumDLL
         public static Rubrique GetRubriqueByID(int idRubrique)
         {
             DataTable dt = RubriqueDAO.GetRubriqueByID(idRubrique);
-            if (dt.Rows.Count == 1)
+            if (dt != null)
             {
-                DataRow row = dt.Rows[0];
-                Rubrique rubrique = new Rubrique(idRubrique, row["NOM_RUBRIQUE"].ToString());
-                return rubrique;
+                if (dt.Rows.Count == 1)
+                {
+                    DataRow row = dt.Rows[0];
+                    Rubrique rubrique = new Rubrique(idRubrique, row["NOM_RUBRIQUE"].ToString());
+                    return rubrique;
+                }
             }
-
             return null;
         }
 
         public static List<Rubrique> GetAllRubriques()
         {
             DataTable dt = RubriqueDAO.GetAllRubriques();
-            if (dt.Rows.Count >= 1)
+            
+            if (dt != null)
             {
-                List<Rubrique> _Rubriques = new List<Rubrique>();
-                foreach (DataRow row in dt.Rows)
+                if (dt.Rows.Count >= 1)
                 {
-                    Rubrique rubrique = new Rubrique(int.Parse(row["ID_RUBRIQUE"].ToString()), row["NOM_RUBRIQUE"].ToString());
-                    rubrique.Id = int.Parse(row["ID_RUBRIQUE"].ToString());
-                    _Rubriques.Add(rubrique);
+                    List<Rubrique> _Rubriques = new List<Rubrique>();
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        Rubrique rubrique = new Rubrique(int.Parse(row["ID_RUBRIQUE"].ToString()), row["NOM_RUBRIQUE"].ToString());
+                        rubrique.Id = int.Parse(row["ID_RUBRIQUE"].ToString());
+                        _Rubriques.Add(rubrique);
 
+                    }
+                    return _Rubriques;
                 }
-                return _Rubriques;
+            
             }
             return null;
         }
@@ -166,17 +173,21 @@ namespace RogueForumDLL
         public static List<Reponse> GetTop10ReponsesBySujetID(int idsujet)
         {
             DataTable dt = ReponseDAO.GetTop10ReponsesBySujetID(idsujet);
-            if (dt.Rows.Count >= 1)
+            if (dt != null)
             {
-                List<Reponse> _Reponses = new List<Reponse>();
-                foreach (DataRow row in dt.Rows)
+                if (dt.Rows.Count >= 1)
                 {
-                    Reponse rep = new Reponse(int.Parse(row["ID_REPONSE"].ToString()), row["TEXTE_REPONSE"].ToString(), DateTime.Parse(row["DATE_REPONSE"].ToString()), GetSujetByID(idsujet),
-                       GetUtilisateurByID(int.Parse(row["ID_UTILISATEUR"].ToString())));
-                    _Reponses.Add(rep);
+                    List<Reponse> _Reponses = new List<Reponse>();
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        Reponse rep = new Reponse(int.Parse(row["ID_REPONSE"].ToString()), row["TEXTE_REPONSE"].ToString(), DateTime.Parse(row["DATE_REPONSE"].ToString()), GetSujetByID(idsujet),
+                           GetUtilisateurByID(int.Parse(row["ID_UTILISATEUR"].ToString())));
+                        _Reponses.Add(rep);
+                    }
+                    return _Reponses;
                 }
-                return _Reponses;
             }
+           
             return null;
         }
 
@@ -269,9 +280,9 @@ namespace RogueForumDLL
                     DataRow row = dt.Rows[0];
                     return GetUtilisateurByID(int.Parse(row["ID_UTILISATEUR"].ToString()));
                 }
-                return null;
+                
             }
-           
+            return null;
         }
 
         /// <summary>

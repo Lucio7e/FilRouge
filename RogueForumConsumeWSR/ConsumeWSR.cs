@@ -12,12 +12,12 @@ using System.Threading.Tasks;
 
 namespace RogueForumConsumeWSR
 {
-    public static class ConsumeWSR
+    public class ConsumeWSR
     {
         private const string ADR_GET_RUBRIQUES = "http://user09.2isa.org/RESTService.svc/Rubriques";
-        private static List<Rubrique> _rubriques = new List<Rubrique>();
+        private  List<Rubrique> _rubriques = new List<Rubrique>();
 
-        public static List<Rubrique> Rubriques
+        public  List<Rubrique> Rubriques
         {
             get
             {
@@ -25,7 +25,7 @@ namespace RogueForumConsumeWSR
             }
         }
 
-        public static async Task<List<Rubrique>> getRubriques()
+        public  async Task<List<Rubrique>> getRubriques()
         {
            
                 // Création de l'instance HttpClient avec Timeout infini car c'est le CancellationToken qui gère l'arrêt ou le TimeOut de la tâche
@@ -52,7 +52,7 @@ namespace RogueForumConsumeWSR
 
 
 
-        private static List<Rubrique> DeserializeHttpContent(HttpContent content)
+        private  List<Rubrique> DeserializeHttpContent(HttpContent content)
         {
             using (Stream s = content.ReadAsStreamAsync().Result)
             {
